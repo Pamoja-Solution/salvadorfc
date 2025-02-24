@@ -21,6 +21,18 @@
    
 
     @endif
+    <style>
+                    
+        @font-face {
+          font-family: 'Google';
+          src: url('{{asset('ProductSans-Light.ttf')}}');
+          font-weight: 500;
+          
+      }
+      body{
+          font-family: 'Google';
+      }
+      </style>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">

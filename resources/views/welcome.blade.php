@@ -24,6 +24,18 @@
    
 
     @endif
+    <style>
+                    
+        @font-face {
+          font-family: 'Google';
+          src: url('{{asset('ProductSans-Light.ttf')}}');
+          font-weight: 500;
+          
+      }
+      body{
+          font-family: 'Google';
+      }
+      </style>
         <style>
             /* Animation pour le texte */
             @keyframes fadeIn {
