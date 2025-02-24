@@ -52,7 +52,7 @@
   @endphp
 
     
-<body class="bg-gradient-to-r from-blue-900 to-purple-900 text-white font-sans antialiased">
+<body class="bg-gradient-to-r from-blue-900 to-purple-900 text-white ">
     <!-- Header Sticky -->
     <nav class=" shadow-lg sticky top-0 z-50 backdrop-blur-md bg-opacity-70 bg-gray-900 ">
 
