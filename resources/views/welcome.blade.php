@@ -14,7 +14,7 @@
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @vite(['resources/css/app.css', 'resources/js/app.js'])
         @else
-            <link rel="stylesheet" href="https://unpkg.com/@tailwindcss/browser@4">
+            <link rel="stylesheet" href="https://cdn.tailwindcss.com">
             <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 
         @endif
@@ -328,11 +328,9 @@
             navMenu.classList.toggle('hidden');
         });
     </script>
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-@else
+    
 <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     
-@endif
 
 </body>
     <!--body class="font-sans antialiased dark:bg-black dark:text-white/50">
