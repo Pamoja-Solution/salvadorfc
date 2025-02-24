@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\GestionAdmin;
+use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Livewire\Counter;
+use App\Livewire\JouerComponent;
 use App\Models\Categorie;
 use App\Models\Post;
 use App\Models\User;
@@ -9,11 +13,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
-
+})->name('index');
 Route::get('/dashboard', function () {
     return view('dashboard',['users'=>User::paginate(10),'categories'=>Categorie::all(),"posts"=>Post::paginate(10)]);
 })->middleware(['auth', 'verified','rolemanager:admin'])->name('dashboard');
+
+Route::get('admin/dashboard', function () {
+    return view('dashboard',['users'=>User::paginate(10),'categories'=>Categorie::all(),"posts"=>Post::paginate(10)]);
+})->middleware(['auth', 'verified','rolemanager:admin'])->name('admin.dashboard');
 
 Route::middleware(['auth', 'verified','rolemanager:utilisateur'])->get('/erreur', function () {
     return view('autres');
@@ -41,11 +48,12 @@ Route::middleware(['auth','verified','rolemanager:admin'])->group(function () {
         Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
         
         // Mise à jour d'un post
-        Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+        Route::post('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
         
         // Suppression d'un post
         Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
+        Route::get('/jouers', JouerComponent::class)->name('jouers.index');
     });
 });
 Route::get('admin/posts', [PostController::class, 'index'])->name('admin.posts.index');
@@ -74,6 +82,18 @@ Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
     Route::get('/admin/socials/{social}/edit', [SocialController::class, 'edit'])->name('admin.socials.edit');
     Route::patch('/admin/socials/{social}', [SocialController::class, 'update'])->name('admin.socials.update');
     Route::delete('/admin/socials/{social}', [SocialController::class, 'destroy'])->name('admin.socials.destroy');
+    
+});
+Route::middleware(['auth','verified','rolemanager:admin'])->group(function () {
+    // Route pour changer le rôle d'un utilisateur (admin <-> utilisateur)
+    Route::patch('/admin/users/{user}/toggle-role', [GestionAdmin::class, 'toggleRole'])
+        ->name('admin.toggleUserRole');
+
+    // Route pour supprimer un utilisateur
+    Route::delete('/admin/users/{user}/delete', [GestionAdmin::class, 'deleteUser'])
+        ->name('admin.deleteUser');
+    Route::patch('/admin/{id}/toggle-status', [GestionAdmin::class, 'toggleStatus'])->name('admin.toggleStatus');
+
 });
 
 
@@ -89,5 +109,7 @@ Route::prefix('/new')->controller(GestionAdmin::class)->middleware(['auth', 'ver
     
 });
 
+Route::post('/upload-image', [ImageUploadController::class, 'upload'])->name('upload.image');
 
 require __DIR__.'/auth.php';
+Route::get('/counter', Counter::class);

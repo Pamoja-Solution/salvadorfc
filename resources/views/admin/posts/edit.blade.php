@@ -67,23 +67,7 @@
                                   @enderror
                         </div>
             
-                        <div class="mb-4">
-                            <label class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" for="type_id">
-                                Type
-                            </label>
-                            <select name="type_id" id="type_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline" required>
-                                @foreach($types as $type)
-                                    <option value="{{ $type->id }}"  @if(old('type_id') == $type->id || (isset($post) && $post->type && $post->type->id == $type->id))
-                                        selected
-                                    @endif >{{ $type->id }}</option>
-                                @endforeach
-                            </select>
-                            @error("type_id")
-                            <div class="p-4 mb-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-                              <span class="font-medium">Erreur alert!</span> {{ $message }}.
-                            </div>
-                            @enderror
-                        </div>
+                        
             
                         <div class="mb-4">
                             <label class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" for="categorie_id">
@@ -103,23 +87,7 @@
                             @enderror
                         </div>
 
-                        <div class="mb-4">
-                            <label class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" for="nature_id">
-                                Nature
-                            </label>
-                            <select name="nature_id" id="nature_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline" required>
-                                @foreach($natures as $nature)
-                                    <option value="{{ $nature->id }}" @if(old('categorie_id') == $nature->id || (isset($post) && $post->nature && $post->nature->id == $nature->id))
-                                        selected
-                                    @endif>{{ $nature->nom }}</option>
-                                @endforeach
-                            </select>
-                            @error("nature_id")
-                            <div class="p-4 mb-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-                              <span class="font-medium">Erreur alert!</span> {{ $message }}.
-                            </div>
-                            @enderror
-                        </div>
+                        
             
                         <div class="mb-4">
                             <label class="flex items-center">
@@ -158,41 +126,7 @@
         </a>
     </div>
 
-    @if($post->sections->count() > 0)
-        <div class="space-y-4">
-            @foreach($post->sections as $section)
-                <div class="bg-white p-4 rounded shadow">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-bold">{{ $section->titre }}</h3>
-                        </div>
-                        <div class="flex space-x-2">
-                            <a href="{{ route('admin.sections.edit', [$post, $section]) }}" 
-                                class="text-blue-600 hover:text-blue-800">
-                                Modifier
-                            </a>
-                            <form action="{{ route('admin.sections.destroy', [$post, $section]) }}" method="POST" class="inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" 
-                                    class="text-red-600 hover:text-red-800"
-                                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette section ?')">
-                                    Supprimer
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                    @if($section->image)
-                        <img src="{{ Storage::url($section->image) }}" 
-                            alt="Image de la section" 
-                            class="mt-2 max-w-xs">
-                    @endif
-                </div>
-            @endforeach
-        </div>
-    @else
-        <p class="text-gray-600">Aucune section n'a été ajoutée à cet article.</p>
-    @endif
+    
 </div>
                 </div>
             </div>

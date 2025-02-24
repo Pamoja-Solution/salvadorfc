@@ -14,16 +14,15 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::with(['type', 'categorie', 'user'])->latest()->paginate(100);
+        $posts = Post::with([ 'categorie', 'user'])->latest()->paginate(100);
         return view('admin.posts.index', compact('posts'));
     }
 
     public function create()
     {
-        $types = Type::select("id","etat")->get();
         $categories = Categorie::select("id","name")->get();
-        $natures=Nature::select("id","nom")->get();
-        return view('admin.posts.create', compact('types', 'categories',"natures"));
+        $posts = new Post();
+        return view('admin.posts.create', compact( 'categories', 'posts'));
     }
 
     public function store(PostValidator $request)
@@ -45,11 +44,11 @@ class PostController extends Controller
     }
 
     public function edit(Post $post)
+
     {
-        $types = Type::select("id","etat")->get();
+        $posts = $post;
         $categories = Categorie::select("id","name")->get();
-        $natures=Nature::select("id","nom")->get();
-        return view('admin.posts.edit', compact('post', 'types', 'categories','natures'));
+        return view('admin.posts.create', compact('posts',  'categories'));
     }
 
     public function update(PostValidator $request, Post $post)

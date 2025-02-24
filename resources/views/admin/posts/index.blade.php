@@ -38,7 +38,6 @@
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-left">Titre</th>
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-left">Image</th>
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-left">Catégorie</th>
-                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left">Type</th>
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-left">Status</th>
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-left">Actions</th>
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-left">Suivre</th>
@@ -61,7 +60,6 @@
                         </td>
                         
                         <td class="px-6 py-4 border-b">{{ $post->categorie->name }}</td>
-                        <td class="px-6 py-4 border-b">{{ $post->type->id }}</td>
                         <td class="px-6 py-4 border-b">
                             <div class="flex space-x-2">
                                 <a href="{{ route('admin.editcat',['categorie'=>$post]) }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
