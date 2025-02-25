@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nom');
             $table->string('nationnalite');
             $table->date('date_de_naissance');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->string('taille');
             $table->string('poids');
             $table->string('dorsale');

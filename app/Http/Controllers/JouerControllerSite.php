@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\JouerRequest;
 use App\Models\Categorie;
 use App\Models\Jouer;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class JouerControllerSite extends Controller
         return view('admin.jouers.create', ['jouers'=> new Jouer()] );
     }
 
-    public function store(PostValidator $request)
+    public function store(JouerRequest $request)
     {
         //dd($request->validated());
 
