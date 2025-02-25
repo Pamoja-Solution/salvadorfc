@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GestionAdmin;
 use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\JouerControllerSite;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Counter;
@@ -56,7 +57,7 @@ Route::middleware(['auth','verified','rolemanager:admin'])->group(function () {
         Route::get('/jouers', JouerComponent::class)->name('jouers.index');
     });
 });
-Route::get('admin/posts', [PostController::class, 'index'])->name('admin.posts.index');
+Route::get('admin/posts', [PostController::class, 'index'])->name('admin.posts.index')->middleware('rolemanager:admin');
 
 Route::get('admin/posts/{post}', [PostController::class, 'show'])->name('admin.posts.show');
 
@@ -66,11 +67,11 @@ Route::get('admin/posts/{post}', [PostController::class, 'show'])->name('admin.p
 Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
     Route::prefix('admin')->name('admin.')->group(function () {
         // Routes pour les sections
-        Route::get('/posts/{post}/sections/create', [SectionControllerSite::class, 'create'])->name('sections.create');
-        Route::post('/posts/{post}/sections', [SectionControllerSite::class, 'store'])->name('sections.store');
-        Route::get('/posts/{post}/sections/{section}/edit', [SectionControllerSite::class, 'edit'])->name('sections.edit');
-        Route::put('/posts/{post}/sections/{section}', [SectionControllerSite::class, 'update'])->name('sections.update');
-        Route::delete('/posts/{post}/sections/{section}', [SectionControllerSite::class, 'destroy'])->name('sections.destroy');
+        Route::get('/jouers/create', [JouerControllerSite::class, 'create'])->name('jouers.create');
+        Route::post('/jouers', [JouerControllerSite::class, 'store'])->name('jouers.store');
+        Route::get('/jouers/{jouer}/edit', [JouerControllerSite::class, 'edit'])->name('jouers.edit');
+        Route::put('/jouers/{jouer}/', [JouerControllerSite::class, 'update'])->name('jouers.update');
+        Route::delete('/jouers/{jouer}', [JouerControllerSite::class, 'destroy'])->name('jouers.destroy');
     });
 });
 
