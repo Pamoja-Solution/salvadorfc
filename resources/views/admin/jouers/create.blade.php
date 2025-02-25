@@ -77,14 +77,22 @@
                                 @enderror
                             </div>
 
+                            
                             <div class="">
                                 <label class="block text-sm font-medium text-gray-100">Poste</label>
                                 <select name="poste" class="bg-gray-900 mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                                     <option value="">Sélectionner un poste</option>
                                     @foreach($posts as $post)
-                                        <option value="{{ $post }}">{{ $post }}</option>
+                                        <option value="{{ $post }}" {{ $jouers->exists && $post === $jouers->poste ? 'selected' : '' }}>
+                                            {{ $post }}
+                                        </option>
                                     @endforeach
                                 </select>
+                                @error("poste")
+                                    <div class="p-2 mb-2 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-red-100 dark:text-red-400" role="alert">
+                                        <span class="font-medium">Erreur alert!</span> {{ $message }}.
+                                    </div>
+                                @enderror
                             </div>
                         </div>
     

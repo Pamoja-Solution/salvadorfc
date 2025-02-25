@@ -31,7 +31,7 @@ class JouerRequest extends FormRequest
             'dorsale'=>['required','numeric','min:1','max:100'],
             'but'=>['required','numeric','min:0','max:100'],
             'passe'=>['required','numeric','min:0','max:100'],
-            'matches'=>['required','numeric','min:0','max:100'],
+            'matches'=>['required','numeric','min:0','max:10000'],
             'historique'=>['required','string','min:30'],
             "poste"=>['required','string','min:1']
 
@@ -39,4 +39,5 @@ class JouerRequest extends FormRequest
             
         ];
     }
+    
 }

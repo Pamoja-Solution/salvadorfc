@@ -6,12 +6,13 @@ use App\Http\Requests\JouerRequest;
 use App\Models\Categorie;
 use App\Models\Jouer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Mledoze\Countries\Countries;
 class JouerControllerSite extends Controller
 {
     public function index()
     {
-        $jouers = Jouer::with(['type', 'categorie', 'user'])->latest()->paginate(100);
+        $jouers = Jouer::latest()->paginate(100);
         return view('admin.jouers.index', compact('jouers'));
     }
 
@@ -25,12 +26,10 @@ class JouerControllerSite extends Controller
         //dd($request->validated());
 
         $validated = $request->validated();
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('jouers', 'public');
-            $validated['image'] = $path;
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('jouers', 'public');
+            $validated['photo'] = $path;
         }
-
-        $validated['user_id'] = auth()->id();
         
         Jouer::create($validated);
 
@@ -38,44 +37,42 @@ class JouerControllerSite extends Controller
             ->with('success', 'Article créé avec succès.');
     }
 
-    public function edit(Jouer $post)
+    public function edit(Jouer $jouer)
     {
-        $types = Type::select("id","etat")->get();
-        $categories = Categorie::select("id","name")->get();
-        $natures=Nature::select("id","nom")->get();
-        return view('admin.jouers.edit', compact('post', 'types', 'categories','natures'));
+        $jouers=$jouer;
+        return view('admin.jouers.create', compact('jouers'));
     }
 
-    public function update(PostValidator $request, Jouer $post)
+    public function update(JouerRequest $request, Jouer $jouer)
     {
        
 
         $validated = $request->validated();
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('photo')) {
             // Supprimer l'ancienne image
-            if ($post->image) {
-                Storage::disk('public')->delete($post->image);
+            if ($jouer->photo) {
+                Storage::disk('public')->delete($jouer->photo);
             }
-            $path = $request->file('image')->store('jouers', 'public');
-            $validated['image'] = $path;
+            $path = $request->file('photo')->store('jouers', 'public');
+            $validated['photo'] = $path;
         }
 
-        $post->update($validated);
+        $jouer->update($validated);
 
         return redirect()->route('admin.jouers.index')
-            ->with('success', 'Article mis à jour avec succès.');
+            ->with('success', ' Jouer mis à jour avec succès.');
     }
 
-    public function destroy(Jouer $post)
+    public function destroy(Jouer $jouer)
     {
-        if ($post->image) {
-            Storage::disk('public')->delete($post->image);
+        if ($jouer->photo) {
+            Storage::disk('public')->delete($jouer->photo);
         }
         
-        $post->delete();
+        $jouer->delete();
 
         return redirect()->route('admin.jouers.index')
-            ->with('success', 'Article supprimé avec succès.');
+            ->with('success', 'Jouer supprimé avec succès.');
     }
     public function show(Jouer $post){
         //dd($post);

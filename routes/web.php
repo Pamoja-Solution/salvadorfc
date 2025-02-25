@@ -54,7 +54,7 @@ Route::middleware(['auth','verified','rolemanager:admin'])->group(function () {
         // Suppression d'un post
         Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
-        Route::get('/jouers', JouerComponent::class)->name('jouers.index');
+        Route::get('/jouers', [JouerControllerSite::class, 'index'])->name('jouers.index');
     });
 });
 Route::get('admin/posts', [PostController::class, 'index'])->name('admin.posts.index')->middleware('rolemanager:admin');
@@ -69,8 +69,9 @@ Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
         // Routes pour les sections
         Route::get('/jouers/create', [JouerControllerSite::class, 'create'])->name('jouers.create');
         Route::post('/jouers', [JouerControllerSite::class, 'store'])->name('jouers.store');
+        Route::get('/jouers/{jouer}', [JouerControllerSite::class, 'show'])->name('jouers.show');
         Route::get('/jouers/{jouer}/edit', [JouerControllerSite::class, 'edit'])->name('jouers.edit');
-        Route::put('/jouers/{jouer}/', [JouerControllerSite::class, 'update'])->name('jouers.update');
+        Route::post('/jouers/{jouer}/', [JouerControllerSite::class, 'update'])->name('jouers.update');
         Route::delete('/jouers/{jouer}', [JouerControllerSite::class, 'destroy'])->name('jouers.destroy');
     });
 });
