@@ -29,8 +29,8 @@ class JouerRequest extends FormRequest
             'taille'=>['required','numeric','min:100','max:220'],
             'poids'=>['required','numeric','min:40','max:200'],
             'dorsale'=>['required','numeric','min:1','max:100'],
-            'but'=>['required','numeric','min:0','max:100'],
-            'passe'=>['required','numeric','min:0','max:100'],
+            'but'=>['required','numeric','min:0','max:10000'],
+            'passe'=>['required','numeric','min:0','max:10000'],
             'matches'=>['required','numeric','min:0','max:10000'],
             'historique'=>['required','string','min:30'],
             "poste"=>['required','string','min:1']

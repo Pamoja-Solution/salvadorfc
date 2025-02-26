@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CalendrierController;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Debut;
 use App\Http\Controllers\GestionAdmin;
 use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\JouerControllerSite;
@@ -7,22 +10,28 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Counter;
 use App\Livewire\JouerComponent;
+use App\Models\Calendrier;
 use App\Models\Categorie;
+use App\Models\Jouer;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
+Route::get('/', [Debut::class, "index"])->name('index');
 Route::get('/dashboard', function () {
-    return view('dashboard',['users'=>User::paginate(10),'categories'=>Categorie::all(),"posts"=>Post::paginate(10)]);
+    return view('dashboard',[
+                                'users'=>User::paginate(10),
+                                'categories'=>Categorie::all(),
+                                "posts"=>Post::paginate(10),
+                                "jouers"=>Jouer::orderBy("DESC")->limit(10)->get(),
+                                "calendriers"=>Calendrier::orderBy("DESC")->paginate(10),
+                            ]);
 })->middleware(['auth', 'verified','rolemanager:admin'])->name('dashboard');
-
+/*
 Route::get('admin/dashboard', function () {
-    return view('dashboard',['users'=>User::paginate(10),'categories'=>Categorie::all(),"posts"=>Post::paginate(10)]);
+    return view('dashboard',['users'=>User::paginate(10),'categories'=>Categorie::all(),"posts"=>Post::paginate(10),"jouers"=>Jouer::orderBy("DESC")->get(10)]);
 })->middleware(['auth', 'verified','rolemanager:admin'])->name('admin.dashboard');
-
+*/
 Route::middleware(['auth', 'verified','rolemanager:utilisateur'])->get('/erreur', function () {
     return view('autres');
 })->name('autres');
@@ -77,15 +86,7 @@ Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
 });
 
 
-Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
-    Route::get('/admin/socials', [SocialController::class, 'index'])->name('admin.socials.index');
-    Route::get('/admin/socials/create', [SocialController::class, 'create'])->name('admin.socials.create');
-    Route::post('/admin/socials', [SocialController::class, 'store'])->name('admin.socials.store');
-    Route::get('/admin/socials/{social}/edit', [SocialController::class, 'edit'])->name('admin.socials.edit');
-    Route::patch('/admin/socials/{social}', [SocialController::class, 'update'])->name('admin.socials.update');
-    Route::delete('/admin/socials/{social}', [SocialController::class, 'destroy'])->name('admin.socials.destroy');
-    
-});
+
 Route::middleware(['auth','verified','rolemanager:admin'])->group(function () {
     // Route pour changer le rôle d'un utilisateur (admin <-> utilisateur)
     Route::patch('/admin/users/{user}/toggle-role', [GestionAdmin::class, 'toggleRole'])
@@ -112,6 +113,39 @@ Route::prefix('/new')->controller(GestionAdmin::class)->middleware(['auth', 'ver
 });
 
 Route::post('/upload-image', [ImageUploadController::class, 'upload'])->name('upload.image');
+
+
+
+
+Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () {
+    // Liste des calendriers
+    Route::get('/admin/calendrier', [CalendrierController::class, 'index'])
+        ->name('admin.calendrier.index');
+    
+    // Formulaire de création
+    Route::get('/admin/calendrier/create', [CalendrierController::class, 'create'])
+        ->name('admin.calendrier.create');
+    
+    // Enregistrement d'un nouveau calendrier
+    Route::post('/admin/calendrier', [CalendrierController::class, 'store'])
+        ->name('admin.calendrier.store');
+    
+    // Affichage d'un calendrier
+    Route::get('/admin/calendrier/{calendrier}', [CalendrierController::class, 'show'])
+        ->name('admin.calendrier.show');
+    
+    // Formulaire d'édition
+    Route::get('/admin/calendrier/{calendrier}/edit', [CalendrierController::class, 'edit'])
+        ->name('admin.calendrier.edit');
+    
+    // Mise à jour d'un calendrier
+    Route::post('/admin/calendrier/{calendrier}', [CalendrierController::class, 'update'])
+        ->name('admin.calendrier.update');
+    
+    // Suppression d'un calendrier
+    Route::delete('/admin/calendrier/{calendrier}', [CalendrierController::class, 'destroy'])
+        ->name('admin.calendrier.destroy');
+});
 
 require __DIR__.'/auth.php';
 Route::get('/counter', Counter::class);

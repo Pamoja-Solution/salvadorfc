@@ -162,7 +162,7 @@
                           @auth
                             @if (Auth::user()->role==0)
                             <li>
-                              <a href="{{route('admin.dashboard')}}" class="block px-4 py-3 text-base hover:bg-gray-800/50 transition-colors duration-300">{{__("Dashboard")}}</a> <!-- Padding et texte plus grands -->
+                              <a href="{{route('dashboard')}}" class="block px-4 py-3 text-base hover:bg-gray-800/50 transition-colors duration-300">{{__("Dashboard")}}</a> <!-- Padding et texte plus grands -->
                             </li>
                               
                             @endif

@@ -48,11 +48,11 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all" onclick="showSection('socials')">
+                            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all" onclick="showSection('calendrier')">
                                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
                                 </svg>
-                                Liens sociaux
+                                Calendrier
                             </a>
                         </li>
                         <li>
@@ -276,23 +276,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($posts as $post)
+                                    @foreach($jouers as $post)
                                         <tr class="border-b border-gray-200 dark:border-gray-700">
-                                            <td class="px-6 py-4">{{ $post->titre }}</td>
-                                            <td class="px-6 py-4">{{ $post->categorie->name }}</td>
-                                            <td class="px-6 py-4">
-                                                <span class="px-2 py-1 rounded {{ $post->status ? 'bg-green-200 dark:bg-green-900 text-green-800 dark:text-green-200' : 'bg-red-200 dark:bg-red-900 text-red-800 dark:text-red-200' }}">
-                                                    {{ $post->status ? 'Publié' : 'Brouillon' }}
-                                                </span>
-                                                
-                                            </td>
+                                            <td class="px-6 py-4">{{ $post->nom }}</td>
+                                            <td class="px-6 py-4">{{ $post->poste }}</td>
+                                            
                                             <td class="px-6 py-4">
                                                 <div class="flex space-x-2">
                                                     
-                                                    <a href="{{ route('admin.posts.edit', $post) }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-300">
-                                                        Modifier
+                                                    <a href="{{ route('admin.jouers.edit',['jouer'=>$post]) }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-300">
+                                                        Modifier 
                                                     </a>
-                                                    <form action="{{ route('admin.posts.destroy', $post) }}" method="POST" class="inline">
+                                                    <form action="{ { route('admin.posts.destroy', $post) }}" method="POST" class="inline">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="text-red-600 dark:text-red-400 hover:text-red-900 dark:hover:text-red-300" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?')">
@@ -302,7 +297,7 @@
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4">
-                                                <a href="{{ route('admin.posts.show', $post) }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-300">
+                                                <a href="{ { route('admin.posts.show', $post) }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-300">
                                                     <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                         <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
                                                         <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
@@ -410,7 +405,7 @@
                         </div>
                         
 
-                        <div id="socials" class="content-section">
+                        <div id="calendrier" class="content-section">
                             <div class="glass rounded-xl p-6 text-gray-800 dark:text-white bg-white dark:bg-gray-800 shadow-lg">
                                 @session('success')
                                     <div class="flex items-center p-4 mb-4 text-sm text-green-800 dark:text-green-400 rounded-lg bg-green-50 dark:bg-gray-800" role="alert">
@@ -425,8 +420,8 @@
 
                                 <div class="flex justify-between items-center mb-6">
                                     <h2 class="text-2xl font-bold">Gestion des Réseaux Sociaux</h2>
-                                    <a href="{{ route('admin.socials.create') }}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors">
-                                        Ajouter un réseau social
+                                    <a href="{{ route('admin.calendrier.create') }}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors">
+                                        Ajouter un réseau calendrier
                                     </a>
                                 </div>
 
@@ -441,24 +436,24 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @ foreach($socials as $social)
+                                            @foreach($calendriers as $calendrier)
                                             <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
-                                                <td class="px-4 py-3">{ { $social->name }}</td>
+                                                <td class="px-4 py-3">{ { $calendrier->name }}</td>
                                                 <td class="px-4 py-3">
-                                                    <a href="{ { $social->url }}" target="_blank" class="text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300">
-                                                        { { $social->url }}
+                                                    <a href="{ { $calendrier->url }}" target="_blank" class="text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300">
+                                                        { { $calendrier->url }}
                                                     </a>
                                                 </td>
-                                                <td class="px-4 py-3">{ { $social->created_at->format('d/m/Y') }}</td>
+                                                <td class="px-4 py-3">{ { $calendrier->created_at->format('d/m/Y') }}</td>
                                                 <td class="px-4 py-3">
                                                     <div class="flex space-x-2">
-                                                        <a href="{ { route('admin.socials.edit', $social) }}" class="text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300">
+                                                        <a href="{ { route('admin.calendrier.edit', $calendrier) }}" class="text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300">
                                                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
                                                             </svg>
                                                         </a>
 
-                                                        <form action="{ { route('admin.socials.destroy', $social) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce réseau social ?')">
+                                                        <form action="{ { route('admin.calendrier.destroy', $calendrier) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce réseau calendrier ?')">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="text-red-500 dark:text-red-400 hover:text-red-600 dark:hover:text-red-300">
@@ -470,13 +465,13 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            @ endforeach
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
 
                                 <div class="flex justify-end mt-4">
-                                    { { $socials->links() }}
+                                    {{ $calendriers->links() }}
                                 </div>
                             </div>
                         </div>
@@ -529,8 +524,8 @@ function confirmRoleChange(id, name, currentRole) {
         document.addEventListener('DOMContentLoaded', () => {
             // Vérifier si une ancre est présente dans l'URL
             const hash = window.location.hash;
-            if (hash && hash === '#socials') {
-                showSection('socials');
+            if (hash && hash === '#calendrier') {
+                showSection('calendrier');
             }
         });
         
