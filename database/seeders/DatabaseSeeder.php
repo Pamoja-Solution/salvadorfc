@@ -21,10 +21,10 @@ class DatabaseSeeder extends Seeder
         ]);*/
        // database/seeders/DatabaseSeeder.php
     $this->call([
-        //TypeSeeder::class,
+        TypeSeeder::class,
         // Autres seeders...
         CalendriersTableSeeder::class,
-        //CategoriesTableSeeder::class,
+        CategoriesTableSeeder::class,
         PostSeeder::class,
         JouersTableSeeder::class,
         
