@@ -452,10 +452,15 @@
         <div class="mt-16 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out delay-300" id="key-members">
             <h3 class="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-8">Les Piliers de l'Équipe</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Membre 1 -->
+                @forelse ($jouers as $jouer )
                 <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="{{ asset('img/1740169523721.jpg') }}" alt="Joueur 1" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+                        @if ($jouer->photo)
+                        <img src="{{ $jouer->imageUrl() }}" alt="Joueur 1" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+                        @else
+                        <img src="{{ asset('logo.jpg') }}" alt="Joueur 1" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+
+                        @endif  
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                     </div>
                     <div class="relative p-6 -mt-6 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent">
@@ -464,47 +469,66 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
                             </svg>
                         </div>
-                        <h4 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Jean Kabasele</h4>
+                        <h4 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mt-2">{{ $jouer->nom }}</h4>
                         <p class="text-gray-400">Capitaine & Milieu de terrain</p>
                         <p class="text-gray-300 mt-2">Leader charismatique, Jean inspire ses coéquipiers par son travail acharné et sa vision du jeu.</p>
                     </div>
                 </div>
-
-                <!-- Membre 2 -->
-                <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="{{ asset('img/1740169797146.jpg') }}" alt="Joueur 2" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                    </div>
-                    <div class="relative p-6 -mt-6 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent">
-                        <div class="absolute -top-8 right-6 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full p-2 shadow-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                            </svg>
+                @empty
+                    <!-- Membre 1 -->
+                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="{{ asset('img/1740169523721.jpg') }}" alt="Joueur 1" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                         </div>
-                        <h4 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Sarah Mbuyi</h4>
-                        <p class="text-gray-400">Attaquante</p>
-                        <p class="text-gray-300 mt-2">Sarah est une buteuse née, avec un sens aigu du placement et une finition redoutable.</p>
-                    </div>
-                </div>
-
-                <!-- Membre 3 -->
-                <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="{{ asset('img/1740169349422.jpg') }}" alt="Joueur 3" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                    </div>
-                    <div class="relative p-6 -mt-6 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent">
-                        <div class="absolute -top-8 right-6 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full p-2 shadow-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" />
-                            </svg>
+                        <div class="relative p-6 -mt-6 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent">
+                            <div class="absolute -top-8 right-6 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full p-2 shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Jean Kabasele</h4>
+                            <p class="text-gray-400">Capitaine & Milieu de terrain</p>
+                            <p class="text-gray-300 mt-2">Leader charismatique, Jean inspire ses coéquipiers par son travail acharné et sa vision du jeu.</p>
                         </div>
-                        <h4 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Patrick Nkulu</h4>
-                        <p class="text-gray-400">Défenseur central</p>
-                        <p class="text-gray-300 mt-2">Patrick est le roc de la défense, toujours prêt à tout sacrifier pour son équipe.</p>
                     </div>
-                </div>
+
+                    <!-- Membre 2 -->
+                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="{{ asset('img/1740169797146.jpg') }}" alt="Joueur 2" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        </div>
+                        <div class="relative p-6 -mt-6 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent">
+                            <div class="absolute -top-8 right-6 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full p-2 shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Sarah Mbuyi</h4>
+                            <p class="text-gray-400">Attaquante</p>
+                            <p class="text-gray-300 mt-2">Sarah est une buteuse née, avec un sens aigu du placement et une finition redoutable.</p>
+                        </div>
+                    </div>
+
+                    <!-- Membre 3 -->
+                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="{{ asset('img/1740169349422.jpg') }}" alt="Joueur 3" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        </div>
+                        <div class="relative p-6 -mt-6 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent">
+                            <div class="absolute -top-8 right-6 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full p-2 shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" />
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Patrick Nkulu</h4>
+                            <p class="text-gray-400">Défenseur central</p>
+                            <p class="text-gray-300 mt-2">Patrick est le roc de la défense, toujours prêt à tout sacrifier pour son équipe.</p>
+                        </div>
+                    </div>
+                @endforelse
             </div>
         </div>
     </div>

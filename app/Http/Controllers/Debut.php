@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jouer;
 use Illuminate\Http\Request;
 
 class Debut extends Controller
@@ -9,7 +10,7 @@ class Debut extends Controller
     public function Performances(){
 
 // Supposons que vous avez récupéré les joueurs depuis la base de données
-        $jouers = DB::table('jouers')->get();
+        $jouers = Jouer::all();
 
         // Fonction pour calculer le score de performance
         function calculerScore($joueur) {
@@ -32,13 +33,13 @@ class Debut extends Controller
 
         // Extraire les 3 premiers joueurs
         $top3Jouers = $jouersTries->take(3);
-
-        // Afficher les résultats
-        foreach ($top3Jouers as $joueur) {
-            echo "Nom: {$joueur->nom}, Score: {$joueur->score}, Buts: {$joueur->but}, Passes: {$joueur->passe}, Matches: {$joueur->matches}\n";
-        }
+        return $top3Jouers;
+        
     }
     public function index(){
-        return view('welcome');
+        
+        return view('welcome',[
+            'jouers' =>self::Performances()
+        ]);
     }
 }
