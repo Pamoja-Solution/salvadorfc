@@ -59,7 +59,7 @@
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <!-- Logo -->
 
-            <a href="{ {route('index')}}" class="flex items-center space-x-3 rtl:space-x-reverse group">
+            <a href="{{route('index')}}" class="flex items-center space-x-3 rtl:space-x-reverse group">
                 <div class="relative">
                     <img src="{{ asset('logo.png') }}" alt="Club Logo" class="h-12 md:h-16">
                 </div>
