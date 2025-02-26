@@ -147,5 +147,28 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
         ->name('admin.calendrier.destroy');
 });
 
+
+Route::get('/jouers', function(){
+    return view('jouers.index',[
+        'gardiens'=>Jouer::where('poste', 'LIKE', 'gardien')->get(),
+        'attaquants'=>Jouer::where('poste', 'LIKE', 'attaquant')->get(),
+        'defenseurs' => Jouer::where('poste', 'LIKE', 'Défenseur')
+        ->orWhere('poste', 'LIKE', 'Défenseur central')
+        ->orWhere('poste', 'LIKE', 'Défenseur latéral')
+        ->get(),
+        'milieu'=>Jouer::where('poste', 'LIKE', 'milieu')
+        ->orWhere('poste', 'LIKE', 'Milieu offensif')
+        ->orWhere('poste', 'LIKE', 'Milieu défensif')
+        ->get()
+        ,
+    ]);
+})->name('jouers.index');
+Route::get('/jouers/{jouer}/{slug}', function(string $jouer){
+    $jouer =Jouer::find($jouer);
+    return view('jouers.show',['jouer'=>$jouer]);
+})->where([
+    'jouer'=>'[0-9]+',
+    'slug'=>'[a-zA-Z0-9\-]+'
+])->name('joueur.show');
 require __DIR__.'/auth.php';
 Route::get('/counter', Counter::class);
