@@ -41,7 +41,7 @@ class Debut extends Controller
     public function index(){
         //dd(Calendrier::orderBy('asc')->limit(1)->get());
         $posts = Post::with('category')->where('status',1)->latest()->get();
-        $categories = Categorie::orderBy('name','asc')->get();
+        $categories = Categorie::orderBy('name','asc')->limit(5);
         return view('welcome',[
             'jouers' =>self::Performances(),
             "dernier"=>Calendrier::orderBy("id",'desc')->first(),
