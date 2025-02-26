@@ -108,11 +108,11 @@
                     <label class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" for="contenus">
                         Contenu
                     </label>
-                    <input type="hidden" name="contenus" id="contenus" value="{ { old('contenus', $posts->contenus) }}">
+                    <input type="hidden" name="contenus" id="contenus" value="{{ old('contenus', $posts->contenus) }}">
                             
                     <!-- Editor Container -->
                     <div class="mt-3 bg-white">
-                        <div id="editor" class="bg-gray-900 text-white rounded-lg min-h-[300px]">
+                        <div id="editor" class="bg-gray-700 text-white rounded-lg min-h-[300px]">
                         </div>
                     </div>
                     @error("contenus")
@@ -124,7 +124,7 @@
     
                 <div class="mb-4">
                     <label class="flex items-center">
-                        <input type="checkbox" name="status" value="1" class="form-checkbox dark:bg-gray-800 dark:border-gray-600" {{ old('status') ? 'checked' : '' }}>
+                        <input type="checkbox" name="status" value="0" class="form-checkbox dark:bg-gray-800 dark:border-gray-600" {{ old('status') ? '' : 'checked' }}>
                         <span class="ml-2 text-gray-700 dark:text-gray-300">Publier immédiatement</span>
                     </label>
                 </div>

@@ -23,8 +23,8 @@ Route::get('/dashboard', function () {
                                 'users'=>User::paginate(10),
                                 'categories'=>Categorie::all(),
                                 "posts"=>Post::paginate(10),
-                                "jouers"=>Jouer::orderBy("DESC")->limit(10)->get(),
-                                "calendriers"=>Calendrier::orderBy("DESC")->paginate(10),
+                                "jouers"=>Jouer::orderBy("id","DESC")->limit(10)->get(),
+                                "calendriers"=>Calendrier::orderBy("id","DESC")->paginate(10),
                             ]);
 })->middleware(['auth', 'verified','rolemanager:admin'])->name('dashboard');
 /*

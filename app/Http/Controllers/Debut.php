@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Calendrier;
+use App\Models\Categorie;
 use App\Models\Jouer;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class Debut extends Controller
 {
     public function Performances(){
 
-// Supposons que vous avez récupéré les joueurs depuis la base de données
         $jouers = Jouer::all();
 
         // Fonction pour calculer le score de performance
@@ -37,9 +39,15 @@ class Debut extends Controller
         
     }
     public function index(){
-        
+        //dd(Calendrier::orderBy('asc')->limit(1)->get());
+        $posts = Post::with('category')->where('status',1)->latest()->get();
+        $categories = Categorie::orderBy('name','asc')->get();
         return view('welcome',[
-            'jouers' =>self::Performances()
+            'jouers' =>self::Performances(),
+            "dernier"=>Calendrier::orderBy("id",'desc')->first(),
+            'posts' => $posts,
+            'categories' => $categories,
+            
         ]);
     }
 }

@@ -420,9 +420,14 @@
 
                                 <div class="flex justify-between items-center mb-6">
                                     <h2 class="text-2xl font-bold">Gestion des Réseaux Sociaux</h2>
+                                    <a href="{{ route('admin.calendrier.index') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
+                                        Tous les événements
+                                    </a>
+
                                     <a href="{{ route('admin.calendrier.create') }}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors">
                                         Ajouter un réseau calendrier
                                     </a>
+                                    
                                 </div>
 
                                 <div class="overflow-x-auto">
@@ -430,7 +435,6 @@
                                         <thead>
                                             <tr class="border-b border-gray-200 dark:border-gray-700">
                                                 <th class="px-4 py-3 text-left">Nom</th>
-                                                <th class="px-4 py-3 text-left">URL</th>
                                                 <th class="px-4 py-3 text-left">Date de création</th>
                                                 <th class="px-4 py-3 text-left">Actions</th>
                                             </tr>
@@ -438,13 +442,9 @@
                                         <tbody>
                                             @foreach($calendriers as $calendrier)
                                             <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
-                                                <td class="px-4 py-3">{ { $calendrier->name }}</td>
-                                                <td class="px-4 py-3">
-                                                    <a href="{ { $calendrier->url }}" target="_blank" class="text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300">
-                                                        { { $calendrier->url }}
-                                                    </a>
-                                                </td>
-                                                <td class="px-4 py-3">{ { $calendrier->created_at->format('d/m/Y') }}</td>
+                                                <td class="px-4 py-3">{{ $calendrier->titre }}</td>
+                                                
+                                                <td class="px-4 py-3">{{ $calendrier->created_at->format('d/m/Y') }}</td>
                                                 <td class="px-4 py-3">
                                                     <div class="flex space-x-2">
                                                         <a href="{ { route('admin.calendrier.edit', $calendrier) }}" class="text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300">

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->text('description')->nullable();
-            $table->text('icon')->nullable();
+            $table->string('slug')->unique()->after('name'); // Ajoute la colonne `slug` après `name`
             $table->timestamps();
         });
     }
