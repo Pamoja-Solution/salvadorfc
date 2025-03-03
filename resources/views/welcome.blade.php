@@ -448,16 +448,18 @@
             Actualités FC Salvador
         </h2>
 
+        @if ($dernier)
+
         <!-- Bannière événement principal avec compte à rebours -->
         <div class="relative mb-12 rounded-xl overflow-hidden shadow-2xl opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="featured-event">
             <div class="relative h-[400px] w-full overflow-hidden group">
                 @if ($dernier->image)
-                    <img src="{{ $post->imageUrl() }}" alt="{{ $dernier->type->nom }}" class="w-full h-full object-cover brightness-75 transform transition-transform duration-700 group-hover:scale-105">
-                    
-                @else
-                    <img src="{{ asset('img/1740169349422.jpg') }}" alt="{{ $dernier->type->nom }}" class="w-full h-full object-cover brightness-75 transform transition-transform duration-700 group-hover:scale-105">
-                    
-                @endif
+                <img src="{{ $post->imageUrl() }}" alt="{{ $dernier->type->nom }}" class="w-full h-full object-cover brightness-75 transform transition-transform duration-700 group-hover:scale-105">
+                
+            @else
+                <img src="{{ asset('img/1740169349422.jpg') }}" alt="{{ $dernier->type->nom }}" class="w-full h-full object-cover brightness-75 transform transition-transform duration-700 group-hover:scale-105">
+                
+            @endif
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 <div class="absolute inset-0 flex flex-col justify-center items-center p-6 text-center">
                     <span class="px-4 py-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-sm rounded-full mb-4 animate-pulse">{{ $dernier->type->nom }}</span>
@@ -479,6 +481,7 @@
                 </div>
             </div>
         </div>
+
         <script>
             var countDownDate = new Date("{{ \Carbon\Carbon::parse($dernier->date_debut)->format('M d, Y H:i:s') }}").getTime();
         
@@ -502,6 +505,7 @@
             }, 1000);
         </script>
         
+        @endif
 
         <!-- Filtres d'actualités -->
         <div class="flex flex-wrap justify-center gap-4 mb-12 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out delay-100" id="news-filters">

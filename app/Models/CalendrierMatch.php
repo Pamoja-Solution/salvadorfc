@@ -11,13 +11,17 @@ class CalendrierMatch extends Model
     use HasFactory;
 
     protected $fillable = [
-        'competition',
+        'competition_id',
         'journee',
         'date_match',
         'heure_match',
         'equipe_domicile',
-        'equipe_exterieur',
+        'adversaire',
         'stade',
         'statut',
     ];
+    public function competition()
+    {
+        return $this->belongsTo(Competition::class);
+    }
 }
