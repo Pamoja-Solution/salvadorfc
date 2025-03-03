@@ -1,8 +1,8 @@
 <x-app-layout>
     @section('titre','Creer ')
-<div class="container mx-auto px-4">
-    <h1 class="text-2xl font-bold mb-4">{{ isset($calendrier) ? 'Modifier' : 'Ajouter' }} un match</h1>
-    <form action="{{ isset($calendrier) ? route('calendrier.update', $calendrier->id) : route('calendrier.store') }}" method="POST">
+<div class="container mx-auto px-4 my-5 text-white">
+    <h1 class="text-2xl  font-bold mb-4">{{ isset($calendrier) ? 'Modifier' : 'Ajouter' }} un match</h1>
+    <form action="{{ isset($calendrier) ? route('admin.calendrier-match.update', $calendrier->id) : route('admin.calendrier-match.store') }}" method="POST">
         @csrf
         @if (isset($calendrier))
             @method('PUT')
