@@ -171,8 +171,8 @@ Route::get('/jouers/{jouer}/{slug}', function(string $jouer){
     'slug'=>'[a-zA-Z0-9\-]+'
 ])->name('joueur.show');
 
-Route::get('/story' , function(){
-    return view('admin.story.index');
-})->name('story.index');
+Route::get('/calendrier-match' , function(){
+    return view('calendrier-match.index');
+})->name('calendrier-match.index');
 require __DIR__.'/auth.php';
 Route::get('/counter', Counter::class);
