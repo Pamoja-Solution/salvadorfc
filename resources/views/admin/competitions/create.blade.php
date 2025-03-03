@@ -2,7 +2,7 @@
     @section('titre', $competition->exists ?"Modifier - $competition->nom":'Creer une competition ' )
 <div class="container mx-auto px-4 my-5 text-white">
     <h1 class="text-2xl  font-bold mb-4">{{ $competition->exists ? 'Modifier' : 'Ajouter' }} une Compétition</h1>
-    <form action="{{ route($competition->exists ? 'admin.competitions.update': 'admin.competitions.store', $competition) }} " method="POST">
+    <form action="{{ route($competition->exists ? 'admin.competitions.update': 'admin.competitions.store', $competition) }}" method="POST">
         @csrf
         @if (($competition->exists))
             @method('PUT')

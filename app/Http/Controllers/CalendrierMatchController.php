@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CalendrierMatch;
+use App\Models\Competition;
 use Illuminate\Http\Request;
 
 class CalendrierMatchController extends Controller
@@ -18,7 +19,10 @@ class CalendrierMatchController extends Controller
 
     public function create()
     {
-        return view('admin.calendrier-match.create');
+        return view('admin.calendrier-match.create',[
+            'match'=> new CalendrierMatch(),
+            "competition"=> Competition::select('id',"nom")->get()
+        ]);
     }
 
     public function store(Request $request)
