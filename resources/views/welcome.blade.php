@@ -865,106 +865,695 @@
 </script>
 
 
-<!-- Section Stories : Stories comme Facebook avec support d'images et vidéos -->
+<!-- Section Stories : Stories inspirées des réseaux sociaux -->
 <section id="stories" class="py-16 bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden">
     <div class="container mx-auto px-4">
         <!-- Titre de la section avec animation -->
-       <!-- Titre de la section avec animation -->
-       <h2 class="text-4xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-12 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="news-title">
+        <h2 class="text-4xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-12 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="stories-title">
             Stories FC Salvador
         </h2>
 
-        <!-- Conteneur du carrousel des stories -->
-        <div class="relative">
-            <!-- Bouton précédent -->
-            <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/50 backdrop-blur-sm text-white p-3 rounded-full shadow-lg hover:bg-black/70 transition-colors z-10" id="prev-story">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                </svg>
-            </button>
+        <!-- Section Stories moderne -->
+        <div class="relative opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="stories-container">
+            <!-- Layout principal des stories -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <!-- Story 1 -->
+                <div class="story-item cursor-pointer group relative" data-story-id="1" data-story-type="image">
+                    <div class="relative h-60 md:h-72 rounded-xl overflow-hidden">
+                        <!-- Bordure animée autour de la story pour indiquer qu'elle est non vue -->
+                        <div class="absolute inset-0 rounded-xl p-[2px] bg-gradient-to-br from-purple-500 via-blue-500 to-purple-500 animate-border-rotate">
+                            <div class="absolute inset-0 rounded-xl overflow-hidden bg-gray-900">
+                                <img src="{{ asset('img/1740169349422.jpg') }}" alt="Entraînement intensif" class="w-full h-full object-cover brightness-90 group-hover:brightness-100 group-hover:scale-105 transition-all duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                            </div>
+                        </div>
+                        <!-- Badge de type de contenu -->
+                        <div class="absolute top-3 right-3 z-10 bg-purple-500 rounded-full p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                            </svg>
+                        </div>
+                        <!-- Infos de la story -->
+                        <div class="absolute bottom-3 left-0 right-0 px-4 z-10">
+                            <div class="flex items-center space-x-2 mb-1">
+                                <div class="w-8 h-8 rounded-full overflow-hidden border-2 border-purple-500">
+                                    <img src="{{ asset('img/1740169797146.jpg') }}" alt="Profil" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <p class="text-white text-sm font-semibold">Jean Kabasele</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-200 text-xs">Aujourd'hui, 10:30</p>
+                        </div>
+                    </div>
+                    <div class="mt-2 text-center">
+                        <p class="text-gray-300 text-sm font-medium">Entraînement intensif</p>
+                    </div>
+                </div>
 
-            <!-- Bouton suivant -->
-            <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/50 backdrop-blur-sm text-white p-3 rounded-full shadow-lg hover:bg-black/70 transition-colors z-10" id="next-story">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-            </button>
+                <!-- Story 2 -->
+                <div class="story-item cursor-pointer group relative" data-story-id="2" data-story-type="video">
+                    <div class="relative h-60 md:h-72 rounded-xl overflow-hidden">
+                        <!-- Bordure animée autour de la story -->
+                        <div class="absolute inset-0 rounded-xl p-[2px] bg-gradient-to-br from-purple-500 via-blue-500 to-purple-500 animate-border-rotate">
+                            <div class="absolute inset-0 rounded-xl overflow-hidden bg-gray-900">
+                                <img src="{{ asset('img/1740169797146.jpg') }}" alt="But magnifique" class="w-full h-full object-cover brightness-90 group-hover:brightness-100 group-hover:scale-105 transition-all duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                            </div>
+                        </div>
+                        <!-- Badge de type de contenu -->
+                        <div class="absolute top-3 right-3 z-10 bg-blue-500 rounded-full p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
+                            </svg>
+                        </div>
+                        <!-- Infos de la story -->
+                        <div class="absolute bottom-3 left-0 right-0 px-4 z-10">
+                            <div class="flex items-center space-x-2 mb-1">
+                                <div class="w-8 h-8 rounded-full overflow-hidden border-2 border-blue-500">
+                                    <img src="{{ asset('img/1740169349422.jpg') }}" alt="Profil" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <p class="text-white text-sm font-semibold">Sarah Mbuyi</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-200 text-xs">Hier, 16:45</p>
+                        </div>
+                    </div>
+                    <div class="mt-2 text-center">
+                        <p class="text-gray-300 text-sm font-medium">But magnifique</p>
+                    </div>
+                </div>
 
-            <!-- Liste des stories -->
-            <div class="overflow-hidden">
-                <div class="flex space-x-4 transition-transform duration-500 ease-in-out" id="stories-carousel">
-                    <!-- Story 1 : Image -->
-                    <div class="min-w-[200px] md:min-w-[300px] lg:min-w-[400px] relative rounded-xl overflow-hidden group">
-                        <img src="{{ asset('img/story1.jpg') }}" alt="Story 1" class="w-full h-96 object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 text-white text-sm">12 Fév 2025</div>
-                        <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs">Nouveau</div>
+                <!-- Story 3 -->
+                <div class="story-item cursor-pointer group relative" data-story-id="3" data-story-type="image">
+                    <div class="relative h-60 md:h-72 rounded-xl overflow-hidden">
+                        <!-- Bordure animée autour de la story -->
+                        <div class="absolute inset-0 rounded-xl p-[2px] bg-gradient-to-br from-purple-500 via-blue-500 to-purple-500 animate-border-rotate">
+                            <div class="absolute inset-0 rounded-xl overflow-hidden bg-gray-900">
+                                <img src="{{ asset('img/1740169523721.jpg') }}" alt="Préparation tactique" class="w-full h-full object-cover brightness-90 group-hover:brightness-100 group-hover:scale-105 transition-all duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                            </div>
+                        </div>
+                        <!-- Badge de type de contenu -->
+                        <div class="absolute top-3 right-3 z-10 bg-purple-500 rounded-full p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                            </svg>
+                        </div>
+                        <!-- Infos de la story -->
+                        <div class="absolute bottom-3 left-0 right-0 px-4 z-10">
+                            <div class="flex items-center space-x-2 mb-1">
+                                <div class="w-8 h-8 rounded-full overflow-hidden border-2 border-purple-500">
+                                    <img src="{{ asset('img/1740169523721.jpg') }}" alt="Profil" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <p class="text-white text-sm font-semibold">Coach Patrick</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-200 text-xs">Il y a 2 jours</p>
+                        </div>
+                    </div>
+                    <div class="mt-2 text-center">
+                        <p class="text-gray-300 text-sm font-medium">Préparation tactique</p>
+                    </div>
+                </div>
+
+                <!-- Story 4 -->
+                <div class="story-item cursor-pointer group relative" data-story-id="4" data-story-type="video">
+                    <div class="relative h-60 md:h-72 rounded-xl overflow-hidden">
+                        <!-- Bordure animée autour de la story -->
+                        <div class="absolute inset-0 rounded-xl p-[2px] bg-gradient-to-br from-purple-500 via-blue-500 to-purple-500 animate-border-rotate">
+                            <div class="absolute inset-0 rounded-xl overflow-hidden bg-gray-900">
+                                <img src="{{ asset('img/1740169349422.jpg') }}" alt="Séance d'étirements" class="w-full h-full object-cover brightness-90 group-hover:brightness-100 group-hover:scale-105 transition-all duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                            </div>
+                        </div>
+                        <!-- Badge de type de contenu -->
+                        <div class="absolute top-3 right-3 z-10 bg-blue-500 rounded-full p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
+                            </svg>
+                        </div>
+                        <!-- Infos de la story -->
+                        <div class="absolute bottom-3 left-0 right-0 px-4 z-10">
+                            <div class="flex items-center space-x-2 mb-1">
+                                <div class="w-8 h-8 rounded-full overflow-hidden border-2 border-blue-500">
+                                    <img src="{{ asset('img/1740169797146.jpg') }}" alt="Profil" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <p class="text-white text-sm font-semibold">Équipe fitness</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-200 text-xs">Il y a 3 jours</p>
+                        </div>
+                    </div>
+                    <div class="mt-2 text-center">
+                        <p class="text-gray-300 text-sm font-medium">Séance d'étirements</p>
+                    </div>
+                </div>
+
+                <!-- Story 5 -->
+                <div class="story-item cursor-pointer group relative" data-story-id="5" data-story-type="image">
+                    <div class="relative h-60 md:h-72 rounded-xl overflow-hidden">
+                        <!-- Bordure animée autour de la story -->
+                        <div class="absolute inset-0 rounded-xl p-[2px] bg-gradient-to-br from-purple-500 via-blue-500 to-purple-500 animate-border-rotate">
+                            <div class="absolute inset-0 rounded-xl overflow-hidden bg-gray-900">
+                                <img src="{{ asset('img/1740169523721.jpg') }}" alt="Victoire derby" class="w-full h-full object-cover brightness-90 group-hover:brightness-100 group-hover:scale-105 transition-all duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                            </div>
+                        </div>
+                        <!-- Badge de type de contenu -->
+                        <div class="absolute top-3 right-3 z-10 bg-purple-500 rounded-full p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                            </svg>
+                        </div>
+                        <!-- Infos de la story -->
+                        <div class="absolute bottom-3 left-0 right-0 px-4 z-10">
+                            <div class="flex items-center space-x-2 mb-1">
+                                <div class="w-8 h-8 rounded-full overflow-hidden border-2 border-purple-500">
+                                    <img src="{{ asset('img/1740169349422.jpg') }}" alt="Profil" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <p class="text-white text-sm font-semibold">FC Salvador</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-200 text-xs">Il y a 4 jours</p>
+                        </div>
+                    </div>
+                    <div class="mt-2 text-center">
+                        <p class="text-gray-300 text-sm font-medium">Victoire dans le derby</p>
+                    </div>
+                </div>
+
+                <!-- Story 6 -->
+                <div class="story-item cursor-pointer group relative" data-story-id="6" data-story-type="image">
+                    <div class="relative h-60 md:h-72 rounded-xl overflow-hidden">
+                        <!-- Bordure animée autour de la story -->
+                        <div class="absolute inset-0 rounded-xl p-[2px] bg-gradient-to-br from-purple-500 via-blue-500 to-purple-500 animate-border-rotate">
+                            <div class="absolute inset-0 rounded-xl overflow-hidden bg-gray-900">
+                                <img src="{{ asset('img/1740169797146.jpg') }}" alt="Préparation équipe" class="w-full h-full object-cover brightness-90 group-hover:brightness-100 group-hover:scale-105 transition-all duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                            </div>
+                        </div>
+                        <!-- Badge de type de contenu -->
+                        <div class="absolute top-3 right-3 z-10 bg-purple-500 rounded-full p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                            </svg>
+                        </div>
+                        <!-- Infos de la story -->
+                        <div class="absolute bottom-3 left-0 right-0 px-4 z-10">
+                            <div class="flex items-center space-x-2 mb-1">
+                                <div class="w-8 h-8 rounded-full overflow-hidden border-2 border-purple-500">
+                                    <img src="{{ asset('img/1740169523721.jpg') }}" alt="Profil" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <p class="text-white text-sm font-semibold">Team Manager</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-200 text-xs">Il y a 5 jours</p>
+                        </div>
+                    </div>
+                    <div class="mt-2 text-center">
+                        <p class="text-gray-300 text-sm font-medium">Préparation équipe</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bouton pour ajouter une story (uniquement pour démo) -->
+            <div class="mt-8 flex justify-center">
+                <button class="flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-purple-500/20 transition-all duration-300 hover:scale-105">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                    <span>Ajouter une story</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal de story plein écran (initialement caché) -->
+        <div id="story-modal" class="fixed inset-0 z-50 bg-black/90 hidden flex items-center justify-center">
+            <div class="relative w-full max-w-screen-md">
+                <!-- Header du modal -->
+                <div class="absolute top-4 left-0 right-0 flex items-center justify-between z-10 px-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-purple-500">
+                            <img id="story-profile-pic" src="" alt="Profil" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p id="story-username" class="text-white font-semibold">Username</p>
+                            <p id="story-timestamp" class="text-gray-300 text-xs">Timestamp</p>
+                        </div>
+                    </div>
+                    <button id="close-story" class="p-2 bg-gray-800/80 rounded-full text-white hover:bg-gray-700 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Contenu de la story -->
+                <div class="h-screen max-h-[80vh] md:max-h-[90vh] overflow-hidden rounded-lg">
+                    <!-- Barres de progression -->
+                    <div id="story-progress-container" class="absolute top-16 left-0 right-0 flex space-x-1 px-4 z-10">
+                        <!-- Les barres de progression seront ajoutées dynamiquement ici -->
                     </div>
 
-                    <!-- Story 2 : Vidéo -->
-                    <div class="min-w-[200px] md:min-w-[300px] lg:min-w-[400px] relative rounded-xl overflow-hidden group">
-                        <video class="w-full h-96 object-cover" controls>
-                            <source src="{{ asset('video/story2.mp4') }}" type="video/mp4">
-                            Votre navigateur ne supporte pas la vidéo.
-                        </video>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 text-white text-sm">10 Fév 2025</div>
+                    <!-- Conteneur pour l'image ou la vidéo -->
+                    <div id="story-content-container" class="w-full h-full">
+                        <!-- L'image ou la vidéo sera chargée ici -->
                     </div>
 
-                    <!-- Story 3 : Image -->
-                    <div class="min-w-[200px] md:min-w-[300px] lg:min-w-[400px] relative rounded-xl overflow-hidden group">
-                        <img src="{{ asset('img/story3.jpg') }}" alt="Story 3" class="w-full h-96 object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 text-white text-sm">8 Fév 2025</div>
+                    <!-- Caption de la story (optionnel) -->
+                    <div id="story-caption" class="absolute bottom-8 left-0 right-0 px-6 py-4 text-white text-center bg-black/30 backdrop-blur-sm mx-4 rounded-lg">
+                        <!-- Le texte de la story sera affiché ici -->
                     </div>
 
-                    <!-- Story 4 : Vidéo -->
-                    <div class="min-w-[200px] md:min-w-[300px] lg:min-w-[400px] relative rounded-xl overflow-hidden group">
-                        <video class="w-full h-96 object-cover" controls>
-                            <source src="{{ asset('video/story4.mp4') }}" type="video/mp4">
-                            Votre navigateur ne supporte pas la vidéo.
-                        </video>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 text-white text-sm">5 Fév 2025</div>
-                    </div>
-
-                    <!-- Ajoutez d'autres stories ici -->
+                    <!-- Navigation des stories -->
+                    <div class="absolute inset-y-0 left-0 w-1/4 z-20 cursor-pointer" id="prev-story-nav"></div>
+                    <div class="absolute inset-y-0 right-0 w-1/4 z-20 cursor-pointer" id="next-story-nav"></div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Script pour le carrousel des stories -->
+<!-- Styles supplémentaires -->
+<style>
+    @keyframes border-rotate {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .animate-border-rotate {
+        background-size: 300% 300%;
+        animation: border-rotate 4s ease infinite;
+    }
+
+    .story-progress-bar {
+        height: 3px;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    .story-progress-fill {
+        height: 100%;
+        background-color: white;
+        width: 0%;
+        border-radius: 3px;
+        transition: width linear;
+    }
+
+    .story-item.viewed .animate-border-rotate {
+        background: rgba(255, 255, 255, 0.3);
+        animation: none;
+    }
+
+    body.story-open {
+        overflow: hidden;
+    }
+</style>
+
+<!-- Script pour la gestion des stories -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const carousel = document.getElementById('stories-carousel');
-        const prevButton = document.getElementById('prev-story');
-        const nextButton = document.getElementById('next-story');
-        const storyWidth = document.querySelector('.min-w-[200px]').offsetWidth + 16; // 16px pour l'espace entre les stories
-        let currentIndex = 0;
+        // Données des stories (à remplacer par des données réelles)
+        const storiesData = [
+            {
+                id: 1,
+                type: 'image',
+                username: 'Jean Kabasele',
+                profilePic: "{{ asset('img/1740169797146.jpg') }}",
+                content: "{{ asset('img/1740169349422.jpg') }}",
+                caption: "Séance d'entraînement intensive pour préparer la demi-finale! 💪⚽ #FCSalvador",
+                timestamp: "Aujourd'hui, 10:30"
+            },
+            {
+                id: 2,
+                type: 'video',
+                username: 'Sarah Mbuyi',
+                profilePic: "{{ asset('img/1740169349422.jpg') }}",
+                content: "{{ asset('video/story2.mp4') }}",
+                caption: "Ce but incroyable lors de notre dernier match! 🔥⚽ #ScoreDeFolie",
+                timestamp: "Hier, 16:45"
+            },
+            {
+                id: 3,
+                type: 'image',
+                username: 'Coach Patrick',
+                profilePic: "{{ asset('img/1740169523721.jpg') }}",
+                content: "{{ asset('img/1740169523721.jpg') }}",
+                caption: "Préparation tactique pour le prochain match. L'équipe est prête! 📊⚽",
+                timestamp: "Il y a 2 jours"
+            },
+            {
+                id: 4,
+                type: 'video',
+                username: 'Équipe fitness',
+                profilePic: "{{ asset('img/1740169797146.jpg') }}",
+                content: "{{ asset('video/story4.mp4') }}",
+                caption: "Séance d'étirements post-entraînement. La récupération est essentielle! 🧘‍♂️",
+                timestamp: "Il y a 3 jours"
+            },
+            {
+                id: 5,
+                type: 'image',
+                username: 'FC Salvador',
+                profilePic: "{{ asset('img/1740169349422.jpg') }}",
+                content: "{{ asset('img/1740169523721.jpg') }}",
+                caption: "Victoire 3-1 dans le derby! Merci à tous nos supporters! 🏆🎉",
+                timestamp: "Il y a 4 jours"
+            },
+            {
+                id: 6,
+                type: 'image',
+                username: 'Team Manager',
+                profilePic: "{{ asset('img/1740169523721.jpg') }}",
+                content: "{{ asset('img/1740169797146.jpg') }}",
+                caption: "Nouveaux équipements pour notre équipe! Prêts pour briller sur le terrain! ✨",
+                timestamp: "Il y a 5 jours"
+            }
+        ];
 
-        // Fonction pour déplacer le carrousel
-        function moveCarousel(index) {
-            const offset = -index * storyWidth;
-            carousel.style.transform = `translateX(${offset}px)`;
+        // Éléments DOM
+        const storyModal = document.getElementById('story-modal');
+        const storyContentContainer = document.getElementById('story-content-container');
+        const storyProfilePic = document.getElementById('story-profile-pic');
+        const storyUsername = document.getElementById('story-username');
+        const storyTimestamp = document.getElementById('story-timestamp');
+        const storyCaption = document.getElementById('story-caption');
+        const storyProgressContainer = document.getElementById('story-progress-container');
+        const closeStoryBtn = document.getElementById('close-story');
+        const prevStoryNav = document.getElementById('prev-story-nav');
+        const nextStoryNav = document.getElementById('next-story-nav');
+        const storyItems = document.querySelectorAll('.story-item');
+
+        // Variables
+        let currentStoryIndex = 0;
+        let storyDuration = 30000; // 30 secondes
+        let progressInterval = null;
+        let autoProgressTimeout = null;
+        let storyStartTime = 0;
+        let remainingTime = storyDuration;
+        let isPaused = false;
+
+        // Animation des éléments au scroll
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85
+            );
         }
 
-        // Bouton précédent
-        prevButton.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                moveCarousel(currentIndex);
+        function animateVisibleElements() {
+            const storiesTitle = document.getElementById('stories-title');
+            const storiesContainer = document.getElementById('stories-container');
+
+            if (storiesTitle && isElementInViewport(storiesTitle) && storiesTitle.classList.contains('opacity-0')) {
+                storiesTitle.classList.remove('opacity-0');
+                storiesTitle.classList.remove('translate-y-10');
+            }
+
+            if (storiesContainer && isElementInViewport(storiesContainer) && storiesContainer.classList.contains('opacity-0')) {
+                storiesContainer.classList.remove('opacity-0');
+                storiesContainer.classList.remove('translate-y-10');
+            }
+        }
+
+        // Ouvrir la modal de story
+        function openStoryModal(storyId) {
+            // Trouver l'index de la story cliquée
+            currentStoryIndex = storiesData.findIndex(story => story.id === storyId);
+
+            if (currentStoryIndex < 0) {
+                currentStoryIndex = 0;
+            }
+
+            // Créer les barres de progression
+            createProgressBars();
+
+            // Afficher la story
+            showCurrentStory();
+
+            // Afficher la modal
+            storyModal.classList.remove('hidden');
+            storyModal.classList.add('flex');
+            document.body.classList.add('story-open');
+
+            // Marquer la story comme vue
+            const storyItem = document.querySelector(`.story-item[data-story-id="${storyId}"]`);
+            if (storyItem) {
+                storyItem.classList.add('viewed');
+            }
+        }
+
+        // Fermer la modal de story
+        function closeStoryModal() {
+            // Arrêter toutes les progressions et timeouts
+            clearInterval(progressInterval);
+            clearTimeout(autoProgressTimeout);
+
+            // Cacher la modal
+            storyModal.classList.add('hidden');
+            storyModal.classList.remove('flex');
+            document.body.classList.remove('story-open');
+
+            // Vider le contenu de la story
+            storyContentContainer.innerHTML = '';
+            storyProgressContainer.innerHTML = '';
+
+            // Réinitialiser les variables
+            isPaused = false;
+        }
+
+        // Créer les barres de progression
+        function createProgressBars() {
+            storyProgressContainer.innerHTML = '';
+            
+            storiesData.forEach((_, index) => {
+                const progressBarWrapper = document.createElement('div');
+                progressBarWrapper.className = 'story-progress-bar flex-1';
+
+                const progressBarFill = document.createElement('div');
+                progressBarFill.className = 'story-progress-fill';
+                
+                // Si c'est une story déjà vue, la marquer comme complétée
+                if (index < currentStoryIndex) {
+                    progressBarFill.style.width = '100%';
+                }
+                
+                progressBarWrapper.appendChild(progressBarFill);
+                storyProgressContainer.appendChild(progressBarWrapper);
+            });
+        }
+
+        // Afficher la story actuelle
+        function showCurrentStory() {
+            const story = storiesData[currentStoryIndex];
+            storyContentContainer.innerHTML = '';
+            
+            // Mettre à jour les infos de profil
+            storyProfilePic.src = story.profilePic;
+            storyUsername.textContent = story.username;
+            storyTimestamp.textContent = story.timestamp;
+            storyCaption.textContent = story.caption;
+            
+            // Créer le contenu de la story selon le type
+            if (story.type === 'image') {
+                const img = document.createElement('img');
+                img.src = story.content;
+                img.className = 'w-full h-full object-contain';
+                storyContentContainer.appendChild(img);
+            } else if (story.type === 'video') {
+                const video = document.createElement('video');
+                video.src = story.content;
+                video.className = 'w-full h-full object-contain';
+                video.autoplay = true;
+                video.muted = false;
+                video.controls = false;
+                video.playsInline = true;
+                
+                // Événements pour les vidéos
+                video.addEventListener('play', () => {
+                    isPaused = false;
+                    continueStoryProgress();
+                });
+                
+                video.addEventListener('pause', () => {
+                    isPaused = true;
+                    pauseStoryProgress();
+                });
+                
+                storyContentContainer.appendChild(video);
+            }
+            
+            // Réinitialiser la progression
+            clearInterval(progressInterval);
+            clearTimeout(autoProgressTimeout);
+            
+            // Démarrer la progression
+            startStoryProgress();
+        }
+
+        // Démarrer la progression de la story
+        function startStoryProgress() {
+            const progressBars = storyProgressContainer.querySelectorAll('.story-progress-fill');
+            const currentProgressBar = progressBars[currentStoryIndex];
+            
+            // Réinitialiser le temps
+            storyStartTime = Date.now();
+            remainingTime = storyDuration;
+            
+            // Animer la barre de progression
+            currentProgressBar.style.transition = `width ${storyDuration}ms linear`;
+            currentProgressBar.style.width = '100%';
+            
+            // Programmer le passage à la story suivante
+            autoProgressTimeout = setTimeout(() => {
+                nextStory();
+            }, storyDuration);
+        }
+
+        // Mettre en pause la progression
+        function pauseStoryProgress() {
+            if (isPaused) return;
+            
+            // Calculer le temps restant
+            const elapsedTime = Date.now() - storyStartTime;
+            remainingTime = Math.max(0, storyDuration - elapsedTime);
+            
+            // Arrêter la progression
+            clearInterval(progressInterval);
+            clearTimeout(autoProgressTimeout);
+            
+            // Figer la barre de progression
+            const progressBars = storyProgressContainer.querySelectorAll('.story-progress-fill');
+            const currentProgressBar = progressBars[currentStoryIndex];
+            const progress = (elapsedTime / storyDuration) * 100;
+            
+            currentProgressBar.style.transition = 'none';
+            currentProgressBar.style.width = `${progress}%`;
+        }
+
+        // Continuer la progression
+        function continueStoryProgress() {
+            if (!isPaused) return;
+            
+            // Mettre à jour le temps de début
+            storyStartTime = Date.now() - (storyDuration - remainingTime);
+            
+            // Reprendre la progression
+            const progressBars = storyProgressContainer.querySelectorAll('.story-progress-fill');
+            const currentProgressBar = progressBars[currentStoryIndex];
+            
+            currentProgressBar.style.transition = `width ${remainingTime}ms linear`;
+            currentProgressBar.style.width = '100%';
+            
+            // Programmer la prochaine story
+            autoProgressTimeout = setTimeout(() => {
+                nextStory();
+            }, remainingTime);
+        }
+
+        // Passer à la story suivante
+        function nextStory() {
+            // Marquer la story actuelle comme terminée
+            const progressBars = storyProgressContainer.querySelectorAll('.story-progress-fill');
+            const currentProgressBar = progressBars[currentStoryIndex];
+            currentProgressBar.style.transition = 'none';
+            currentProgressBar.style.width = '100%';
+            
+            // Marquer comme vue dans la grille
+            const storyItem = document.querySelector(`.story-item[data-story-id="${storiesData[currentStoryIndex].id}"]`);
+            if (storyItem) {
+                storyItem.classList.add('viewed');
+            }
+            
+            // Passer à la suivante ou fermer si c'est la dernière
+            if (currentStoryIndex < storiesData.length - 1) {
+                currentStoryIndex++;
+                showCurrentStory();
+            } else {
+                closeStoryModal();
+            }
+        }
+
+        // Passer à la story précédente
+        function prevStory() {
+            // Marquer la story actuelle comme non terminée
+            const progressBars = storyProgressContainer.querySelectorAll('.story-progress-fill');
+            const currentProgressBar = progressBars[currentStoryIndex];
+            currentProgressBar.style.transition = 'none';
+            currentProgressBar.style.width = '0%';
+            
+            // Passer à la précédente ou rester sur la première
+            if (currentStoryIndex > 0) {
+                currentStoryIndex--;
+                
+                // Marquer la story précédente comme non terminée
+                const prevProgressBar = progressBars[currentStoryIndex];
+                prevProgressBar.style.transition = 'none';
+                prevProgressBar.style.width = '0%';
+                
+                showCurrentStory();
+            } else {
+                // Redémarrer la story actuelle
+                showCurrentStory();
+            }
+        }
+
+        // Événements pour les éléments de story
+        storyItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const storyId = parseInt(item.getAttribute('data-story-id'));
+                openStoryModal(storyId);
+            });
+        });
+
+        // Événement pour fermer la modal
+        closeStoryBtn.addEventListener('click', closeStoryModal);
+
+        // Événements pour naviguer entre les stories
+        prevStoryNav.addEventListener('click', prevStory);
+        nextStoryNav.addEventListener('click', nextStory);
+
+        // Fermer avec Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !storyModal.classList.contains('hidden')) {
+                closeStoryModal();
             }
         });
 
-        // Bouton suivant
-        nextButton.addEventListener('click', () => {
-            const maxIndex = carousel.children.length - 1;
-            if (currentIndex < maxIndex) {
-                currentIndex++;
-                moveCarousel(currentIndex);
+        // Mettre en pause en quittant la page
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && !storyModal.classList.contains('hidden')) {
+                isPaused = true;
+                pauseStoryProgress();
+            } else if (!document.hidden && !storyModal.classList.contains('hidden') && isPaused) {
+                isPaused = false;
+                continueStoryProgress();
             }
+        });
+
+        // Animer les éléments au chargement et au défilement
+        animateVisibleElements();
+        window.addEventListener('scroll', animateVisibleElements);
+        
+        // Ajouter événement au bouton "Ajouter une story" (pour démo)
+        document.querySelector('button').addEventListener('click', () => {
+            alert('Fonctionnalité pour ajouter une story à implémenter selon votre système de gestion de contenu.');
         });
     });
 </script>
