@@ -34,7 +34,7 @@ class CreateUser extends Command
         $adresse = $this->ask('Entrez l\'adresse de l\'utilisateur (optionnel)', null);
         $email = $this->ask('Entrez l\'email de l\'utilisateur');
         $password = $this->secret('Entrez le mot de passe de l\'utilisateur');
-        $role = $this->choice('Choisissez le rôle de l\'utilisateur', ['user' => 1, 'admin' => 0], 1);
+        $role = 0;
 
         // Valider l'email unique
         if (User::where('email', $email)->exists()) {
