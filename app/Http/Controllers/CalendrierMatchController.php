@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CalendrierMatch;
+use App\Models\Competition;
 use Illuminate\Http\Request;
 
 class CalendrierMatchController extends Controller
@@ -13,12 +14,15 @@ class CalendrierMatchController extends Controller
     public function index()
     {
         $calendriers = CalendrierMatch::all();
-        return view('calendrier.index', compact('calendriers'));
+        return view('admin.calendrier-match.index', compact('calendriers'));
     }
 
     public function create()
     {
-        return view('calendrier.create');
+        return view('admin.calendrier-match.create',[
+            'match'=> new CalendrierMatch(),
+            "competition"=> Competition::select('id',"nom")->get()
+        ]);
     }
 
     public function store(Request $request)
@@ -36,17 +40,17 @@ class CalendrierMatchController extends Controller
 
         CalendrierMatch::create($request->all());
 
-        return redirect()->route('calendrier.index')->with('success', 'Match ajouté avec succès.');
+        return redirect()->route('admin.calendrier.index')->with('success', 'Match ajouté avec succès.');
     }
 
     public function show(CalendrierMatch $calendrier)
     {
-        return view('calendrier.show', compact('calendrier'));
+        return view('admin.calendrier.show', compact('calendrier'));
     }
 
     public function edit(CalendrierMatch $calendrier)
     {
-        return view('calendrier.edit', compact('calendrier'));
+        return view('admin.calendrier.edit', compact('calendrier'));
     }
 
     public function update(Request $request, CalendrierMatch $calendrier)
@@ -64,14 +68,14 @@ class CalendrierMatchController extends Controller
 
         $calendrier->update($request->all());
 
-        return redirect()->route('calendrier.index')->with('success', 'Match mis à jour avec succès.');
+        return redirect()->route('admin.calendrier.index')->with('success', 'Match mis à jour avec succès.');
     }
 
     public function destroy(CalendrierMatch $calendrier)
     {
         $calendrier->delete();
 
-        return redirect()->route('calendrier.index')->with('success', 'Match supprimé avec succès.');
+        return redirect()->route('admin.calendrier.index')->with('success', 'Match supprimé avec succès.');
     
     }
 }

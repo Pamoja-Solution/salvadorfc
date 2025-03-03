@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CalendrierController;
+use App\Http\Controllers\CalendrierMatchController;
+use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Debut;
 use App\Http\Controllers\GestionAdmin;
@@ -12,6 +14,7 @@ use App\Livewire\Counter;
 use App\Livewire\JouerComponent;
 use App\Models\Calendrier;
 use App\Models\Categorie;
+use App\Models\Competition;
 use App\Models\Jouer;
 use App\Models\Post;
 use App\Models\User;
@@ -25,6 +28,7 @@ Route::get('/dashboard', function () {
                                 "posts"=>Post::paginate(10),
                                 "jouers"=>Jouer::orderBy("id","DESC")->limit(10)->get(),
                                 "calendriers"=>Calendrier::orderBy("id","DESC")->paginate(10),
+                                "competitions"=>Competition::orderBy("id","DESC")->paginate(4)
                             ]);
 })->middleware(['auth', 'verified','rolemanager:admin'])->name('dashboard');
 /*
@@ -174,5 +178,11 @@ Route::get('/jouers/{jouer}/{slug}', function(string $jouer){
 Route::get('/calendrier-match' , function(){
     return view('calendrier-match.index');
 })->name('calendrier-match.index');
+
+
+Route::prefix('admin')->name("admin.")->middleware(['auth', 'verified', 'rolemanager:admin'])->group(function() {
+    Route::resource('calendrier-match', CalendrierMatchController::class);
+    Route::resource('competitions', CompetitionController::class);
+});
 require __DIR__.'/auth.php';
 Route::get('/counter', Counter::class);

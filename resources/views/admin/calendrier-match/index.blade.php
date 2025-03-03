@@ -1,7 +1,7 @@
 <x-app-layout>
-<div class="container mx-auto px-4">
-    <h1 class="text-2xl font-bold mb-4">Calendrier des matchs</h1>
-    <a href="{{ route('calendrier.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Ajouter un match</a>
+<div class="container mx-auto px-4 my-6">
+    <h1 class="text-2xl text-white font-bold mb-4">Calendrier des matchs</h1>
+    <a href="{{ route('admin.calendrier-match.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Ajouter un match</a>
     <div class="mt-6">
         @foreach ($calendriers as $calendrier)
             <div class="bg-gray-800 p-4 rounded-lg mb-4">
