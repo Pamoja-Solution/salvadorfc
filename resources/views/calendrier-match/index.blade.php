@@ -1120,4 +1120,3 @@
             window.addEventListener('resize', adjustStoriesSizes);
         }
     </script>
-@endsection
