@@ -800,13 +800,19 @@
                     @forelse ($tousjouers as $j )
                         <div class="min-w-full md:min-w-[50%] lg:min-w-[33.33%] px-4">
                             <div class="relative h-96 rounded-xl overflow-hidden group">
+                                @if ($j->photo)
+                                <img src="{{ $j->imageUrl() }}" alt="Joueur 1" class="w-full h-full object-cover">
+                                    
+                                @else
                                 <img src="{{ asset('img/1740169349422.jpg') }}" alt="Joueur 1" class="w-full h-full object-cover">
+                                    
+                                @endif
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                                 <!-- Informations du joueur (apparaissent au survol) -->
                                 <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
                                     <h3 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-2">{{ $j->nom }}</h3>
                                     <p class="text-gray-300 mb-2">{{ $j->poste }} - {{ \Carbon\Carbon::parse($j->date_de_naissance)->age }} ans</p>
-                                    <p class="text-gray-400 text-sm">{{ Str::limit($j->historique, 150) }}</p>
+                                    <p class="text-gray-400 text-sm">{!! Str::limit($j->historique, 150) !!}</p>
                                 </div>
                             </div>
                         </div>

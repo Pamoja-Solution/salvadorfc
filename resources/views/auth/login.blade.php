@@ -4,7 +4,9 @@
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
-
+        <p class="text-white mt-5 mb-4 text-center font-bold">
+            Bienvenue sur la plateform Web de votre Club de coeur 
+        </p>
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
