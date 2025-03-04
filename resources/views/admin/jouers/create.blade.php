@@ -15,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
     <div class="container mx-auto px-4 py-8">
         <div class="max-w-4xl mx-auto">
-            <h1 class="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-100">Nouveau Jouer</h1>
+            <h1 class="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-100">{{ $jouers->exists ?'Modifier un jouer': "Nouveau Jouer" }}</h1>
     
             <form id="blogForm" action="{{ route($jouers->exists ? 'admin.jouers.update': 'admin.jouers.store', $jouers) }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -78,6 +78,7 @@
                             </div>
 
                             
+                            @if (!$jouers->exists)
                             <div class="">
                                 <label class="block text-sm font-medium text-gray-100">Poste</label>
                                 <select name="poste" class="bg-gray-900 mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
@@ -94,6 +95,7 @@
                                     </div>
                                 @enderror
                             </div>
+                            @endif
                         </div>
     
                         <!-- Colonne 2 -->

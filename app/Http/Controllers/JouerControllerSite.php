@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\JouerModifRequest;
 use App\Http\Requests\JouerRequest;
 use App\Models\Categorie;
 use App\Models\Jouer;
@@ -43,7 +44,7 @@ class JouerControllerSite extends Controller
         return view('admin.jouers.create', compact('jouers'));
     }
 
-    public function update(JouerRequest $request, Jouer $jouer)
+    public function update(JouerModifRequest $request, Jouer $jouer)
     {
        
 

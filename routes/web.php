@@ -26,11 +26,7 @@ use App\Http\Controllers\Palmares;
 
 //Controlleur pour photos gallerie 
 use App\Http\Controllers\PhotosController;
-
-
-
-
-
+use App\Http\Controllers\UserController;
 
 Route::get('/', [Debut::class, "index"])->name('index');
 Route::get('/dashboard', function () {
@@ -43,6 +39,12 @@ Route::get('/dashboard', function () {
                                 "competitions"=>Competition::orderBy("id","DESC")->paginate(4)
                             ]);
 })->middleware(['auth', 'verified','rolemanager:admin'])->name('dashboard');
+
+// Gestion compte utilisateur
+Route::prefix('members')->name('users')->middleware(['auth'])->group(function(){
+    Route::resource('moncompte', UserController::class);
+
+});
 /*
 Route::get('admin/dashboard', function () {
     return view('dashboard',['users'=>User::paginate(10),'categories'=>Categorie::all(),"posts"=>Post::paginate(10),"jouers"=>Jouer::orderBy("DESC")->get(10)]);
@@ -196,7 +198,6 @@ Route::prefix('admin')->name("admin.")->middleware(['auth', 'verified', 'roleman
     Route::resource('calendrier-match', CalendrierMatchController::class);
     Route::resource('competitions', CompetitionController::class);
 });
-require __DIR__.'/auth.php';
 Route::get('/counter', Counter::class);
 
 
@@ -205,3 +206,7 @@ Route::get('/palmares', [Palmares::class, 'palmares'])->name('palmares');
 
 //on est là pour photos 
 Route::get('/photos', [PhotosController::class, 'photos'])->name('photos');
+
+
+require __DIR__.'/auth.php';
+

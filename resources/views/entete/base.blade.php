@@ -161,7 +161,7 @@
                       @auth
                         <ul class="py-2 text-sm text-cyan-400">
                           <li>
-                            <a href="{{route('dashboard')}}" class="block px-4 py-3 text-base hover:bg-gray-800/50 transition-colors duration-300">{{__("Mon Compte")}}</a> <!-- Padding et texte plus grands -->
+                            <a href="{{route('usersmoncompte.index')}}" class="block px-4 py-3 text-base hover:bg-gray-800/50 transition-colors duration-300">{{__("Mon Compte")}}</a> <!-- Padding et texte plus grands -->
                           </li>
                           @auth
                             @if (Auth::user()->role==0)
