@@ -1,29 +1,38 @@
 @extends('entete.base')
 @section("contenus")
-     <!-- Première section/Carousel de l'équipe -->
+<!-- Première section/Carousel de l'équipe -->
 <div id="default-carousel" class="relative w-full z-40" data-carousel="slide">
     <!-- Carousel wrapper -->
     <div class="relative h-96 overflow-hidden rounded-lg md:h-[600px]">
         <!-- Item 1 -->
         <div class="hidden duration-6000 ease-in-out" data-carousel-item>
-            <img src="{{ asset('img/1740169349422.jpg') }}" class="absolute object-cover block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Équipe FC Salvador en action">
-            <!-- Dégradé sombre et contenu texte -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-center justify-center text-center animate-fadeIn">
+            <img src="{{ asset('img/1740169349422.jpg') }}" 
+                 class="absolute object-cover block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" 
+                 alt="Équipe FC Salvador en action">
+        
+            <!-- Dégradé sombre et contenu texte avec support du mode clair -->
+            <div class="absolute inset-0 bg-gradient-to-t dark:from-black/70 dark:via-black/40 dark:to-transparent from-white/70 via-white/40 to-transparent flex items-center justify-center text-center animate-fadeIn">
                 <div class="max-w-2xl px-4">
-                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-slideInDown">Bienvenue au FC Salvador</h1>
-                    <p class="text-xl md:text-2xl text-purple-200 mb-6 animate-slideInUp">Une équipe jeune, dynamique et prometteuse au cœur de Kinshasa.</p>
-                    <a href="#about" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 animate-fadeIn">
+                    <h1 class="text-4xl md:text-6xl font-bold dark:text-white text-gray-900 mb-4 animate-slideInDown">
+                        Bienvenue au FC Salvador
+                    </h1>
+                    <p class="text-xl md:text-2xl dark:text-purple-200 text-gray-700 mb-6 animate-slideInUp">
+                        Une équipe jeune, dynamique et prometteuse au cœur de Kinshasa.
+                    </p>
+                    <a href="#about" 
+                       class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 animate-fadeIn">
                         Découvrez notre histoire
                     </a>
                 </div>
             </div>
         </div>
+        
 
         <!-- Item 2 -->
         <div class="hidden duration-6000 ease-in-out" data-carousel-item>
             <img src="{{ asset('img/1740169356313.jpg') }}" class="absolute object-cover block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Entraînement intensif">
             <!-- Dégradé sombre et contenu texte -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-center justify-center text-center animate-fadeIn">
+            <div class="absolute inset-0 bg-gradient-to-t dark:from-black/70 dark:via-black/40 dark:to-transparent from-white/70 via-white/40 to-transparent flex items-center justify-center text-center animate-fadeIn">
                 <div class="max-w-2xl px-4">
                     <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-slideInDown">Notre Passion, Notre Engagement</h1>
                     <p class="text-xl md:text-2xl text-purple-200 mb-6 animate-slideInUp">Chaque entraînement est une étape vers l'excellence.</p>
@@ -38,7 +47,7 @@
         <div class="hidden duration-6000 ease-in-out" data-carousel-item>
             <img src="{{ asset('img/1740169417088.jpg') }}" class="absolute object-cover block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Match en cours">
             <!-- Dégradé sombre et contenu texte -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-center justify-center text-center animate-fadeIn">
+            <div class="absolute inset-0 bg-gradient-to-t dark:from-black/70 dark:via-black/40 dark:to-transparent from-white/70 via-white/40 to-transparent flex items-center justify-center text-center animate-fadeIn">
                 <div class="max-w-2xl px-4">
                     <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-slideInDown">Des Matchs Mémorables</h1>
                     <p class="text-xl md:text-2xl text-purple-200 mb-6 animate-slideInUp">Rejoignez-nous pour vivre des moments inoubliables.</p>
@@ -53,7 +62,7 @@
         <div class="hidden duration-6000 ease-in-out" data-carousel-item>
             <img src="{{ asset('img/1740169523721.jpg') }}" class="absolute object-cover block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Célébration d'une victoire">
             <!-- Dégradé sombre et contenu texte -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-center justify-center text-center animate-fadeIn">
+            <div class="absolute inset-0 bg-gradient-to-t dark:from-black/70 dark:via-black/40 dark:to-transparent from-white/70 via-white/40 to-transparent flex items-center justify-center text-center animate-fadeIn">
                 <div class="max-w-2xl px-4">
                     <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-slideInDown">Ensemble Vers la Victoire</h1>
                     <p class="text-xl md:text-2xl text-purple-200 mb-6 animate-slideInUp">Chaque victoire est le fruit du travail d'équipe.</p>
@@ -68,7 +77,7 @@
         <div class="hidden duration-6000 ease-in-out" data-carousel-item>
             <img src="{{ asset('img/1740169797146.jpg') }}" class="absolute object-cover block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Équipe unie">
             <!-- Dégradé sombre et contenu texte -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-center justify-center text-center animate-fadeIn">
+            <div class="absolute inset-0 bg-gradient-to-t dark:from-black/70 dark:via-black/40 dark:to-transparent from-white/70 via-white/40 to-transparent flex items-center justify-center text-center animate-fadeIn">
                 <div class="max-w-2xl px-4">
                     <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-slideInDown">Rejoignez la Famille FC Salvador</h1>
                     <p class="text-xl md:text-2xl text-purple-200 mb-6 animate-slideInUp">Devenez membre et soutenez notre équipe.</p>
@@ -545,9 +554,9 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
                                     </svg>
                                 </div>
-                                <span class="text-gray-400 text-sm">{{ $post->views }} vues</span>
+                                <span class="text-gray-400 text-sm">{{ $post->likes_count }} vues</span>
                             </div>
-                            <a href="{ { route('posts.show', $post->id) }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
+                            <a href="{{ route('posts.show', $post) }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
                                 Lire plus
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-1">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />

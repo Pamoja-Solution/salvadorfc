@@ -56,7 +56,7 @@
   @endphp
 
     
-<body class="backdrop-blur-md bg-opacity-70 bg-gray-900 text-white ">
+<body class="bg-white dark:bg-gray-800   ">
     <!-- Header Sticky -->
     <nav class=" shadow-lg sticky top-0 z-50 backdrop-blur-md bg-opacity-70 bg-gray-900 ">
 

@@ -26,14 +26,16 @@ use App\Http\Controllers\Palmares;
 
 //Controlleur pour photos gallerie 
 use App\Http\Controllers\PhotosController;
+use App\Http\Controllers\PostControllerUser;
 use App\Http\Controllers\UserController;
 
 Route::get('/', [Debut::class, "index"])->name('index');
 Route::get('/dashboard', function () {
+   
     return view('dashboard',[
                                 'users'=>User::paginate(10),
                                 'categories'=>Categorie::all(),
-                                "posts"=>Post::paginate(10),
+                                "posts"=>Post::withCount('likes')->paginate(10),
                                 "jouers"=>Jouer::orderBy("id","DESC")->limit(10)->get(),
                                 "calendriers"=>Calendrier::orderBy("id","DESC")->paginate(10),
                                 "competitions"=>Competition::orderBy("id","DESC")->paginate(4)
@@ -207,6 +209,6 @@ Route::get('/palmares', [Palmares::class, 'palmares'])->name('palmares');
 //on est là pour photos 
 Route::get('/photos', [PhotosController::class, 'photos'])->name('photos');
 
-
+Route::resource("/actualites/posts",PostControllerUser::class);
 require __DIR__.'/auth.php';
 

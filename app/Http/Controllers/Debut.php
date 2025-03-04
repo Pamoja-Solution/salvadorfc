@@ -40,7 +40,7 @@ class Debut extends Controller
     }
     public function index(){
         //dd(Calendrier::orderBy('asc')->limit(1)->get());
-        $posts = Post::with('category')->where('status',1)->latest()->limit(3)->get();
+        $posts = Post::with('category')->withCount('likes')->where('status',1)->latest()->limit(3)->get();
         $categories = Categorie::orderBy('name','asc')->limit(5)->get();
         return view('welcome',[
             'jouers' =>self::Performances(),
