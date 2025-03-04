@@ -20,6 +20,18 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
+
+//Controlleur pour le palmarès
+use App\Http\Controllers\Palmares;
+
+//Controlleur pour photos gallerie 
+use App\Http\Controllers\PhotosController;
+
+
+
+
+
+
 Route::get('/', [Debut::class, "index"])->name('index');
 Route::get('/dashboard', function () {
     return view('dashboard',[
@@ -186,3 +198,10 @@ Route::prefix('admin')->name("admin.")->middleware(['auth', 'verified', 'roleman
 });
 require __DIR__.'/auth.php';
 Route::get('/counter', Counter::class);
+
+
+//on est là : palmarès 
+Route::get('/palmares', [Palmares::class, 'palmares'])->name('palmares');
+
+//on est là pour photos 
+Route::get('/photos', [PhotosController::class, 'photos'])->name('photos');

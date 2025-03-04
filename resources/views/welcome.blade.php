@@ -435,18 +435,18 @@
         window.addEventListener('scroll', animateVisibleElements);
     });
 </script>
-
+     
 
 
 
 <!-- Section d'actualité  -->
  <!-- Section Actualités : News et événements de l'équipe -->
-<section id="news" class="py-16 bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden">
+<section id="news" class="py-16 bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden mt-">
     <div class="container mx-auto px-4">
         <!-- Titre de la section avec animation -->
         <h2 class="text-4xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-12 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="news-title">
             Actualités FC Salvador
-        </h2>
+        </h2> 
 
         @if ($dernier)
 
