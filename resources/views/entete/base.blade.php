@@ -97,7 +97,7 @@
 
 <body class="bg-white dark:bg-gray-800   ">
     <!-- Header Sticky -->
-    <nav class=" shadow-lg sticky top-0 z-50 backdrop-blur-md bg-opacity-70 bg-gray-900 ">
+    <nav class=" shadow-lg sticky top-0 z-50 dark:backdrop-blur-md dark:bg-opacity-70 bg-opacity-95 dark:bg-gray-900 bg-gray-100 ">
 
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <!-- Logo -->

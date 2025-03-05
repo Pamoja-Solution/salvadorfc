@@ -53,7 +53,7 @@ class CalendrierList extends Component
         }
 
         // Paginer les résultats
-        $calendriers = $query->orderBy('date_debut', 'desc')->paginate(5);
+        $calendriers = $query->orderBy('date_debut', 'desc')->paginate(15);
 
         // Retourner la vue avec les données
         return view('livewire.calendrier-list', [

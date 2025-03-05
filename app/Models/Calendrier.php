@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class Calendrier extends Model
 {
@@ -14,6 +15,7 @@ class Calendrier extends Model
         'date_fin',
         'photo',
         'type_id',
+        "slug"
     ];
 
     public function imageUrl()
@@ -31,4 +33,21 @@ public function type()
 {
     return $this->belongsTo(Type::class);
 }
+
+public function getRouteKeyName()
+    {
+        return 'slug'; // Utiliser la colonne 'slug' pour les routes
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($calendrier) {
+            if (!$calendrier->slug) {
+                // Si le slug n'est pas défini, en générer un artificiel
+                $calendrier->slug = 'calendrier-' . Str::slug($calendrier->titre) . '-' . Str::random(6);
+            }
+        });
+    }
 }

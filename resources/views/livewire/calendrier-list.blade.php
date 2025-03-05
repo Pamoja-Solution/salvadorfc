@@ -19,10 +19,10 @@
     
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             @forelse($calendriers as $calendrier)
-                <a href="{{ route('calendriers.show', $calendrier) }}" 
+                <a href="{{ route('calendriers.show', ["calendrier"=>$calendrier->slug]) }}" 
                    class="flex flex-col h-full p-5 bg-gradient-to-br from-gray-300/80 to-gray-200/80 hover:from-gray-200 hover:to-gray-300  dark:bg-gradient-to-br dark:from-gray-800/80 dark:to-gray-700/80 dark:hover:from-gray-700 dark:hover:to-gray-600 transition-all duration-300 rounded-lg shadow-md hover:shadow-xl border-l-4 border-white transform hover:-translate-y-1">
                     <div class="flex items-center justify-between mb-3">
-                        <h2 class="text-xl font-bold dark:text-white">{{ $calendrier->titre }}</h2>
+                        <h2 class="text-xl font-bold dark:text-white">{{ Str::limit($calendrier->titre,20) }}</h2>
                         <span class="px-3 py-1 text-xs font-semibold rounded-full dark:bg-white bg-gray-800 dark:text-gray-800 text-gray-200">
                             {{ $calendrier->type->nom ?? 'Non catégorisé' }}
                         </span>

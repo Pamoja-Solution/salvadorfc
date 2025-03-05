@@ -702,32 +702,7 @@
         </section>
         
         <!-- Section Newsletter -->
-        <section class="mt-20 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl overflow-hidden opacity-0 transform translate-y-10 transition-all duration-1000 ease-out delay-400" id="newsletter-container">
-            <div class="grid grid-cols-1 lg:grid-cols-5">
-                <div class="lg:col-span-3 p-8 lg:p-12">
-                    <h3 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-4">Restez informé !</h3>
-                    <p class="text-gray-300 mb-6">Inscrivez-vous à notre newsletter pour ne rien manquer des dernières actualités, résultats et événements du FC Salvador.</p>
-                    
-                    <form class="space-y-4">
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <input type="text" placeholder="Votre nom" class="bg-gray-700/50 text-white border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
-                            <input type="email" placeholder="Votre email" class="bg-gray-700/50 text-white border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" id="newsletter-consent" class="rounded text-purple-500 focus:ring-purple-500">
-                            <label for="newsletter-consent" class="ml-2 text-gray-300 text-sm">J'accepte de recevoir les actualités du FC Salvador par email</label>
-                        </div>
-                        <button type="submit" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 w-full sm:w-auto">
-                            S'abonner
-                        </button>
-                    </form>
-                </div>
-                <div class="lg:col-span-2 hidden lg:block relative">
-                    <div class="absolute inset-0 bg-purple-900/20"></div>
-                    <div class="absolute inset-0 bg-gradient-to-r from-gray-900 to-transparent"></div>
-                </div>
-            </div>
-        </section>
+        
     </div>
 
     <script>

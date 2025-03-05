@@ -22,6 +22,7 @@ class CreateCalendriersTable extends Migration
             $table->dateTime('date_debut');
             $table->dateTime('date_fin');
             $table->foreignIdFor(Type::class)->constrained()->cascadeOnDelete();
+            $table->string('slug')->unique()->after('titre');
 
             $table->timestamps();
         });

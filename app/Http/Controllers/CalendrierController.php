@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CalendrierValidator;
 use App\Models\Calendrier;
 use App\Models\Type;
 use Illuminate\Http\Request;
@@ -20,17 +21,9 @@ class CalendrierController extends Controller
         return view('admin.calendrier.create',[ 'calendrier'=>new Calendrier(),'types'=>Type::all()]);
     }
 
-    public function store(Request $request)
+    public function store(CalendrierValidator $request)
     {
-        $validated =$request->validate([
-            'titre' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'date_debut' => 'required|date',
-            'date_fin' => 'required|date|after:date_debut',
-            'type_id' => 'required|exists:types,id',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,JPEG,PNG,JPG,GIF,svg,SVG|max:4048',
-
-        ]);
+        $validated =$request->validated();
 
         if ($request->hasFile('photo')) {
             $path = $request->file('photo')->store('events', 'public');

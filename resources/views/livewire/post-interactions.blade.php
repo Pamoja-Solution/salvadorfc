@@ -3,10 +3,12 @@
 
     <!-- Bouton Like -->
     <div class="mb-6 flex">
-        <button wire:click="toggleLike" class="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors duration-200">
-            <i class="bi bi-hand-thumbs-up-fill {{ $userLike ? 'text-red-500 animate-pulse' : '' }}"></i>
-            <span> Likes</span>
-        </button>
+       @auth
+       <button wire:click="toggleLike" class="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors duration-200">
+        <i class="bi bi-hand-thumbs-up-fill {{ $userLike ? 'text-red-500 animate-pulse' : '' }}"></i>
+        <span> Likes</span>
+    </button>
+       @endauth
 
         <button  class="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors duration-200">
             <i class="fas fa-heart {{ $userLike ? 'text-red-500 animate-pulse' : '' }}"></i>

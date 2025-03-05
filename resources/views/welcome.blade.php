@@ -463,7 +463,7 @@
                 @if ($dernier->image)
                     <img src="{{ $post->imageUrl() }}" alt="{{ $dernier->type->nom }}" class="w-full h-full object-cover brightness-75 dark:brightness-50 transform transition-transform duration-700 group-hover:scale-105">
                 @else
-                    <img src="{{ asset('img/1740169349422.jpg') }}" alt="{{ $dernier->type->nom }}" class="w-full h-full object-cover brightness-75 dark:brightness-50 transform transition-transform duration-700 group-hover:scale-105">
+                    <img src="{{ asset('img/1740169349422.jpg') }}" alt="{{ $dernier->type->nom }}" class="w-full h-full object-cover brightness-75 dark:brightness-50 brightness-100 transform transition-transform duration-700 group-hover:scale-105">
                 @endif
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent dark:from-black/90 dark:via-black/60"></div>
                 <div class="absolute inset-0 flex flex-col justify-center items-center p-6 text-center">
@@ -478,7 +478,7 @@
                         </div>
                     </div>
                     
-                    <a href="#" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full shadow-lg dark:shadow-gray-900 transform transition-transform hover:scale-105">
+                    <a href="{{ route('calendriers.show', ["calendrier"=>$dernier->slug]) }}" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full shadow-lg dark:shadow-gray-900 transform transition-transform hover:scale-105">
                         Plus d'informations
                     </a>
                 </div>
@@ -525,7 +525,7 @@
         <!-- Grille d'actualités -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" id="news-grid">
             @foreach($posts as $post)
-            <article class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-100 dark:to-gray-200 rounded-xl shadow-xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2 opacity-0 translate-y-10 transition-opacity ease-out news-item" data-category="{{ $post->category->slug }}">
+            <article class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900  rounded-xl shadow-xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2 opacity-0 translate-y-10 transition-opacity ease-out news-item" data-category="{{ $post->category->slug }}">
                 <div class="relative h-56 overflow-hidden">
                     <span class="absolute top-3 left-3 z-10 px-3 py-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-xs rounded-full">
                         {{ $post->category->name }}
@@ -541,11 +541,11 @@
                     </div>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-700 dark:to-blue-700 mb-2">
+                    <h3 class="text-xl  font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-700 dark:to-blue-700 mb-2">
                         {{ $post->titre }}
                     </h3>
-                    <p class="text-gray-300 dark:text-gray-700 mb-4">{!! Str::limit($post->contenus, 100) !!}</p>
-                    <div class="flex justify-between items-center">
+                    <p class="text-gray-800 dark:text-gray-200 mb-4">{!! Str::limit($post->contenus, 100) !!}</p>
+                    <div class="flex justify-between items-center ">
                         <div class="flex items-center space-x-2">
                             <div class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-white">
@@ -579,51 +579,25 @@
             </button>
         </div>
 
-        <!-- Abonnement à la newsletter -->
-        <div class="mt-20 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl overflow-hidden opacity-0 transform translate-y-10 transition-all duration-1000 ease-out delay-400" id="newsletter-container">
-            <div class="grid grid-cols-1 lg:grid-cols-5">
-                <div class="lg:col-span-3 p-8 lg:p-12">
-                    <h3 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-4">Restez informé !</h3>
-                    <p class="text-gray-300 mb-6">Inscrivez-vous à notre newsletter pour ne rien manquer des dernières actualités, résultats et événements du FC Salvador.</p>
-                    
-                    <form class="space-y-4">
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <input type="text" placeholder="Votre nom" class="bg-gray-700/50 text-white border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
-                            <input type="email" placeholder="Votre email" class="bg-gray-700/50 text-white border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" id="newsletter-consent" class="rounded text-purple-500 focus:ring-purple-500">
-                            <label for="newsletter-consent" class="ml-2 text-gray-300 text-sm">J'accepte de recevoir les actualités du FC Salvador par email</label>
-                        </div>
-                        <button type="submit" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 w-full sm:w-auto">
-                            S'abonner
-                        </button>
-                    </form>
-                </div>
-                <div class="lg:col-span-2 hidden lg:block relative">
-                    <img src="{{ asset('img/1740169797146.jpg') }}" alt="Newsletter" class="absolute inset-0 h-full w-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-r from-gray-900 to-transparent"></div>
-                </div>
-            </div>
-        </div>
+       
 
         <!-- Statistiques du site -->
         <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out delay-500" id="stats-container">
-            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-lg p-6 text-center transform transition-all duration-300 hover:scale-105">
+            <div class=" bg-gradient-to-bg from-gray-100 to-gray-200     dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 rounded-lg shadow-lg p-6 text-center transform transition-all duration-300 hover:scale-105">
                 <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 counter" data-target="183">0</div>
-                <p class="text-gray-300 mt-2">Articles publiés</p>
+                <p class="text-gray-800 dark:text-gray-300 mt-2">Articles publiés</p>
             </div>
-            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-lg p-6 text-center transform transition-all duration-300 hover:scale-105">
+            <div class="bg-gradient-to-bg from-gray-100 to-gray-200     dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 rounded-lg shadow-lg p-6 text-center transform transition-all duration-300 hover:scale-105">
                 <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 counter" data-target="37">0</div>
-                <p class="text-gray-300 mt-2">Matchs couverts</p>
+                <p class="text-gray-800 dark:text-gray-300 mt-2">Matchs couverts</p>
             </div>
-            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-lg p-6 text-center transform transition-all duration-300 hover:scale-105">
+            <div class="bg-gradient-to-bg from-gray-100 to-gray-200     dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 rounded-lg shadow-lg p-6 text-center transform transition-all duration-300 hover:scale-105">
                 <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 counter" data-target="520">0</div>
-                <p class="text-gray-300 mt-2">Abonnés</p>
+                <p class="text-gray-800 dark:text-gray-300 mt-2">Abonnés</p>
             </div>
-            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-lg p-6 text-center transform transition-all duration-300 hover:scale-105">
+            <div class="bg-gradient-to-bg from-gray-100 to-gray-200     dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 rounded-lg shadow-lg p-6 text-center transform transition-all duration-300 hover:scale-105">
                 <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 counter" data-target="15623">0</div>
-                <p class="text-gray-300 mt-2">Visites totales</p>
+                <p class="text-gray-800 dark:text-gray-300 mt-2">Visites totales</p>
             </div>
         </div>
     </div>
@@ -791,8 +765,8 @@
 
 
  <!-- Section Joueurs : Présentation des joueurs de l'équipe avec animation au survol -->
- <section id="players" class="py-16 bg-gradient-to-br from-gray-900 to-gray-800 dark:from-gray-100 dark:to-gray-200 overflow-hidden">
-    <div class="container mx-auto px-4 bg-gray-800/25 dark:bg-gray-200/50 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-gray-700/30 dark:border-gray-300/50 transform transition-all duration-1000 ease-out delay-200">
+ <section id="players" class="py-16 bg-gradient-to-br bg-gray-100 to-gray-800 dark:bg-gray-800 dark:to-gray-900 overflow-hidden">
+    <div class="container mx-auto px-4 bg-gray-100 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-gray-700/30 dark:border-gray-900/50 transform transition-all duration-1000 ease-out delay-200">
         <!-- Titre de la section avec animation -->
         <h4 class="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-700 dark:to-blue-700 mb-8">
             Nos Joueurs FC Salvador
@@ -815,12 +789,12 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent dark:from-gray-900/80"></div>
                             
                             <!-- Informations du joueur (apparaissent au survol) -->
-                            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent dark:from-white/90 dark:text-gray-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
-                                <h3 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-700 dark:to-blue-700 mb-2">
+                            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gary-200 from-black/90 to-transparent dark:from-white/90 dark:text-gray-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
+                                <h3 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 dark:text-gray-100 dark:from-purple-700 dark:to-blue-700 mb-2">
                                     {{ $j->nom }}
                                 </h3>
-                                <p class="text-gray-300 dark:text-gray-700 mb-2">{{ $j->poste }} - {{ \Carbon\Carbon::parse($j->date_de_naissance)->age }} ans</p>
-                                <p class="text-gray-400 dark:text-gray-600 text-sm">{!! Str::limit($j->historique, 150) !!}</p>
+                                <p class="text-gray-300 dark:text-gray-200 mb-2">{{ $j->poste }} - {{ \Carbon\Carbon::parse($j->date_de_naissance)->age }} ans</p>
+                                <p class="text-gray-400 dark:text-gray-200 text-sm">{!! Str::limit($j->historique, 150) !!}</p>
                             </div>
                         </div>
                     </div>
@@ -882,7 +856,7 @@
 
 
 <!-- Section Stories : Stories inspirées des réseaux sociaux -->
-<section id="stories" class="py-16 bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden">
+<section id="stories" class="py-16 bg-gradient-to-br from-gray-100 to-gray-100      dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 overflow-hidden">
     <div class="container mx-auto px-4">
         <!-- Titre de la section avec animation -->
         <h2 class="text-4xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-12 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="stories-title">
@@ -923,7 +897,7 @@
                         </div>
                     </div>
                     <div class="mt-2 text-center">
-                        <p class="text-gray-300 text-sm font-medium">Entraînement intensif</p>
+                        <p class="dark:text-gray-300 text-gray-800 text-sm font-medium">Entraînement intensif</p>
                     </div>
                 </div>
 
@@ -1158,6 +1132,9 @@
     </div>
 </section>
 
+    
+
+    
 <!-- Styles supplémentaires -->
 <style>
     @keyframes border-rotate {
@@ -1573,49 +1550,39 @@
         });
     });
 </script>
-
-    
-
-
-    
-
-    <!-- Événements Section -->
-    <section id="events" class="py-20 bg-gray-800">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-8">Événements</h2>
-            <p class="text-lg text-center text-gray-300 max-w-2xl mx-auto">
-                Participez à nos prochains événements et rencontrez notre communauté.
-            </p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-900">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-8">Contactez-nous</h2>
-            <form class="max-w-2xl mx-auto">
-                <div class="mb-6">
-                    <label for="name" class="block text-gray-300 mb-2">Nom</label>
-                    <input type="text" id="name" class="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+<!-- Abonnement à la newsletter -->
+<div class="m-6 mt-20 dark:bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl overflow-hidden opacity-0 transform translate-y-10 transition-all duration-1000 ease-out delay-400" id="newsletter-container">
+    <div class="grid grid-cols-1 lg:grid-cols-5">
+        <div class="lg:col-span-3 p-8 lg:p-12">
+            <h3 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-4">Restez informé !</h3>
+            <p class="text-gray-800 dark:text-gray-300 mb-6">Inscrivez-vous à notre newsletter pour ne rien manquer des dernières actualités, résultats et événements du FC Salvador.</p>
+            
+            <form class="space-y-4">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input type="text" placeholder="Votre nom" class="dark:bg-gray-700/50 dark:text-white border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
+                    <input type="email" placeholder="Votre email" class="dark:bg-gray-700/50 dark:text-white border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
                 </div>
-                <div class="mb-6">
-                    <label for="email" class="block text-gray-300 mb-2">Email</label>
-                    <input type="email" id="email" class="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <div class="flex items-center">
+                    <input type="checkbox" id="newsletter-consent" class="rounded text-purple-500 focus:ring-purple-500">
+                    <label for="newsletter-consent" class="ml-2 dark:text-gray-300 text-gray-800 text-sm">J'accepte de recevoir les actualités du FC Salvador par email</label>
                 </div>
-                <div class="mb-6">
-                    <label for="message" class="block text-gray-300 mb-2">Message</label>
-                    <textarea id="message" class="w-full p-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" rows="5"></textarea>
-                </div>
-                <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition duration-300">Envoyer</button>
+                <button type="submit" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 w-full sm:w-auto">
+                    S'abonner
+                </button>
             </form>
         </div>
-    </section>
+        <div class="lg:col-span-2 hidden lg:block relative">
+            <img src="{{ asset('img/1740169797146.jpg') }}" alt="Newsletter" class="absolute inset-0 h-full w-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-300 dark:bg-gradient-to-r dark:from-gray-900 to-transparent"></div>
+        </div>
+    </div>
+</div>
 
     <!-- Footer -->
     <footer class="bg-gradient-to-r from-blue-900 to-purple-900 py-6">
         <div class="container mx-auto text-center">
-            <p class="text-gray-300">&copy; 2023 Club Name. Tous droits réservés.</p>
-        </div>
+            <p class="dark:text-gray-300 text-gray-200">&copy; {{ date('Y') }} Club Name. Tous droits réservés.</p>
+                </div>
     </footer>
 
     <!-- Script pour le menu burger -->
@@ -1627,5 +1594,6 @@
             navMenu.classList.toggle('hidden');
         });
     </script>
+     
     
 @endsection
