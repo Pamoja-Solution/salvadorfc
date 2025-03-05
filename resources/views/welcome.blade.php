@@ -34,8 +34,8 @@
             <!-- Dégradé sombre et contenu texte -->
             <div class="absolute inset-0 bg-gradient-to-t dark:from-black/70 dark:via-black/40 dark:to-transparent from-white/70 via-white/40 to-transparent flex items-center justify-center text-center animate-fadeIn">
                 <div class="max-w-2xl px-4">
-                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-slideInDown">Notre Passion, Notre Engagement</h1>
-                    <p class="text-xl md:text-2xl text-purple-200 mb-6 animate-slideInUp">Chaque entraînement est une étape vers l'excellence.</p>
+                    <h1 class="text-4xl md:text-6xl font-bold dark:text-white text-gray-900 mb-4 animate-slideInDown">Notre Passion, Notre Engagement</h1>
+                    <p class="text-xl md:text-2xl dark:text-purple-200 text-gray-700 mb-6 animate-slideInUp">Chaque entraînement est une étape vers l'excellence.</p>
                     <a href="#training" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 animate-fadeIn">
                         Voir nos entraînements
                     </a>
@@ -49,8 +49,8 @@
             <!-- Dégradé sombre et contenu texte -->
             <div class="absolute inset-0 bg-gradient-to-t dark:from-black/70 dark:via-black/40 dark:to-transparent from-white/70 via-white/40 to-transparent flex items-center justify-center text-center animate-fadeIn">
                 <div class="max-w-2xl px-4">
-                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-slideInDown">Des Matchs Mémorables</h1>
-                    <p class="text-xl md:text-2xl text-purple-200 mb-6 animate-slideInUp">Rejoignez-nous pour vivre des moments inoubliables.</p>
+                    <h1 class="text-4xl md:text-6xl font-bold dark:text-white text-gray-900 mb-4 animate-slideInDown">Des Matchs Mémorables</h1>
+                    <p class="text-xl md:text-2xl dark:text-purple-200 text-gray-700 mb-6 animate-slideInUp">Rejoignez-nous pour vivre des moments inoubliables.</p>
                     <a href="#matches" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 animate-fadeIn">
                         Voir le calendrier
                     </a>
@@ -64,8 +64,8 @@
             <!-- Dégradé sombre et contenu texte -->
             <div class="absolute inset-0 bg-gradient-to-t dark:from-black/70 dark:via-black/40 dark:to-transparent from-white/70 via-white/40 to-transparent flex items-center justify-center text-center animate-fadeIn">
                 <div class="max-w-2xl px-4">
-                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-slideInDown">Ensemble Vers la Victoire</h1>
-                    <p class="text-xl md:text-2xl text-purple-200 mb-6 animate-slideInUp">Chaque victoire est le fruit du travail d'équipe.</p>
+                    <h1 class="text-4xl md:text-6xl font-bold dark:text-white text-gray-900 mb-4 animate-slideInDown">Ensemble Vers la Victoire</h1>
+                    <p class="text-xl md:text-2xl dark:text-purple-200 text-gray-700 mb-6 animate-slideInUp">Chaque victoire est le fruit du travail d'équipe.</p>
                     <a href="#achievements" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 animate-fadeIn">
                         Nos réalisations
                     </a>
@@ -79,8 +79,8 @@
             <!-- Dégradé sombre et contenu texte -->
             <div class="absolute inset-0 bg-gradient-to-t dark:from-black/70 dark:via-black/40 dark:to-transparent from-white/70 via-white/40 to-transparent flex items-center justify-center text-center animate-fadeIn">
                 <div class="max-w-2xl px-4">
-                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-slideInDown">Rejoignez la Famille FC Salvador</h1>
-                    <p class="text-xl md:text-2xl text-purple-200 mb-6 animate-slideInUp">Devenez membre et soutenez notre équipe.</p>
+                    <h1 class="text-4xl md:text-6xl font-bold dark:text-white text-gray-900 mb-4 animate-slideInDown">Rejoignez la Famille FC Salvador</h1>
+                    <p class="text-xl md:text-2xl dark:text-purple-200 text-gray-700 mb-6 animate-slideInUp">Devenez membre et soutenez notre équipe.</p>
                     <a href="#join" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 animate-fadeIn">
                         Nous rejoindre
                     </a>
@@ -118,8 +118,7 @@
 </div>
 
   <!-- Deuxième section : Présentation de l'équipe -->
-<section id="about" class="py-16 bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden">
-    <div class="container mx-auto px-4">
+  <section id="about" class="py-16  overflow-hidden">    <div class="container mx-auto px-4">
         <!-- Titre de la section avec animation -->
         <h2 class="text-4xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-12 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="team-title">
             Découvrez le FC Salvador
@@ -182,78 +181,78 @@
             <!-- Contenu texte -->
             <div class="lg:col-span-6 space-y-6">
                 <!-- Histoire de l'équipe -->
-                <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-gray-700/30 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="history-section">
+                <div class="bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-gray-200/50 dark:border-gray-700/30 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="history-section">
                     <h3 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-4">Notre Histoire</h3>
-                    <p class="text-gray-100 leading-relaxed">
+                    <p class="text-gray-700 dark:text-gray-100 leading-relaxed">
                         Fondé en 2020 au cœur de Kinshasa, le FC Salvador est bien plus qu'une équipe de football. 
                         C'est une famille de jeunes talents déterminés à repousser leurs limites et à représenter 
                         fièrement leur ville. Avec un esprit d'équipe inébranlable et une passion pour le jeu, 
                         nous nous efforçons de devenir une référence dans le football congolais.
                     </p>
                 </div>
-
+            
                 <!-- Valeurs de l'équipe -->
-                <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-gray-700/30 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out delay-100" id="values-section">
+                <div class="bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-gray-200/50 dark:border-gray-700/30 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out delay-100" id="values-section">
                     <h3 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-4">Nos Valeurs</h3>
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="flex items-center space-x-3 bg-gray-900/50 p-3 rounded-lg transition-all duration-300 hover:bg-gray-900/70 hover:translate-y-[-2px]">
+                        <div class="flex items-center space-x-3 bg-gray-100/70 dark:bg-gray-900/50 p-3 rounded-lg transition-all duration-300 hover:bg-gray-200/70 dark:hover:bg-gray-900/70 hover:translate-y-[-2px]">
                             <div class="bg-gradient-to-r from-purple-500 to-blue-500 rounded-full p-2 text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                                 </svg>
                             </div>
                             <div>
-                                <span class="font-medium text-white">Esprit d'équipe</span>
+                                <span class="font-medium text-gray-900 dark:text-white">Esprit d'équipe</span>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-3 bg-gray-900/50 p-3 rounded-lg transition-all duration-300 hover:bg-gray-900/70 hover:translate-y-[-2px]">
+                        <div class="flex items-center space-x-3 bg-gray-100/70 dark:bg-gray-900/50 p-3 rounded-lg transition-all duration-300 hover:bg-gray-200/70 dark:hover:bg-gray-900/70 hover:translate-y-[-2px]">
                             <div class="bg-gradient-to-r from-purple-500 to-blue-500 rounded-full p-2 text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                                 </svg>
                             </div>
                             <div>
-                                <span class="font-medium text-white">Persévérance</span>
+                                <span class="font-medium text-gray-900 dark:text-white">Persévérance</span>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-3 bg-gray-900/50 p-3 rounded-lg transition-all duration-300 hover:bg-gray-900/70 hover:translate-y-[-2px]">
+                        <div class="flex items-center space-x-3 bg-gray-100/70 dark:bg-gray-900/50 p-3 rounded-lg transition-all duration-300 hover:bg-gray-200/70 dark:hover:bg-gray-900/70 hover:translate-y-[-2px]">
                             <div class="bg-gradient-to-r from-purple-500 to-blue-500 rounded-full p-2 text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z" />
                                 </svg>
                             </div>
                             <div>
-                                <span class="font-medium text-white">Respect</span>
+                                <span class="font-medium text-gray-900 dark:text-white">Respect</span>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-3 bg-gray-900/50 p-3 rounded-lg transition-all duration-300 hover:bg-gray-900/70 hover:translate-y-[-2px]">
+                        <div class="flex items-center space-x-3 bg-gray-100/70 dark:bg-gray-900/50 p-3 rounded-lg transition-all duration-300 hover:bg-gray-200/70 dark:hover:bg-gray-900/70 hover:translate-y-[-2px]">
                             <div class="bg-gradient-to-r from-purple-500 to-blue-500 rounded-full p-2 text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                                 </svg>
                             </div>
                             <div>
-                                <span class="font-medium text-white">Ambition</span>
+                                <span class="font-medium text-gray-900 dark:text-white">Ambition</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
+            
                 <!-- Réalisations -->
-                <div class="bg-gray-800/250 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-gray-700/30 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out delay-200" id="achievements-section">
+                <div class="bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-gray-200/50 dark:border-gray-700/30 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out delay-200" id="achievements-section">
                     <h3 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-4">Nos Réalisations</h3>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="bg-gradient-to-r from-purple-500 to-blue-500 p-4 rounded-lg shadow-lg text-center transform transition-all duration-300 hover:scale-105">
                             <span class="text-3xl font-bold text-white">3</span>
                             <p class="text-gray-100">Titres locaux</p>
                         </div>
-                        <div class="bg-gradient-to-br from-gray-700 to-gray-800 p-4 rounded-lg shadow-lg text-center transform transition-all duration-300 hover:scale-105">
+                        <div class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 p-4 rounded-lg shadow-lg text-center transform transition-all duration-300 hover:scale-105">
                             <span class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">50+</span>
-                            <p class="text-gray-100">Matchs joués</p>
+                            <p class="text-gray-700 dark:text-gray-100">Matchs joués</p>
                         </div>
-                        <div class="bg-gradient-to-br from-gray-700 to-gray-800 p-4 rounded-lg shadow-lg text-center transform transition-all duration-300 hover:scale-105">
+                        <div class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 p-4 rounded-lg shadow-lg text-center transform transition-all duration-300 hover:scale-105">
                             <span class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">10+</span>
-                            <p class="text-gray-100">Talents formés</p>
+                            <p class="text-gray-700 dark:text-gray-100">Talents formés</p>
                         </div>
                         <div class="bg-gradient-to-r from-purple-500 to-blue-500 p-4 rounded-lg shadow-lg text-center transform transition-all duration-300 hover:scale-105">
                             <span class="text-3xl font-bold text-white">100%</span>
@@ -268,80 +267,79 @@
         <div class="mt-16 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out delay-300" id="key-members">
             <h3 class="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-8">Les Piliers de l'Équipe</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                @forelse ($jouers as $jouer )
-                <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2">
+                @forelse ($jouers as $jouer)
+                <div class="bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-2xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2">
                     <div class="relative h-56 overflow-hidden">
                         @if ($jouer->photo)
                         <img src="{{ $jouer->imageUrl() }}" alt="{{ $jouer->nom }}" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
                         @else
                         <img src="{{ asset('logo.jpg') }}" alt="{{ $jouer->nom }}" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
-
                         @endif  
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 dark:from-black/70 to-transparent"></div>
                     </div>
-                    <div class="relative p-6 -mt-6 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent">
+                    <div class="relative p-6 -mt-6 bg-gradient-to-t from-gray-100 via-gray-100 to-transparent dark:from-gray-900 dark:via-gray-900 dark:to-transparent">
                         <div class="absolute -top-8 right-6 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full p-2 shadow-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
                             </svg>
                         </div>
                         <h4 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mt-2">{{ $jouer->nom }}</h4>
-                        <p class="text-gray-400">{{ $jouer->poste }}</p>
-                        <p class="text-gray-300 mt-2">Leader charismatique, Jean inspire ses coéquipiers par son travail acharné et sa vision du jeu.</p>
+                        <p class="text-gray-600 dark:text-gray-400">{{ $jouer->poste }}</p>
+                        <p class="text-gray-700 dark:text-gray-300 mt-2">Leader charismatique, Jean inspire ses coéquipiers par son travail acharné et sa vision du jeu.</p>
                     </div>
                 </div>
                 @empty
                     <!-- Membre 1 -->
-                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-2xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2">
                         <div class="relative h-56 overflow-hidden">
                             <img src="{{ asset('img/1740169523721.jpg') }}" alt="Joueur 1" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 dark:from-black/70 to-transparent"></div>
                         </div>
-                        <div class="relative p-6 -mt-6 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent">
+                        <div class="relative p-6 -mt-6 bg-gradient-to-t from-gray-100 via-gray-100 to-transparent dark:from-gray-900 dark:via-gray-900 dark:to-transparent">
                             <div class="absolute -top-8 right-6 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full p-2 shadow-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
                                 </svg>
                             </div>
                             <h4 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Jean Kabasele</h4>
-                            <p class="text-gray-400">Capitaine & Milieu de terrain</p>
-                            <p class="text-gray-300 mt-2">Leader charismatique, Jean inspire ses coéquipiers par son travail acharné et sa vision du jeu.</p>
+                            <p class="text-gray-600 dark:text-gray-400">Capitaine & Milieu de terrain</p>
+                            <p class="text-gray-700 dark:text-gray-300 mt-2">Leader charismatique, Jean inspire ses coéquipiers par son travail acharné et sa vision du jeu.</p>
                         </div>
                     </div>
-
+        
                     <!-- Membre 2 -->
-                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-2xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2">
                         <div class="relative h-56 overflow-hidden">
                             <img src="{{ asset('img/1740169797146.jpg') }}" alt="Joueur 2" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 dark:from-black/70 to-transparent"></div>
                         </div>
-                        <div class="relative p-6 -mt-6 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent">
+                        <div class="relative p-6 -mt-6 bg-gradient-to-t from-gray-100 via-gray-100 to-transparent dark:from-gray-900 dark:via-gray-900 dark:to-transparent">
                             <div class="absolute -top-8 right-6 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full p-2 shadow-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                                 </svg>
                             </div>
                             <h4 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Sarah Mbuyi</h4>
-                            <p class="text-gray-400">Attaquante</p>
-                            <p class="text-gray-300 mt-2">Sarah est une buteuse née, avec un sens aigu du placement et une finition redoutable.</p>
+                            <p class="text-gray-600 dark:text-gray-400">Attaquante</p>
+                            <p class="text-gray-700 dark:text-gray-300 mt-2">Sarah est une buteuse née, avec un sens aigu du placement et une finition redoutable.</p>
                         </div>
                     </div>
-
+        
                     <!-- Membre 3 -->
-                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-2xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2">
                         <div class="relative h-56 overflow-hidden">
                             <img src="{{ asset('img/1740169349422.jpg') }}" alt="Joueur 3" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 dark:from-black/70 to-transparent"></div>
                         </div>
-                        <div class="relative p-6 -mt-6 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent">
+                        <div class="relative p-6 -mt-6 bg-gradient-to-t from-gray-100 via-gray-100 to-transparent dark:from-gray-900 dark:via-gray-900 dark:to-transparent">
                             <div class="absolute -top-8 right-6 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full p-2 shadow-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" />
                                 </svg>
                             </div>
                             <h4 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Patrick Nkulu</h4>
-                            <p class="text-gray-400">Défenseur central</p>
-                            <p class="text-gray-300 mt-2">Patrick est le roc de la défense, toujours prêt à tout sacrifier pour son équipe.</p>
+                            <p class="text-gray-600 dark:text-gray-400">Défenseur central</p>
+                            <p class="text-gray-700 dark:text-gray-300 mt-2">Patrick est le roc de la défense, toujours prêt à tout sacrifier pour son équipe.</p>
                         </div>
                     </div>
                 @endforelse
@@ -450,8 +448,8 @@
 
 <!-- Section d'actualité  -->
  <!-- Section Actualités : News et événements de l'équipe -->
-<section id="news" class="py-16 bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden mt-">
-    <div class="container mx-auto px-4">
+ <section id="news" class="py-16  overflow-hidden mt-">
+        <div class="container mx-auto px-4">
         <!-- Titre de la section avec animation -->
         <h2 class="text-4xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-12 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="news-title">
             Actualités FC Salvador
@@ -460,16 +458,14 @@
         @if ($dernier)
 
         <!-- Bannière événement principal avec compte à rebours -->
-        <div class="relative mb-12 rounded-xl overflow-hidden shadow-2xl opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="featured-event">
+        <div class="relative mb-12 rounded-xl overflow-hidden shadow-2xl opacity-0 transform translate-y-10 transition-all duration-1000 ease-out dark:shadow-gray-700" id="featured-event">
             <div class="relative h-[400px] w-full overflow-hidden group">
                 @if ($dernier->image)
-                <img src="{{ $post->imageUrl() }}" alt="{{ $dernier->type->nom }}" class="w-full h-full object-cover brightness-75 transform transition-transform duration-700 group-hover:scale-105">
-                
-            @else
-                <img src="{{ asset('img/1740169349422.jpg') }}" alt="{{ $dernier->type->nom }}" class="w-full h-full object-cover brightness-75 transform transition-transform duration-700 group-hover:scale-105">
-                
-            @endif
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                    <img src="{{ $post->imageUrl() }}" alt="{{ $dernier->type->nom }}" class="w-full h-full object-cover brightness-75 dark:brightness-50 transform transition-transform duration-700 group-hover:scale-105">
+                @else
+                    <img src="{{ asset('img/1740169349422.jpg') }}" alt="{{ $dernier->type->nom }}" class="w-full h-full object-cover brightness-75 dark:brightness-50 transform transition-transform duration-700 group-hover:scale-105">
+                @endif
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent dark:from-black/90 dark:via-black/60"></div>
                 <div class="absolute inset-0 flex flex-col justify-center items-center p-6 text-center">
                     <span class="px-4 py-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-sm rounded-full mb-4 animate-pulse">{{ $dernier->type->nom }}</span>
                     <h3 class="text-3xl md:text-4xl font-bold text-white mb-2">{{ $dernier->titre }}</h3>
@@ -477,14 +473,12 @@
                     
                     <!-- Compte à rebours -->
                     <div class="mb-6 flex justify-center">
-                        <div class="bg-black/60 backdrop-blur-lg px-6 py-4 rounded-xl shadow-lg text-center">
+                        <div class="bg-black/60 dark:bg-black/80 backdrop-blur-lg px-6 py-4 rounded-xl shadow-lg dark:shadow-gray-900 text-center">
                             <span id="countdown" class="text-4xl font-extrabold text-white tracking-wider"></span>
                         </div>
                     </div>
                     
-                    
-                    
-                    <a href="#" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full shadow-lg transform transition-transform hover:scale-105">
+                    <a href="#" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full shadow-lg dark:shadow-gray-900 transform transition-transform hover:scale-105">
                         Plus d'informations
                     </a>
                 </div>
@@ -531,42 +525,47 @@
         <!-- Grille d'actualités -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" id="news-grid">
             @foreach($posts as $post)
-            <article class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2 opacity-0 translate-y-10 transition-opacity ease-out news-item" data-category="{{ $post->category->slug }}">
-                    <div class="relative h-56 overflow-hidden">
-                        <span class="absolute top-3 left-3 z-10 px-3 py-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-xs rounded-full">{{ $post->category->name }}</span>
-                            @if ($post->image)
-                        <img src="{{  $post->imageUrl()}}" alt="{{ $post->titre }}" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
-                                
-                            @else
-                        <img src="{{ asset('logo.png') }}" alt="{{ $post->titre }}" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
-                                
-                            @endif
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                        <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white px-2 py-1 rounded text-sm">{{ $post->created_at->diffForHumans() }}</div>
+            <article class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-100 dark:to-gray-200 rounded-xl shadow-xl overflow-hidden group transform transition-all duration-300 hover:-translate-y-2 opacity-0 translate-y-10 transition-opacity ease-out news-item" data-category="{{ $post->category->slug }}">
+                <div class="relative h-56 overflow-hidden">
+                    <span class="absolute top-3 left-3 z-10 px-3 py-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-xs rounded-full">
+                        {{ $post->category->name }}
+                    </span>
+                    @if ($post->image)
+                    <img src="{{  $post->imageUrl() }}" alt="{{ $post->titre }}" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+                    @else
+                    <img src="{{ asset('logo.png') }}" alt="{{ $post->titre }}" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+                    @endif
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent dark:from-gray-900/80"></div>
+                    <div class="absolute bottom-3 left-3 bg-black/60 dark:bg-white/60 dark:text-gray-900 backdrop-blur-sm text-white px-2 py-1 rounded text-sm">
+                        {{ $post->created_at->diffForHumans() }}
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-2">{{ $post->titre }}</h3>
-                        <p class="text-gray-300 mb-4">{{ Str::limit($post->contenus, 100) }}</p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center space-x-2">
-                                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-white">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-                                    </svg>
-                                </div>
-                                <span class="text-gray-400 text-sm">{{ $post->likes_count }} vues</span>
-                            </div>
-                            <a href="{{ route('posts.show', $post) }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
-                                Lire plus
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-1">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-700 dark:to-blue-700 mb-2">
+                        {{ $post->titre }}
+                    </h3>
+                    <p class="text-gray-300 dark:text-gray-700 mb-4">{!! Str::limit($post->contenus, 100) !!}</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
                                 </svg>
-                            </a>
+                            </div>
+                            <span class="text-gray-400 dark:text-gray-600 text-sm">{{ $post->likes_count }} Likes</span>
                         </div>
+                        <a href="{{ route('posts.show', $post) }}" class="text-blue-400 dark:text-blue-600 hover:text-blue-300 dark:hover:text-blue-400 transition-colors flex items-center">
+                            Lire plus
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            </svg>
+                        </a>
                     </div>
-                </article>
+                </div>
+            </article>
             @endforeach
         </div>
+        
 
         <!-- Bouton "Charger plus" avec animation -->
         <div class="flex justify-center opacity-0 transform translate-y-10 transition-all duration-1000 ease-out delay-300" id="load-more-container">
@@ -792,11 +791,10 @@
 
 
  <!-- Section Joueurs : Présentation des joueurs de l'équipe avec animation au survol -->
-<section id="players" class="py-16  bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden   ">
-    <div class="container mx-auto px-4    bg-gray-800/250 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-gray-700/30 transform transition-all duration-1000 ease-out delay-200">
+ <section id="players" class="py-16 bg-gradient-to-br from-gray-900 to-gray-800 dark:from-gray-100 dark:to-gray-200 overflow-hidden">
+    <div class="container mx-auto px-4 bg-gray-800/25 dark:bg-gray-200/50 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-gray-700/30 dark:border-gray-300/50 transform transition-all duration-1000 ease-out delay-200">
         <!-- Titre de la section avec animation -->
-        <!-- Titre de la section avec animation -->
-        <h4 class="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-8" >
+        <h4 class="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-700 dark:to-blue-700 mb-8">
             Nos Joueurs FC Salvador
         </h4>
 
@@ -805,42 +803,40 @@
             <!-- Conteneur du carrousel -->
             <div class="overflow-hidden">
                 <div class="flex transition-transform duration-500 ease-in-out" id="players-carousel">
-                    <!-- Carte Joueur 1 -->
-                    @forelse ($tousjouers as $j )
-                        <div class="min-w-full md:min-w-[50%] lg:min-w-[33.33%] px-4">
-                            <div class="relative h-96 rounded-xl overflow-hidden group">
-                                @if ($j->photo)
-                                <img src="{{ $j->imageUrl() }}" alt="Joueur 1" class="w-full h-full object-cover">
-                                    
-                                @else
-                                <img src="{{ asset('img/1740169349422.jpg') }}" alt="Joueur 1" class="w-full h-full object-cover">
-                                    
-                                @endif
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                                <!-- Informations du joueur (apparaissent au survol) -->
-                                <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
-                                    <h3 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-2">{{ $j->nom }}</h3>
-                                    <p class="text-gray-300 mb-2">{{ $j->poste }} - {{ \Carbon\Carbon::parse($j->date_de_naissance)->age }} ans</p>
-                                    <p class="text-gray-400 text-sm">{!! Str::limit($j->historique, 150) !!}</p>
-                                </div>
+                    <!-- Carte Joueur -->
+                    @forelse ($tousjouers as $j)
+                    <div class="min-w-full md:min-w-[50%] lg:min-w-[33.33%] px-4">
+                        <div class="relative h-96 rounded-xl overflow-hidden group">
+                            @if ($j->photo)
+                            <img src="{{ $j->imageUrl() }}" alt="Joueur {{ $j->nom }}" class="w-full h-full object-cover">
+                            @else
+                            <img src="{{ asset('img/1740169349422.jpg') }}" alt="Joueur inconnu" class="w-full h-full object-cover">
+                            @endif
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent dark:from-gray-900/80"></div>
+                            
+                            <!-- Informations du joueur (apparaissent au survol) -->
+                            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent dark:from-white/90 dark:text-gray-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
+                                <h3 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-700 dark:to-blue-700 mb-2">
+                                    {{ $j->nom }}
+                                </h3>
+                                <p class="text-gray-300 dark:text-gray-700 mb-2">{{ $j->poste }} - {{ \Carbon\Carbon::parse($j->date_de_naissance)->age }} ans</p>
+                                <p class="text-gray-400 dark:text-gray-600 text-sm">{!! Str::limit($j->historique, 150) !!}</p>
                             </div>
                         </div>
+                    </div>
                     @empty
-                        
+                    <p class="text-center text-gray-400 dark:text-gray-600">Aucun joueur trouvé.</p>
                     @endforelse
-                    
-
-                    
                 </div>
             </div>
 
             <!-- Boutons de navigation du carrousel -->
-            <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/50 backdrop-blur-sm text-white p-3 rounded-full shadow-lg hover:bg-black/70 transition-colors" id="prev-player">
+            <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/50 dark:bg-white/50 backdrop-blur-sm text-white dark:text-gray-900 p-3 rounded-full shadow-lg hover:bg-black/70 dark:hover:bg-white/70 transition-colors" id="prev-player">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                 </svg>
             </button>
-            <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/50 backdrop-blur-sm text-white p-3 rounded-full shadow-lg hover:bg-black/70 transition-colors" id="next-player">
+            <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/50 dark:bg-white/50 backdrop-blur-sm text-white dark:text-gray-900 p-3 rounded-full shadow-lg hover:bg-black/70 dark:hover:bg-white/70 transition-colors" id="next-player">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                 </svg>
@@ -848,6 +844,7 @@
         </div>
     </div>
 </section>
+
 
 <!-- Script pour le carrousel des joueurs -->
 <script>

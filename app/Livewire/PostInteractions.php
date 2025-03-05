@@ -2,43 +2,39 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\Post;
 
 class PostInteractions extends Component
 {
-    public $post;
-    public $comments;
-    public $likesCount;
-    public $commentContent = ''; // Initialiser à une chaîne vide
+    use WithPagination; // Ajoute la pagination Livewire
 
+    public $post;
+    public $likesCount;
+    public $commentContent = '';
     public $userLike;
 
     public function mount(Post $post)
     {
         $this->post = $post;
-        $this->comments = $post->comments()->with('user')->latest()->get();
         $this->likesCount = $post->likes()->count();
         $this->userLike = $post->likes()->where('user_id', auth()->id())->exists();
     }
 
     public function addComment()
     {
-        // Valider le contenu du commentaire
         $this->validate(['commentContent' => 'required|min:3']);
 
-        // Ajouter le commentaire
         $this->post->commentaires()->create([
             'user_id' => auth()->id(),
             'content' => $this->commentContent,
         ]);
 
-        // Réinitialiser le champ de texte
-        $this->commentContent = ''; // Réinitialiser à une chaîne vide
+        $this->commentContent = '';
 
-        // Recharger les commentaires
-        $this->comments = $this->post->commentaires()->with('user')->latest()->get();
+        // Rafraîchir la pagination après ajout
+        $this->resetPage();
     }
-
 
     public function toggleLike()
     {
@@ -52,9 +48,13 @@ class PostInteractions extends Component
             $this->userLike = true;
         }
     }
-
+    public function updatedPage()
+    {
+        $this->dispatch('scroll-to-comments');    }
     public function render()
     {
-        return view('livewire.post-interactions');
+        return view('livewire.post-interactions', [
+            'comments' => $this->post->commentaires()->with('user')->latest()->paginate(5) // 5 commentaires par page
+        ]);
     }
 }

@@ -21,7 +21,7 @@
 
             <!-- Contenu du post -->
             <div class="prose dark:prose-invert max-w-none">
-                {!! nl2br(e($post->contenus)) !!}
+                {!! $post->contenus !!}
             </div>
 
             <!-- Image du post (si disponible) -->

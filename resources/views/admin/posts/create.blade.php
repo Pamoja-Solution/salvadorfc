@@ -45,7 +45,7 @@
                     @error('categorie_id')
                         class="block mb-2 text-sm font-medium text-red-700 dark:text-red-500"
                     @enderror
-                    class="block mb-3 text-sm font-medium text-gray-200">Catégorie</label>
+                    class="block mb-3 text-sm font-medium text-gray-800 dark:text-purple-200">Catégorie</label>
                     <select id="categorie_id" 
                             name="categorie_id"
                             @error('categorie_id')
@@ -67,7 +67,7 @@
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
-                <label class="block text-sm font-medium text-gray-200">Image</label>
+                <label class="block text-sm font-medium text-gray-800 dark:text-purple-200">Image</label>
 
                 <div class=" flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-start sm:space-y-0 sm:space-x-4">
                         <div class="mt-1  justify-center px-3 pt-3 pb-6 border-2 border-gray-300 border-dashed rounded-md">
@@ -122,12 +122,14 @@
                     @enderror
                 </div>
     
+                @if (!$posts->exists)
                 <div class="mb-4">
                     <label class="flex items-center">
                         <input type="checkbox" name="status" value="0" class="form-checkbox dark:bg-gray-800 dark:border-gray-600" {{ old('status') ? '' : 'checked' }}>
                         <span class="ml-2 text-gray-700 dark:text-gray-300">Publier immédiatement</span>
                     </label>
                 </div>
+                @endif
     
                 <div class="flex items-center justify-between">
                     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
