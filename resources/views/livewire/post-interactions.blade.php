@@ -77,6 +77,11 @@
                 <p class="text-gray-400 dark:text-gray-500 text-sm mt-1 transition-colors duration-300">Soyez le premier à partager votre avis !</p>
             </div>
         @endif
+
+        <div class="mt-6">
+            <textarea wire:model="commentContent" class="w-full bg-gray-700 text-white rounded-lg p-3" placeholder="Ajouter un commentaire..."></textarea>
+            <button wire:click="addComment" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Commenter</button>
+        </div>
         
         <!-- Pagination avec style amélioré -->
         <div class="mt-8" wire:ignore>

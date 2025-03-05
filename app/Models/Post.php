@@ -61,5 +61,8 @@ public function comments(): HasMany
     {
         return $this->hasMany(Like::class);
     }
+    public function users(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
     
 }
