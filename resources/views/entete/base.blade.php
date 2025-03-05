@@ -33,14 +33,21 @@
           <meta name="apple-mobile-web-app-title" content="Mas Code Product">
           <meta name="msapplication-TileImage" content="{{ asset('logo.png') }}">
           <meta name="msapplication-TileColor" content="#E11308">
-
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         @else
           <title>@yield('titre', 'FC SALVADOR')</title>
         @endif
+        @if(request()->is("nosactualite"))
+          <title>@yield('titre','Nos Actualités')</title>
+         
+        @else
+        @endif
+
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+                
        
         <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -59,6 +66,7 @@
    
 
     @endif
+
     <style>
                     
         @font-face {
@@ -81,12 +89,12 @@
                 animation: fadeIn 1.5s ease-out;
             }
         </style>
+
     </head>
     @php
     $route = request()->route() ? request()->route()->getName() : 'route_inconnue';
   @endphp
 
-    
 <body class="bg-white dark:bg-gray-800   ">
     <!-- Header Sticky -->
     <nav class=" shadow-lg sticky top-0 z-50 backdrop-blur-md bg-opacity-70 bg-gray-900 ">
@@ -112,7 +120,7 @@
               <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                 <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg md:space-x-4 rtl:space-x-reverse md:flex-row md:mt-0">
                   <li>
-                    <a href="{{ url('/#news') }}" class="block py-2 px-3 text-cyan-400 rounded hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-300">Actualités</a>
+                    <a href="{{ route('home') }}" class="block py-2 px-3 text-cyan-400 rounded hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-300">Actualités</a>
                   </li>
                   @if (str_contains($route, 'user'))
                   <li>

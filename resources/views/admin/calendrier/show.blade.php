@@ -15,7 +15,7 @@
                     </div>
                 @endif
             </div>  
-            <p class="text-gray-600 text-lg mb-4">{{ $calendrier->description }}</p>
+            <p class="text-gray-600 text-lg mb-4">{!! $calendrier->description !!}</p>
 
             <div class="grid grid-cols-2 gap-4 bg-gray-100 p-4 rounded-lg">
                 <p class="text-gray-700"><span class="font-semibold">📅 Début :</span> {{ \Carbon\Carbon::parse($calendrier->date_debut)->format('d/m/Y H:i') }}</p>

@@ -1,11 +1,13 @@
 <?php
-
+use App\Livewire\CalendrierList;
 use App\Http\Controllers\CalendrierController;
+use App\Http\Controllers\CalendrierControllerSite;
 use App\Http\Controllers\CalendrierMatchController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Debut;
 use App\Http\Controllers\GestionAdmin;
+use Livewire\Livewire;
 use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\JouerControllerSite;
 use App\Http\Controllers\PostController;
@@ -210,5 +212,13 @@ Route::get('/palmares', [Palmares::class, 'palmares'])->name('palmares');
 Route::get('/photos', [PhotosController::class, 'photos'])->name('photos');
 
 Route::resource("/actualites/posts",PostControllerUser::class);
+
+
+Route::get('/nosactualite', function () {
+    return view('calendriers.index');})->name('home');
+
+
+Route::get('/nosactualite/{calendrier}', [CalendrierControllerSite::class, 'show'])->name('calendriers.show');
+
 require __DIR__.'/auth.php';
 
