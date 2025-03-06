@@ -1,69 +1,63 @@
 <?php
-
 namespace App\Livewire;
 
-use App\Models\Post;
-use App\Models\Categorie;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Models\Calendrier;
+use App\Models\Type;
 
-class PostsList extends Component
+class CalendrierList extends Component
 {
     use WithPagination;
+    
+    protected $paginationTheme = 'tailwind'; // Ajouter le thème de pagination
 
     public $search = '';
-    public $categorieId = '';
-    public $orderBy = 'created_at';
-    public $orderDirection = 'desc';
-    public $perPage = 10;
+    public $selectedType = '';
+    public $types = [];
 
-    protected $queryString = [
-        'search' => ['except' => ''],
-        'categorieId' => ['except' => ''],
-        'orderBy' => ['except' => 'created_at'],
-        'orderDirection' => ['except' => 'desc'],
-    ];
+    // Les propriétés search et selectedType doivent être explicitement écoutées
+    protected $queryString = ['search', 'selectedType'];
 
-    public function updatingSearch()
+    public function mount()
+    {
+        $this->types = Type::all(); // Charger les types une seule fois
+    }
+
+    public function updatedSearch()
     {
         $this->resetPage();
     }
 
-    public function updatingCategorieId()
+    public function updatedSelectedType()
     {
         $this->resetPage();
     }
 
     public function render()
     {
-        $categories = Categorie::all();
+        // Construire la requête de base
+        $query = Calendrier::query();
 
-        $posts = Post::where('status', true)
-            ->when($this->search, function ($query) {
-                return $query->where(function ($query) {
-                    $query->where('titre', 'like', '%' . $this->search . '%')
-                        ->orWhere('contenus', 'like', '%' . $this->search . '%');
-                });
-            })
-            ->when($this->categorieId, function ($query) {
-                return $query->where('categorie_id', $this->categorieId);
-            })
-            ->orderBy($this->orderBy, $this->orderDirection)
-            ->paginate($this->perPage);
-
-        return view('livewire.posts-list', [
-            'posts' => $posts,
-            'categories' => $categories,
-        ]);
-    }
-
-    public function setOrderBy($field)
-    {
-        if ($this->orderBy === $field) {
-            $this->orderDirection = $this->orderDirection === 'asc' ? 'desc' : 'asc';
-        } else {
-            $this->orderBy = $field;
-            $this->orderDirection = 'asc';
+        // Appliquer la recherche si $search n'est pas vide
+        if (!empty($this->search)) {
+            $query->where(function ($query) {
+                $query->where('titre', 'like', '%' . $this->search . '%')
+                      ->orWhere('description', 'like', '%' . $this->search . '%');
+            });
         }
+
+        // Appliquer le filtre par type si $selectedType n'est pas vide
+        if (!empty($this->selectedType)) {
+            $query->where('type_id', $this->selectedType);
+        }
+
+        // Paginer les résultats
+        $calendriers = $query->orderBy('date_debut', 'desc')->paginate(5);
+
+        // Retourner la vue avec les données
+        return view('livewire.calendrier-list', [
+            'calendriers' => $calendriers,
+        ]);
     }
 }

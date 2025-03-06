@@ -215,7 +215,8 @@ Route::resource("/actualites/posts",PostControllerUser::class);
 
 
 Route::get('/nosactualite', function () {
-    return view('calendriers.index');})->name('home');
+    return view('calendriers.index');
+})->name('home');
 
 
 Route::get('/nosactualite/{calendrier}', [CalendrierControllerSite::class, 'show'])->name('calendriers.show');

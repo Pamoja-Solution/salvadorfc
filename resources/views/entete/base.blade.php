@@ -53,7 +53,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/sort@3.x.x/dist/cdn.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     
@@ -67,19 +66,23 @@
 
     @endif
 
-    <style>
+      <style>
                     
         @font-face {
           font-family: 'Google';
           src: url('{{asset('ProductSans-Light.ttf')}}');
           font-weight: 500;
           
-      }
-      body{
-          font-family: 'Google';
-      }
+          }
+          body{
+              font-family: 'Google';
+          }
       </style>
         <style>
+          html, body {
+    height: 100%;
+    overflow: visible !important;}
+
             /* Animation pour le texte */
             @keyframes fadeIn {
                 from { opacity: 0; transform: translateY(20px); }
@@ -89,6 +92,7 @@
                 animation: fadeIn 1.5s ease-out;
             }
         </style>
+@livewireStyles
 
     </head>
     @php
@@ -119,9 +123,18 @@
           
               <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                 <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg md:space-x-4 rtl:space-x-reverse md:flex-row md:mt-0">
+                    <!--li>
+                      <button 
+                          x-data
+                          @click="$dispatch('open-search-modal')"
+                          class="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg shadow-md hover:scale-105 transition">
+                        🔍 Rechercher
+                      </button>
+                    </li-->
                   <li>
                     <a href="{{ route('home') }}" class="block py-2 px-3 text-cyan-400 rounded hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-300">Actualités</a>
                   </li>
+                  
                   @if (str_contains($route, 'user'))
                   <li>
                     <a href="{{route('user.newpost')}}" class="block py-2 px-3 text-cyan-400 rounded hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-300">Calendrier</a>
@@ -234,11 +247,37 @@
               </div>
         </div>
     </nav>
+
 @yield("contenus")
-
+                    
+                    <!--div 
+                    x-data="{ open: false }" 
+                    x-show="open"
+                    @open-search-modal.window="open = true"
+                    @keydown.escape.window="open = false"
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition ease-in duration-150"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    class="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
+                    style="display: none;">
+                    
+                    <div 
+                      @click.outside="open = false"
+                      x-transition:enter="ease-out duration-300"
+                      x-transition:enter-start="opacity-0 scale-95"
+                      x-transition:enter-end="opacity-100 scale-100"
+                      x-transition:leave="ease-in duration-200"
+                      x-transition:leave-start="opacity-100 scale-100"
+                      x-transition:leave-end="opacity-0 scale-95">
+                      
+                      @livewire('recherche-globale')
+                    </div>
+                  </div!-->
+                  
 <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-    
-
 </body>
     
 </html>

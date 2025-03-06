@@ -1,5 +1,3 @@
-
 @include("components.layouts.app")
-
-    @livewire('calendrier-list')
+@livewire('calendrier-list')
 
