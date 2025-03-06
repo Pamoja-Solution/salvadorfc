@@ -220,5 +220,8 @@ Route::get('/nosactualite', function () {
 
 Route::get('/nosactualite/{calendrier}', [CalendrierControllerSite::class, 'show'])->name('calendriers.show');
 
+
+Route::get('/posts', [PostControllerUser::class, "index"])->name('postss.index');
+//Route::get('/posts/{slug}', App\Http\Livewire\PostShow::class)->name('posts.show');
 require __DIR__.'/auth.php';
 

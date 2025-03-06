@@ -15,7 +15,7 @@ class PostsList extends Component
     public $categorieId = '';
     public $orderBy = 'created_at';
     public $orderDirection = 'desc';
-    public $perPage = 10;
+    public $perPage = 12;
 
     protected $queryString = [
         'search' => ['except' => ''],
@@ -36,7 +36,7 @@ class PostsList extends Component
 
     public function render()
     {
-        $categories = Categorie::all();
+        $categories = Categorie::orderBy('name',"asc")->get();
 
         $posts = Post::where('status', true)
             ->when($this->search, function ($query) {

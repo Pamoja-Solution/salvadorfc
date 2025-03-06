@@ -13,6 +13,7 @@ class PostControllerUser extends Controller
     public function index()
     {
         //
+        return view('post.index');
     }
 
     /**

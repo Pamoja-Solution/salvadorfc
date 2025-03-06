@@ -569,14 +569,14 @@
 
         <!-- Bouton "Charger plus" avec animation -->
         <div class="flex justify-center opacity-0 transform translate-y-10 transition-all duration-1000 ease-out delay-300" id="load-more-container">
-            <button id="load-more" class="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
+            <a href="{{ route('postss.index') }}" id="load-more" class="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
                 <span class="flex items-center">
                     <span>Voir plus d'actualités</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-2 animate-bounce">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
                     </svg>
                 </span>
-            </button>
+            </a>
         </div>
 
        
