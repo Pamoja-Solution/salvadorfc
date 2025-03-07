@@ -250,32 +250,7 @@
 
 @yield("contenus")
                     
-                    <!--div 
-                    x-data="{ open: false }" 
-                    x-show="open"
-                    @open-search-modal.window="open = true"
-                    @keydown.escape.window="open = false"
-                    x-transition:enter="transition ease-out duration-200"
-                    x-transition:enter-start="opacity-0"
-                    x-transition:enter-end="opacity-100"
-                    x-transition:leave="transition ease-in duration-150"
-                    x-transition:leave-start="opacity-100"
-                    x-transition:leave-end="opacity-0"
-                    class="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
-                    style="display: none;">
-                    
-                    <div 
-                      @click.outside="open = false"
-                      x-transition:enter="ease-out duration-300"
-                      x-transition:enter-start="opacity-0 scale-95"
-                      x-transition:enter-end="opacity-100 scale-100"
-                      x-transition:leave="ease-in duration-200"
-                      x-transition:leave-start="opacity-100 scale-100"
-                      x-transition:leave-end="opacity-0 scale-95">
-                      
-                      @livewire('recherche-globale')
-                    </div>
-                  </div!-->
+                   
                   
 <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </body>
