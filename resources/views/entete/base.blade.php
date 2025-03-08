@@ -223,9 +223,7 @@
                             @endif
                           @endauth
           
-                          <li>
-                            <a href="{ {route('user.newpost')}}" class="block px-4 py-3 text-base hover:bg-gray-800/50 transition-colors duration-300">Nouveau Post</a> <!-- Padding et texte plus grands -->
-                          </li>
+                          
                         </ul>
                         <div class="py-2">
                           <form method="POST" action="{{ route('logout') }}">
