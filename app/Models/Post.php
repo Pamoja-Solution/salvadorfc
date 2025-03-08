@@ -61,8 +61,14 @@ public function comments(): HasMany
     {
         return $this->hasMany(Like::class);
     }
+    
     public function users(){
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function favoris()
+    {
+        return $this->belongsToMany(User::class, 'favoris', 'post_id', 'user_id')->withTimestamps();
     }
     
 }

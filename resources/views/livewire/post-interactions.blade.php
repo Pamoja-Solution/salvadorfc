@@ -40,6 +40,11 @@
         @endguest
         
         <div class="mb-6">
+            @error("commentContent")
+                                    <div class="p-2 mb-2 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-red-100 dark:text-red-400" role="alert">
+                                        <span class="font-bold"> {{ $message }}.</span>
+                                    </div>
+                                @enderror
             <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                 <label for="comment" class="sr-only">Your comment</label>
                 <textarea id="comment" rows="6" @guest
@@ -49,6 +54,7 @@
                     class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
                     placeholder="Écrie ton commentaire" required></textarea>
             </div>
+            
             <button @guest
                 disabled
             @endguest

@@ -1,4 +1,4 @@
-@include("components.layouts.app")
 
+@include("components.layouts.app")
 
     <livewire:posts-list />

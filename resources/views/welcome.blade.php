@@ -542,7 +542,7 @@
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl  font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-700 dark:to-blue-700 mb-2">
-                        {{ $post->titre }}
+                        {{ Str::limit($post->titre,50) }}
                     </h3>
                     <p class="text-gray-800 dark:text-gray-200 mb-4">{!! Str::limit($post->contenus, 100) !!}</p>
                     <div class="flex justify-between items-center ">
@@ -756,7 +756,7 @@
                 `;
                 
                 // Afficher un message d'alerte (à remplacer par le chargement réel d'articles)
-                alert('Fonctionnalité de chargement d\'articles supplémentaires à implémenter selon votre système de gestion de contenu.');
+                //alert('Fonctionnalité de chargement d\'articles supplémentaires à implémenter selon votre système de gestion de contenu.');
             }, 1500);
         });
     });
@@ -1546,7 +1546,7 @@
         
         // Ajouter événement au bouton "Ajouter une story" (pour démo)
         document.querySelector('button').addEventListener('click', () => {
-            alert('Fonctionnalité pour ajouter une story à implémenter selon votre système de gestion de contenu.');
+            //alert('Fonctionnalité pour ajouter une story à implémenter selon votre système de gestion de contenu.');
         });
     });
 </script>

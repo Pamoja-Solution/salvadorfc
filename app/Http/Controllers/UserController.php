@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -11,7 +12,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.index');
+        $user = Auth::user();
+        $favoris = $user->favoris()->with('user')->withCount('likes','comments')->paginate(10); // Pagination pour la liste
+        return view('users.index', compact('favoris'));
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Http\Controllers\CalendrierMatchController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Debut;
+use App\Http\Controllers\FavoriController;
 use App\Http\Controllers\GestionAdmin;
 use Livewire\Livewire;
 use App\Http\Controllers\ImageUploadController;
@@ -224,5 +225,14 @@ Route::get('/nosactualite/{calendrier}', [CalendrierControllerSite::class, 'show
 
 Route::get('/posts', [PostControllerUser::class, "index"])->name('postss.index');
 //Route::get('/posts/{slug}', App\Http\Livewire\PostShow::class)->name('posts.show');
+
+
+// Ajouter ou supprimer un favori
+Route::post('/favoris/toggle', [FavoriController::class, 'toggle'])->name('favoris.toggle');
+
+// Afficher la liste des favoris d'un utilisateur
+Route::get('/favoris', [FavoriController::class, 'index'])->name('favoris.index');
+
+
 require __DIR__.'/auth.php';
 

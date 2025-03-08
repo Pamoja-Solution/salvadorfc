@@ -57,6 +57,15 @@
                   Lien copié
                 </button>
                 
+                @auth
+                    <button id="favori-toggle" data-post-id="{{ $post->id }}" @if(auth()->user()->favoris->contains($post->id)) class="text-gray-900 bg-[#F05252] hover:bg-[#FBD5D5]/90 focus:ring-4 focus:outline-none focus:ring-[#771D1D]/50 font-bold text-gray-100 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#771D1D]/50 me-2 mb-2" @else class="text-gray-900 bg-[#057A55] hover:bg-[#BCF0DA]/90 focus:ring-4 focus:outline-none focus:ring-[#057A55]/50 font-bold text-gray-100 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#057A55]/50 me-2 mb-2"@endif>
+                        @if(auth()->user()->favoris->contains($post->id))
+                            ❌ Retirer des favoris
+                        @else
+                            ❤️ Ajouter aux favoris
+                        @endif
+                    </button>
+                @endauth
               </div>
             
               @if ($post->image)
@@ -75,4 +84,22 @@
             </div>
         </article>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    document.getElementById('favori-toggle').addEventListener('click', function () {
+        const postId = this.getAttribute('data-post-id');
+        axios.post('/favoris/toggle', { post_id: postId })
+            .then(response => {
+                if (response.data.status === 'added') {
+                    this.innerHTML = '❌ Retirer des favoris';
+                } else {
+                    this.innerHTML = '❤️ Ajouter aux favoris';
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    });
+</script>
   </main>

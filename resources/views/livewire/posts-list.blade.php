@@ -91,7 +91,7 @@
                         </div>
                         
                         <a href="{{ route('posts.show', $post->slug) }}" class="block">
-                            <h3 class="text-lg font-medium font-bold dark:text-gray-100 hover:text-indigo-600 mb-2">{{ $post->titre }}</h3>
+                            <h3 class="text-lg font-medium font-bold dark:text-gray-100 hover:text-indigo-600 mb-2">{{ Str::limit($post->titre,30) }}</h3>
                         </a>
                         
                         <p class="text-sm text-gray-600 dark:text-gray-300 line-clamp-3">

@@ -56,7 +56,7 @@
                   
                   Lien copié
                 </button>
-                
+
               </div>
             
               @if ($post->image)

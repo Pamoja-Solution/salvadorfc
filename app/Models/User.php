@@ -20,6 +20,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        "adresse",
+        "image",
         'password',
     ];
 
@@ -44,5 +46,9 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function favoris()
+    {
+        return $this->belongsToMany(Post::class, 'favoris', 'user_id', 'post_id')->withTimestamps();
     }
 }

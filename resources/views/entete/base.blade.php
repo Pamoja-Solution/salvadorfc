@@ -35,7 +35,12 @@
           <meta name="msapplication-TileColor" content="#E11308">
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         @else
-          <title>@yield('titre', 'FC SALVADOR')</title>
+        @endif
+
+        @if(request()->is('posts/'))
+          <title>{{"Les Posts" }}</title>
+          
+        @else
         @endif
         @if(request()->is("nosactualite"))
           <title>@yield('titre','Nos Actualités')</title>
@@ -43,6 +48,7 @@
         @else
         @endif
 
+        <title>@yield('titre','Fc Salvador')</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -123,21 +129,14 @@
           
               <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                 <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg md:space-x-4 rtl:space-x-reverse md:flex-row md:mt-0">
-                    <!--li>
-                      <button 
-                          x-data
-                          @click="$dispatch('open-search-modal')"
-                          class="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg shadow-md hover:scale-105 transition">
-                        🔍 Rechercher
-                      </button>
-                    </li-->
+                    
                   <li>
                     <a href="{{ route('home') }}" class="block py-2 px-3 text-cyan-400 rounded hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-300">Actualités</a>
                   </li>
                   
                   @if (str_contains($route, 'user'))
                   <li>
-                    <a href="{{route('user.newpost')}}" class="block py-2 px-3 text-cyan-400 rounded hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-300">Calendrier</a>
+                    <a href="{ {route('user.newpost')}}" class="block py-2 px-3 text-cyan-400 rounded hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-300">Calendrier</a>
                   </li>
                   @endif
                   
