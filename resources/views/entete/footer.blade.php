@@ -32,7 +32,7 @@
       <!-- Footer -->
         <footer class="bg-gradient-to-r from-blue-900 to-purple-900 py-6">
             <div class="container mx-auto text-center">
-                <p class="dark:text-gray-300 text-gray-200"><a href="">Par Pamoja Solution</a></p>
+                <p class="dark:text-gray-300 text-gray-200"><a href="https://portefolio.mascodeproduct.com/">Par Pamoja Solution</a></p>
                 <p class="dark:text-gray-300 text-gray-200">&copy; {{ date('Y') }} Club Name. Tous droits réservés.</p>
                     </div>
         </footer>
