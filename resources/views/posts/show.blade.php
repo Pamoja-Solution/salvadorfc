@@ -103,3 +103,4 @@
     });
 </script>
   </main>
+@include("entete.footer")

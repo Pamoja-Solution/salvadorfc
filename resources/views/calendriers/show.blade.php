@@ -187,3 +187,4 @@
         setInterval(updateCountdown, 1000);
     }
 </script>
+@include("entete.footer")

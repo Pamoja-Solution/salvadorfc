@@ -76,3 +76,5 @@
         </article>
     </div>
   </main>
+
+@include("entete.footer")

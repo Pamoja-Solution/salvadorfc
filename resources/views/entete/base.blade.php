@@ -50,6 +50,9 @@
 
         <title>@yield('titre','Fc Salvador')</title>
 
+         <link rel="icon" sizes="32x32" type="image/png" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" sizes="16x16" type="image/png" href="{{ asset('favicon.ico') }}" />
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -134,14 +137,10 @@
                     <a href="{{ route('home') }}" class="block py-2 px-3 text-cyan-400 rounded hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-300">Actualités</a>
                   </li>
                   
-                  @if (str_contains($route, 'user'))
-                  <li>
-                    <a href="{ {route('user.newpost')}}" class="block py-2 px-3 text-cyan-400 rounded hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-300">Calendrier</a>
-                  </li>
-                  @endif
+                 
                   
                   <li>
-                    <a href="{ {route('user.accueil')}}" class="block py-2 px-3 text-cyan-400 rounded hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-300">Résultats</a>
+                    <a href="{{route('posts.index')}}" class="block py-2 px-3 text-cyan-400 rounded hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-300">Blog</a>
                   </li>
                   <li>
                     <a href="{{route('jouers.index')}}" class="block py-2 px-3 text-cyan-400 rounded hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-300">Jouers</a>
@@ -248,8 +247,9 @@
 @yield("contenus")
                     
                    
-                  
+    
 <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+@livewireScripts
 </body>
     
 </html>

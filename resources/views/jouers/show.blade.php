@@ -109,5 +109,6 @@
             <div class="w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-purple-500 rounded-full blur-[100px] md:blur-[200px]"></div>
         </div>
     </div>
+    @include("entete.footer")
 
 @endsection

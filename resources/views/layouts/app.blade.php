@@ -6,6 +6,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>@yield('titre','Salvador FC')</title>
+        <link rel="icon" sizes="32x32" type="image/png" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" sizes="16x16" type="image/png" href="{{ asset('favicon.ico') }}" />
 
        
         <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
