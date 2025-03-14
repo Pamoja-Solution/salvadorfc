@@ -11,13 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->unique();
-            $table->text('description')->nullable();
-            $table->string('slug')->unique()->after('name'); // Ajoute la colonne `slug` après `name`
-            $table->timestamps();
-        });
+        
     }
 
     /**
@@ -25,6 +19,5 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
     }
 };
