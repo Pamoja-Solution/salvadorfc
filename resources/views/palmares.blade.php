@@ -501,9 +501,9 @@
         
         <!-- Bouton pour voir plus de moments -->
         <div class="flex justify-center mb-20 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out delay-900" id="view-more-container">
-            <button class="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
+            <a href="{{ route('photos') }}" class="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
                 Voir plus de moments mémorables
-            </button>
+            </a>
         </div>
         
         <!-- Citation finale inspirante -->
@@ -865,5 +865,6 @@
     });
 </script>
 
+@include("entete.footer")
 
 @endsection

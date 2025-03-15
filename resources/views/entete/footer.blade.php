@@ -46,4 +46,76 @@
                 navMenu.classList.toggle('hidden');
             });
         </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionner le formulaire de newsletter
+    const newsletterForm = document.querySelector('#newsletter-container form');
+    
+    // Ajouter un écouteur d'événement pour la soumission du formulaire
+    newsletterForm.addEventListener('submit', function(event) {
+        // Empêcher le comportement par défaut du formulaire
+        event.preventDefault();
+        
+        // Récupérer les valeurs des champs
+        const nameInput = this.querySelector('input[type="text"]');
+        const emailInput = this.querySelector('input[type="email"]');
+        const consentCheckbox = this.querySelector('#newsletter-consent');
+        
+        // Vérifier si les champs sont remplis
+        if (!nameInput.value.trim()) {
+            showMessage('Veuillez entrer votre nom', 'error');
+            return;
+        }
+        
+        if (!emailInput.value.trim()) {
+            showMessage('Veuillez entrer votre email', 'error');
+            return;
+        }
+        
+        if (!consentCheckbox.checked) {
+            showMessage('Veuillez accepter de recevoir nos actualités', 'error');
+            return;
+        }
+        
+        // Simuler l'envoi du formulaire
+        // Ici, vous pourriez ajouter un appel AJAX vers votre backend
+        
+        // Afficher un message de succès
+        showMessage('Merci pour votre abonnement à notre newsletter!', 'success');
+        
+        // Réinitialiser le formulaire
+        this.reset();
+    });
+    
+    // Fonction pour afficher un message à l'utilisateur
+    function showMessage(message, type) {
+        // Créer l'élément de message
+        const messageElement = document.createElement('div');
+        
+        // Ajouter les classes selon le type de message
+        messageElement.classList.add('message', 'fixed', 'top-4', 'right-4', 'p-4', 'rounded-lg', 'shadow-lg', 'z-50', 'transform', 'transition-all', 'duration-300');
+        
+        if (type === 'success') {
+            messageElement.classList.add('bg-green-500', 'text-white');
+        } else if (type === 'error') {
+            messageElement.classList.add('bg-red-500', 'text-white');
+        }
+        
+        // Ajouter le contenu du message
+        messageElement.textContent = message;
+        
+        // Ajouter le message à la page
+        document.body.appendChild(messageElement);
+        
+        // Supprimer le message après 3 secondes
+        setTimeout(() => {
+            messageElement.classList.add('opacity-0', '-translate-y-2');
+            setTimeout(() => {
+                document.body.removeChild(messageElement);
+            }, 300);
+        }, 3000);
+    }
+});
+        </script>
 </footer>

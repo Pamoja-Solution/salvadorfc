@@ -2,21 +2,10 @@
 @section("contenus")
 
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FC Salvador - Galerie Photos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            color: #fff;
-        }
+        
         
         /* Styles de base pour la galerie */
         .gallery-container {
@@ -607,9 +596,9 @@
             <div class="filters-container mb-10 space-y-6">
                 <!-- Recherche -->
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                    <div class="search-box w-full sm:w-64 md:w-80">
-                        <span class="search-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="search-box w-full sm:w-64 md:w-80 bg-gray-100 dark:bg-gray-900">
+                        <span class="search-icon ">
+                            <svg class="bg-gray-900 dark:bg-gray-100" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </span>
@@ -684,7 +673,7 @@
             <div class="gallery-grid masonry-grid" id="gallery-masonry">
                 <!-- Item 1 -->
                 <div class="gallery-item tall" data-category="match,celebration" data-date="2024-02-15" data-type="image" data-tags="championnat,victoire,équipe">
-                    <img src="https://picsum.photos/id/237/800/1200" alt="Victoire contre Nice" class="gallery-image">
+                    <img src="{{ asset('gallerie/img01.jpg') }}" alt="Victoire contre Nice" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">Victoire contre Nice (3-0)</h3>
                         <p class="text-gray-300 text-sm">15 février 2024</p>
@@ -697,7 +686,7 @@
                 
                 <!-- Item 2 -->
                 <div class="gallery-item" data-category="match" data-date="2024-02-10" data-type="image" data-tags="championnat,équipe,action">
-                    <img src="https://picsum.photos/id/1005/800/600" alt="Match contre Marseille" class="gallery-image">
+                    <img src="{{ asset('gallerie/img02.jpg') }}" alt="Match contre Marseille" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">Match contre Marseille</h3>
                         <p class="text-gray-300 text-sm">10 février 2024</p>
@@ -710,7 +699,7 @@
                 
                 <!-- Item 3 -->
                 <div class="gallery-item wide" data-category="training" data-date="2024-02-07" data-type="image" data-tags="entraînement,équipe,préparation">
-                    <img src="https://picsum.photos/id/26/1200/600" alt="Entraînement collectif" class="gallery-image">
+                    <img src="{{ asset('gallerie/img03.jpg') }}" alt="Entraînement collectif" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">Entraînement collectif</h3>
                         <p class="text-gray-300 text-sm">7 février 2024</p>
@@ -723,7 +712,7 @@
                 
                 <!-- Item 4 -->
                 <div class="gallery-item" data-category="fans" data-date="2024-02-05" data-type="image" data-tags="supporters,ambiance,stade">
-                    <img src="https://picsum.photos/id/30/800/600" alt="Supporters au stade" class="gallery-image">
+                    <img src="{{ asset('gallerie/img04.jpg') }}" alt="Supporters au stade" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">Nos supporters au stade</h3>
                         <p class="text-gray-300 text-sm">5 février 2024</p>
@@ -736,7 +725,7 @@
                 
                 <!-- Item 5 -->
                 <div class="gallery-item" data-category="match,celebration" data-date="2024-02-01" data-type="video" data-tags="championnat,but,célébration" data-video-src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4">
-                    <img src="https://picsum.photos/id/28/800/600" alt="But de Rodriguez" class="gallery-image">
+                    <img src="{{ asset('gallerie/img05.jpg') }}" alt="But de Rodriguez" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">But décisif de Rodriguez</h3>
                         <p class="text-gray-300 text-sm">1 février 2024</p>
@@ -749,7 +738,7 @@
                 
                 <!-- Item 6 -->
                 <div class="gallery-item wide tall" data-category="behind" data-date="2024-01-28" data-type="image" data-tags="coulisses,vestiaire,équipe">
-                    <img src="https://picsum.photos/id/9/1200/1200" alt="Dans les vestiaires" class="gallery-image">
+                    <img src="{{ asset('gallerie/img1.jpg') }}" alt="Dans les vestiaires" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">Dans les vestiaires</h3>
                         <p class="text-gray-300 text-sm">28 janvier 2024</p>
@@ -762,7 +751,7 @@
                 
                 <!-- Item 7 -->
                 <div class="gallery-item" data-category="travel" data-date="2024-01-25" data-type="image" data-tags="déplacement,voyage,équipe">
-                    <img src="https://picsum.photos/id/24/800/600" alt="Départ pour Munich" class="gallery-image">
+                    <img src="{{ asset('gallerie/img2.jpg') }}" alt="Départ pour Munich" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">Départ pour Munich</h3>
                         <p class="text-gray-300 text-sm">25 janvier 2024</p>
@@ -775,7 +764,7 @@
                 
                 <!-- Item 8 -->
                 <div class="gallery-item" data-category="training" data-date="2024-01-20" data-type="video" data-tags="entraînement,exercice,technique" data-video-src="https://samplelib.com/lib/preview/mp4/sample-10s.mp4">
-                    <img src="https://picsum.photos/id/41/800/600" alt="Exercices techniques" class="gallery-image">
+                    <img src="{{ asset('gallerie/img3.jpg') }}" alt="Exercices techniques" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">Exercices techniques</h3>
                         <p class="text-gray-300 text-sm">20 janvier 2024</p>
@@ -788,7 +777,7 @@
                 
                 <!-- Item 9 -->
                 <div class="gallery-item" data-category="behind" data-date="2024-01-15" data-type="image" data-tags="coulisses,équipe,préparation">
-                    <img src="https://picsum.photos/id/36/800/600" alt="Préparation d'avant-match" class="gallery-image">
+                    <img src="{{ asset('gallerie/img4.jpg') }}" alt="Préparation d'avant-match" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">Préparation d'avant-match</h3>
                         <p class="text-gray-300 text-sm">15 janvier 2024</p>
@@ -801,7 +790,7 @@
                 
                 <!-- Item 10 -->
                 <div class="gallery-item tall" data-category="celebration" data-date="2024-01-10" data-type="image" data-tags="trophée,victoire,célébration">
-                    <img src="https://picsum.photos/id/37/800/1200" alt="Supercoupe - Victoire" class="gallery-image">
+                    <img src="{{ asset('gallerie/img5.jpg') }}" alt="Supercoupe - Victoire" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">Victoire en Supercoupe</h3>
                         <p class="text-gray-300 text-sm">10 janvier 2024</p>
@@ -814,7 +803,7 @@
                 
                 <!-- Item 11 -->
                 <div class="gallery-item wide" data-category="fans" data-date="2024-01-05" data-type="image" data-tags="supporters,ambiance,célébration">
-                    <img src="https://picsum.photos/id/46/1200/600" alt="Célébration avec les fans" class="gallery-image">
+                    <img src="{{ asset('gallerie/img6.jpg') }}" alt="Célébration avec les fans" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">Célébration avec les fans</h3>
                         <p class="text-gray-300 text-sm">5 janvier 2024</p>
@@ -827,7 +816,7 @@
                 
                 <!-- Item 12 -->
                 <div class="gallery-item" data-category="match" data-date="2023-12-20" data-type="video" data-tags="championnat,action,résumé" data-video-src="https://samplelib.com/lib/preview/mp4/sample-15s.mp4">
-                    <img src="https://picsum.photos/id/59/800/600" alt="Résumé match Nantes" class="gallery-image">
+                    <img src="{{ asset('gallerie/img7.jpg') }}" alt="Résumé match Nantes" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">Résumé match vs Nantes</h3>
                         <p class="text-gray-300 text-sm">20 décembre 2023</p>
@@ -840,7 +829,7 @@
                 
                 <!-- Item 13 -->
                 <div class="gallery-item" data-category="celebration,behind" data-date="2023-12-15" data-type="image" data-tags="anniversaire,équipe,célébration">
-                    <img src="https://picsum.photos/id/65/800/600" alt="Anniversaire du club" class="gallery-image">
+                    <img src="{{ asset('gallerie/img8.jpg') }}" alt="Anniversaire du club" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">35 ans du FC Salvador</h3>
                         <p class="text-gray-300 text-sm">15 décembre 2023</p>
@@ -853,7 +842,7 @@
                 
                 <!-- Item 14 -->
                 <div class="gallery-item wide" data-category="training" data-date="2023-12-10" data-type="image" data-tags="entraînement,préparation,physique">
-                    <img src="https://picsum.photos/id/76/1200/600" alt="Préparation physique" class="gallery-image">
+                    <img src="{{ asset('gallerie/img9.jpg') }}" alt="Préparation physique" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">Préparation physique</h3>
                         <p class="text-gray-300 text-sm">10 décembre 2023</p>
@@ -866,7 +855,7 @@
                 
                 <!-- Item 15 -->
                 <div class="gallery-item" data-category="travel" data-date="2023-12-05" data-type="image" data-tags="déplacement,voyage,équipe">
-                    <img src="https://picsum.photos/id/87/800/600" alt="Arrivée à Amsterdam" class="gallery-image">
+                    <img src="{{ asset('gallerie/img10.jpg') }}" alt="Arrivée à Amsterdam" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">Arrivée à Amsterdam</h3>
                         <p class="text-gray-300 text-sm">5 décembre 2023</p>
@@ -879,7 +868,31 @@
                 
                 <!-- Item 16 -->
                 <div class="gallery-item tall" data-category="fans" data-date="2023-11-25" data-type="image" data-tags="supporters,tribune,ambiance">
-                    <img src="https://picsum.photos/id/93/800/1200" alt="Tribune des supporters" class="gallery-image">
+                    <img src="{{ asset('gallerie/img11.jpg') }}" alt="Tribune des supporters" class="gallery-image">
+                    <div class="gallery-info">
+                        <h3 class="text-white font-semibold">Tribune Nord en feu</h3>
+                        <p class="text-gray-300 text-sm">25 novembre 2023</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag text-xs px-2 py-1 bg-red-500/30 rounded-full text-red-200">#Supporters</span>
+                            <span class="gallery-tag text-xs px-2 py-1 bg-orange-500/30 rounded-full text-orange-200">#Ambiance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item tall" data-category="fans" data-date="2023-11-25" data-type="image" data-tags="supporters,tribune,ambiance">
+                    <img src="{{ asset('gallerie/img12.jpg') }}" alt="Tribune des supporters" class="gallery-image">
+                    <div class="gallery-info">
+                        <h3 class="text-white font-semibold">Tribune Nord en feu</h3>
+                        <p class="text-gray-300 text-sm">25 novembre 2023</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag text-xs px-2 py-1 bg-red-500/30 rounded-full text-red-200">#Supporters</span>
+                            <span class="gallery-tag text-xs px-2 py-1 bg-orange-500/30 rounded-full text-orange-200">#Ambiance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item tall" data-category="fans" data-date="2023-11-25" data-type="image" data-tags="supporters,tribune,ambiance">
+                    <img src="{{ asset('gallerie/img13.jpg') }}" alt="Tribune des supporters" class="gallery-image">
                     <div class="gallery-info">
                         <h3 class="text-white font-semibold">Tribune Nord en feu</h3>
                         <p class="text-gray-300 text-sm">25 novembre 2023</p>
@@ -892,11 +905,11 @@
             </div>
             
             <!-- Bouton Voir plus -->
-            <div class="flex justify-center mt-10">
+            <!--div class="flex justify-center mt-10">
                 <button id="load-more" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
                     Charger plus de photos
                 </button>
-            </div>
+            </div-->
         </div>
     </section>
     
@@ -1395,5 +1408,6 @@
             applyFilters();
         }
     </script>
-</body>
-</html>
+@include("entete.footer")
+
+@endsection

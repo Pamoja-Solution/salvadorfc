@@ -23,7 +23,7 @@
                         </div>
                     @endif
                 </div>
-                <a href="{{ route('admin.calendrier.show', ["slug"=>$event->slug]) }}" class="text-blue-500">Voir plus</a>
+                <a href="{{ route('admin.calendrier.show', ["calendrier"=>$event]) }}" class="text-blue-500">Voir plus</a>
             </div>
         @endforeach
     </div>

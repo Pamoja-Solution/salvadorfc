@@ -148,9 +148,9 @@
                   <li>
                     <a href="{{ route('photos') }}" class="block py-2 px-3 text-cyan-400 rounded hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-300">Photos</a>
                   </li>
-                  <li>
+                  <!--li>
                     <a href="{{route('calendrier-match.index')}}" class="block py-2 px-3 text-cyan-400 rounded hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-300">Classement</a>
-                  </li>
+                  </li-->
                   <li>
                     <a href="{{ route('palmares') }}" class="block py-2 px-3 text-cyan-400 rounded hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-300">Palmares</a>
                   </li>

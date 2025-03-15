@@ -1551,5 +1551,6 @@
     });
 </script>
      
+@include("entete.footer")
     
 @endsection
