@@ -30,6 +30,7 @@ use App\Http\Controllers\Palmares;
 //Controlleur pour photos gallerie 
 use App\Http\Controllers\PhotosController;
 use App\Http\Controllers\PostControllerUser;
+use App\Http\Controllers\ProfilePhotoController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', [Debut::class, "index"])->name('index');
@@ -60,6 +61,7 @@ Route::middleware(['auth', 'verified','rolemanager:utilisateur'])->get('/erreur'
 })->name('autres');
 
 Route::middleware('auth')->group(function () {
+    Route::patch('/profile/photo', [ProfilePhotoController::class, 'update'])->name('profile.photo.update');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

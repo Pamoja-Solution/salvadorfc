@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 </a>
-            @empty
+            @empty 
                 <p class="text-center text-gray-400 col-span-full">Aucun joueur disponible.</p>
             @endforelse
         </div>

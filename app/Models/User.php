@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -50,5 +51,10 @@ class User extends Authenticatable
     public function favoris()
     {
         return $this->belongsToMany(Post::class, 'favoris', 'user_id', 'post_id')->withTimestamps();
+    }
+    public function imageUrls(){
+        return $this->image
+        ? Storage::disk('public')->url($this->image)
+        : $this->defaultProfilePhotoUrl();
     }
 }

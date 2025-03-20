@@ -26,12 +26,75 @@
                             </div>
                         @endif
                         
-                        <a href="#" class="absolute bottom-5 right-5 bg-blue-500 hover:bg-blue-600 p-3 rounded-full shadow-lg transition" title="Changer l'avatar">
+                        <button
+                            x-data=""
+                            x-on:click.prevent="$dispatch('open-modal', 'update-profile-photo')"
+                            class="absolute bottom-5 right-5 bg-blue-500 hover:bg-blue-600 p-3 rounded-full shadow-lg transition"
+                            title="Changer l'avatar"
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
-                        </a>
+                        </button>
+
+
+                        <!-- Modal pour modifier la photo de profil -->
+<x-modal name="update-profile-photo" :show="$errors->updateProfilePhoto->isNotEmpty()" focusable>
+    <form method="post" action="{{ route('profile.photo.update') }}" class="p-6" enctype="multipart/form-data">
+        @csrf
+        @method('patch')
+
+        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+            {{ __('Modifier votre photo de profil') }}
+        </h2>
+
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+            {{ __('Téléchargez une nouvelle photo pour votre profil. L\'image sera redimensionnée automatiquement.') }}
+        </p>
+
+        <div class="mt-6">
+            <x-input-label for="image" value="{{ __('Image') }}" />
+
+            <div class="mt-2 flex items-center">
+                <!-- Prévisualisation de l'image -->
+                <div class="relative w-20 h-20 rounded-full overflow-hidden mr-4">
+                    <img id="preview-image" class="w-full h-full object-cover" src="{{ auth()->user()->image ? auth()->user()->imageUrls(): asset('images/default-avatar.png') }}" alt="Photo de profil">
+                </div>
+                
+                <x-text-input
+                    id="image"
+                    name="image"
+                    type="file"
+                    class="mt-1 block w-full"
+                    accept="image/*"
+                    x-on:change="
+                        const file = $event.target.files[0];
+                        if (file) {
+                            const reader = new FileReader();
+                            reader.onload = (e) => {
+                                document.getElementById('preview-image').src = e.target.result;
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    "
+                />
+            </div>
+
+            <x-input-error :messages="$errors->updateProfilePhoto->get('image')" class="mt-2" />
+        </div>
+
+        <div class="mt-6 flex justify-end">
+            <x-secondary-button x-on:click="$dispatch('close')">
+                {{ __('Annuler') }}
+            </x-secondary-button>
+
+            <x-primary-button class="ms-3">
+                {{ __('Enregistrer') }}
+            </x-primary-button>
+        </div>
+    </form>
+</x-modal>
                     </div>
                     
                     <!-- Informations utilisateur -->
