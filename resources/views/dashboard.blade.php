@@ -436,15 +436,15 @@
                         @endsession
                 
                         <div class="flex justify-between items-center mb-6">
-                            <h2 class="text-2xl font-bold">Gestion des Competition</h2>
+                            <h2 class="text-2xl font-bold">Gestion des Type d'évènement</h2>
                             <a href="{{ route('admin.types.index') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
-                                Toutes les competitions
+                                Touts les types
                             </a>
                             <a href="{{ route('admin.competitions.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                 </svg>
-                                Nouvelle competition
+                                Nouvaux type
                             </a>
                         </div>
                 
@@ -453,8 +453,7 @@
                                 <thead>
                                     <tr class="border-b border-gray-200 dark:border-gray-700">
                                         <th class="px-4 py-3 text-left">Nom</th>
-                                        <th class="px-4 py-3 text-left">Description</th>
-                                        <th class="px-4 py-3 text-left">Date de création</th>
+                                        
                                         <th class="px-4 py-3 text-left">Actions</th>
                                     </tr>
                                 </thead>
@@ -462,7 +461,7 @@
                                     @php
                                         $a=0;
                                     @endphp
-                                    @foreach($competitions as $categorie)
+                                    @foreach($types as $categorie)
                                     @php
                                         $k=$a++ ."a";
                                     @endphp
@@ -475,17 +474,15 @@
                                                 {{ $categorie->nom }}
                                             </div>
                                         </td>
-                                        <td class="px-4 py-3">{{ Str::limit($categorie->description , 40) }}</td>
-                                        <td class="px-4 py-3">{{ $categorie->created_at ? $categorie->created_at->format('d/m/Y'): "N/A" }}</td>
                                         <td class="px-4 py-3">
                                             <div class="flex space-x-2">
-                                                <a href="{{ route('admin.competitions.edit',['competition'=>$categorie]) }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
+                                                <a href="{{ route('admin.types.edit',['type'=>$categorie]) }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
                                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                                     </svg>
                                                 </a>
                                                 
-                                                <form id="mescompetes" action="{{ route('admin.competitions.destroy', ['competition' =>$categorie]) }}" method="POST">
+                                                <form id="mescompetes" action="{{ route('admin.types.destroy', ['type' =>$categorie]) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="button" onclick="confirmDelete({{ $categorie->id }}, '{{ $categorie->nom }}')" class="text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300">

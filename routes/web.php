@@ -33,6 +33,7 @@ use App\Http\Controllers\PostControllerUser;
 use App\Http\Controllers\ProfilePhotoController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\UserController;
+use App\Models\Type;
 
 Route::get('/', [Debut::class, "index"])->name('index');
 Route::get('/dashboard', function () {
@@ -42,6 +43,7 @@ Route::get('/dashboard', function () {
                                 'categories'=>Categorie::all(),
                                 "posts"=>Post::withCount('likes')->paginate(10),
                                 "jouers"=>Jouer::orderBy("id","DESC")->limit(10)->get(),
+                                "types"=>Type::orderBy("id","DESC")->limit(10)->get(),
                                 "calendriers"=>Calendrier::orderBy("id","DESC")->paginate(10),
                                 "competitions"=>Competition::orderBy("id","DESC")->paginate(4)
                             ]);
