@@ -110,7 +110,7 @@ Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
         Route::get('/jouers/{jouer}/edit', [JouerControllerSite::class, 'edit'])->name('jouers.edit');
         Route::post('/jouers/{jouer}/', [JouerControllerSite::class, 'update'])->name('jouers.update');
         Route::delete('/jouers/{jouer}', [JouerControllerSite::class, 'destroy'])->name('jouers.destroy');
-        Route::resource('types',TypeController::class);
+       // Route::resource('types',TypeController::class);
     });
 });
 
