@@ -101,7 +101,13 @@
                         <div class="mt-4 flex items-center justify-between">
                             <div class="flex items-center">
                                 <div class="flex-shrink-0 h-8 w-8">
+                                    @if ($post->user->image)
+                                    <img class="h-8 w-8 rounded-full" src="{{ $post->user->imageUrls() }}" alt="">
+                                        
+                                    @else
                                     <img class="h-8 w-8 rounded-full" src="https://ui-avatars.com/api/?name={{ urlencode($post->user->name) }}&color=7F9CF5&background=EBF4FF" alt="">
+                                        
+                                    @endif
                                 </div>
                                 <div class="ml-2">
                                     <p class="text-xs dark:text-gray-100 font-bold text-gray-700">{{ $post->user->name }}</p>

@@ -31,6 +31,7 @@ use App\Http\Controllers\Palmares;
 use App\Http\Controllers\PhotosController;
 use App\Http\Controllers\PostControllerUser;
 use App\Http\Controllers\ProfilePhotoController;
+use App\Http\Controllers\TypeController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', [Debut::class, "index"])->name('index');
@@ -107,6 +108,7 @@ Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
         Route::get('/jouers/{jouer}/edit', [JouerControllerSite::class, 'edit'])->name('jouers.edit');
         Route::post('/jouers/{jouer}/', [JouerControllerSite::class, 'update'])->name('jouers.update');
         Route::delete('/jouers/{jouer}', [JouerControllerSite::class, 'destroy'])->name('jouers.destroy');
+        Route::resource('types',TypeController::class);
     });
 });
 

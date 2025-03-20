@@ -1,4 +1,4 @@
-@extends('base')
+@extends('entete.base')
 @section("contenus")
     
 <section class="bg-gradient text-white h-screen flex items-center justify-center">

@@ -74,14 +74,19 @@
             <footer class="flex justify-between items-center mb-2">
                 <div class="flex items-center">
                     <p class="inline-flex items-center mr-3 font-semibold text-sm text-gray-900 dark:text-white">
+                        @if ($comment->user->image)
+                             <img
+                            class="mr-2 w-6 h-6 rounded-full"
+                            src="{{ $comment->user->imageUrls() }}"
+                            alt="{{ $comment->user->name }}">
+                        @else
                         <svg class="mr-2 w-6 h-6 rounded-full text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M12 20a7.966 7.966 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.966 7.966 0 0 1 12 20ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12Zm10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7Z" clip-rule="evenodd"/>
                           </svg>
+                        @endif
+                        
                           
-                        <!--img
-                            class="mr-2 w-6 h-6 rounded-full"
-                            src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-                            alt="Michael Gough"-->{{ $post->user->name }}</p>
+                       {{ $post->user->name }}</p>
                     
                             <span title="{{ $comment->created_at->format('d M Y H:i') }}" class="text-sm text-gray-600 dark:text-gray-400 flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
