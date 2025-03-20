@@ -36,7 +36,7 @@
                                 {{ $j->nom }}
                             </h3>
                             <p class="text-gray-300 mb-2">{{ $j->poste }} - {{ \Carbon\Carbon::parse($j->date_de_naissance)->age }} ans</p>
-                            <p class="text-gray-400 text-sm">{{ Str::limit($j->historique, 150) }}</p>
+                            <p class="text-gray-400 text-sm">{{ Str::limit(strip_tags($j->historique), 150) }}</p>
                         </div>
                     </div>
                 </a>
