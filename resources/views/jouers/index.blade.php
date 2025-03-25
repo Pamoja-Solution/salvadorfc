@@ -77,7 +77,7 @@
                                     {{ $j->nom }}
                                 </h3>
                                 <p class="text-gray-300 mb-2">{{ $j->poste }} - {{ \Carbon\Carbon::parse($j->date_de_naissance)->age }} ans</p>
-                                <p class="text-gray-400 text-sm">{{ Str::limit($j->historique, 150) }}</p>
+                                <p class="text-gray-400 text-sm">{{ Str::limit(strip_tags($j->historique, 150)) }}</p>
                             </div>
                         </div>
                     </a>
@@ -91,7 +91,7 @@
         <div class="mt-6"><h3 class="text-2xl text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-4">Milieu</h3></div>
         <!-- Grille des joueurs -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        @forelse ($milieu as $j)
+        @forelse ($milieux as $j)
             <a href="{{ route('joueur.show',  ['jouer' => $j->id, 'slug' => Str::slug($j->nom)]) }}" 
             class="relative block rounded-xl overflow-hidden group bg-gray-900 shadow-lg border border-gray-700 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:border-blue-500/50">
                 
@@ -118,7 +118,7 @@
                             {{ $j->nom }}
                         </h3>
                         <p class="text-gray-300 mb-2">{{ $j->poste }} - {{ \Carbon\Carbon::parse($j->date_de_naissance)->age }} ans</p>
-                        <p class="text-gray-400 text-sm">{{ Str::limit($j->historique, 150) }}</p>
+                        <p class="text-gray-400 text-sm">{{ Str::limit(strip_tags($j->historique), 150) }}</p>
                     </div>
                 </div>
             </a>
@@ -165,7 +165,7 @@
                             {{ $j->nom }}
                         </h3>
                         <p class="text-gray-300 mb-2">{{ $j->poste }} - {{ \Carbon\Carbon::parse($j->date_de_naissance)->age }} ans</p>
-                        <p class="text-gray-400 text-sm">{{ Str::limit($j->historique, 150) }}</p>
+                        <p class="text-gray-400 text-sm">{{ Str::limit(strip_tags($j->historique, 150)) }}</p>
                     </div>
                 </div>
             </a>

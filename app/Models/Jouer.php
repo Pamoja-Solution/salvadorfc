@@ -30,6 +30,11 @@ class Jouer extends Model
     // Sinon, retourne l'URL avec Storage
     return Storage::disk('public')->url($this->photo);
 }
+// Jouer.php
+public function postJouer()
+{
+    return $this->belongsTo(PostJouer::class);
+}
 
 public function post()
     {

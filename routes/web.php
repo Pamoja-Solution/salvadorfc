@@ -178,18 +178,22 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
 
 
 Route::get('/jouers', function(){
-    return view('jouers.index',[
-        'gardiens'=>Jouer::where('poste', 'LIKE', 'gardien')->get(),
-        'attaquants'=>Jouer::where('poste', 'LIKE', 'attaquant')->get(),
-        'defenseurs' => Jouer::where('poste', 'LIKE', 'Défenseur')
-        ->orWhere('poste', 'LIKE', 'Défenseur central')
-        ->orWhere('poste', 'LIKE', 'Défenseur latéral')
-        ->get(),
-        'milieu'=>Jouer::where('poste', 'LIKE', 'milieu')
-        ->orWhere('poste', 'LIKE', 'Milieu offensif')
-        ->orWhere('poste', 'LIKE', 'Milieu défensif')
-        ->get()
-        ,
+    return view('jouers.index', [
+        'gardiens' => Jouer::whereHas('postJouer', function ($query) {
+            $query->where('nom', 'Gardien');
+        })->get(),
+        
+        'attaquants' => Jouer::whereHas('postJouer', function ($query) {
+            $query->where('nom', 'Attaquant');
+        })->get(),
+        
+        'defenseurs' => Jouer::whereHas('postJouer', function ($query) {
+            $query->whereIn('nom', ['Défenseur central', 'Défenseur latéral']);
+        })->get(),
+        
+        'milieux' => Jouer::whereHas('postJouer', function ($query) {
+            $query->whereIn('nom', ['Milieu défensif', 'Milieu offensif']);
+        })->get(),
     ]);
 })->name('jouers.index');
 Route::get('/jouers/{jouer}/{slug}', function(string $jouer){
