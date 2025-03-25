@@ -164,7 +164,7 @@
                         <h3 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 mb-2">
                             {{ $j->nom }}
                         </h3>
-                        <p class="text-gray-300 mb-2">{{ $j->poste }} - {{ \Carbon\Carbon::parse($j->date_de_naissance)->age }} ans</p>
+                        <p class="text-gray-300 mb-2">{{ $j->post->nom }} - {{ \Carbon\Carbon::parse($j->date_de_naissance)->age }} ans</p>
                         <p class="text-gray-400 text-sm">{{ Str::limit(strip_tags($j->historique, 150)) }}</p>
                     </div>
                 </div>
