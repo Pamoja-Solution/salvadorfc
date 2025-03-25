@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\PostJouer;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
@@ -16,6 +17,7 @@ class JouersTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
+        $typePoste = PostJouer::pluck('id')->toArray();
 
         foreach (range(1, 20) as $index) {
             DB::table('jouers')->insert([
@@ -29,7 +31,7 @@ class JouersTableSeeder extends Seeder
                 'passe' => $faker->numberBetween(0, 300),
                 'matches' => $faker->numberBetween(0, 1000),
                 'historique' => $faker->text(1200),
-                'poste' => $faker->randomElement(['Attaquant', 'Milieu', 'Défenseur', 'Gardien']),
+                'post_jouer_id' => $faker->randomElement($typePoste),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

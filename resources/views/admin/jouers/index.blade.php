@@ -57,7 +57,7 @@
                             </div>
                         </td>
                         
-                        <td class="px-6 py-4 border-b">{{ $jouer->poste }}</td>
+                        <td class="px-6 py-4 border-b">{{ $jouer->post->nom }}</td>
                         <td class="px-6 py-4 border-b">
                             <div class="flex space-x-2">
                                 <a href="{{ route('admin.editcat',['categorie'=>$jouer]) }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">

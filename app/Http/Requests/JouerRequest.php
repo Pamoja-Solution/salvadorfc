@@ -33,7 +33,8 @@ class JouerRequest extends FormRequest
             'passe'=>['required','numeric','min:0','max:10000'],
             'matches'=>['required','numeric','min:0','max:10000'],
             'historique'=>['required','string','min:30'],
-            "poste"=>['required','string','min:1']
+            "post_jouer_id"=>'required|exists:post_jouers,id',
+
 
             
             

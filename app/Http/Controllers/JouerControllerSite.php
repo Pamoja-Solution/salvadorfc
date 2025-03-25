@@ -6,6 +6,7 @@ use App\Http\Requests\JouerModifRequest;
 use App\Http\Requests\JouerRequest;
 use App\Models\Categorie;
 use App\Models\Jouer;
+use App\Models\PostJouer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Mledoze\Countries\Countries;
@@ -19,7 +20,7 @@ class JouerControllerSite extends Controller
 
     public function create()
     {
-        return view('admin.jouers.create', ['jouers'=> new Jouer()] );
+        return view('admin.jouers.create', ['jouers'=> new Jouer(),'posts'=>PostJouer::all()] );
     }
 
     public function store(JouerRequest $request)
@@ -41,7 +42,8 @@ class JouerControllerSite extends Controller
     public function edit(Jouer $jouer)
     {
         $jouers=$jouer;
-        return view('admin.jouers.create', compact('jouers'));
+        $posts =PostJouer::all();
+        return view('admin.jouers.create', compact('jouers','posts'));
     }
 
     public function update(JouerModifRequest $request, Jouer $jouer)

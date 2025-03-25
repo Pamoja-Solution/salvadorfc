@@ -1,15 +1,6 @@
 <x-app-layout>
-    @php
-        $posts = [
-            'Gardien',
-            'Défenseur central',
-            'Défenseur latéral',
-            'Milieu défensif',
-            'Milieu offensif',
-            'Attaquant',
-            'Remplaçant',
-        ];
-    @endphp
+    
+   
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
@@ -78,15 +69,18 @@
                             </div>
 
                             
-                            @if (!$jouers->exists)
                             <div class="">
                                 <label class="block text-sm font-medium text-gray-100">Poste</label>
-                                <select name="poste" class="bg-gray-900 mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                <select name="post_jouer_id" class="bg-gray-900 mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                                     <option value="">Sélectionner un poste</option>
-                                    @foreach($posts as $post)
-                                        <option value="{{ $post }}" {{ $jouers->exists && $post === $jouers->poste ? 'selected' : '' }}>
-                                            {{ $post }}
-                                        </option>
+                                    @foreach($posts as $category)
+                                    <option value="{{ $category->id }}"
+                                        @if($jouers->exists)
+                                            {{ $category->id == $jouers->post->id ? 'selected' : '' }}
+                                        @else
+                                        @endif>
+                                        {{ $category->nom }}
+                                    </option>
                                     @endforeach
                                 </select>
                                 @error("poste")
@@ -95,7 +89,6 @@
                                     </div>
                                 @enderror
                             </div>
-                            @endif
                         </div>
     
                         <!-- Colonne 2 -->
@@ -157,6 +150,11 @@
     
                     <!-- Champ Historique (pleine largeur) -->
                     <div class="mt-6">
+                        @error("historique")
+                        <div class="p-2 mb-2 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-red-100 dark:text-red-400" role="alert">
+                            <span class="font-medium">Erreur alert!</span> {{ $message }}.
+                        </div>
+                    @enderror
                         <label class="block text-sm font-medium text-gray-100">Historique</label>
                         
                         <input type="hidden" name="historique" id="historique" value="{{ old('historique', $jouers->historique) }}">
@@ -166,11 +164,7 @@
                             <div id="editor" class="bg-gray-700 text-white rounded-lg min-h-[300px]">
                             </div>
                         </div>
-                        @error("historique")
-                                    <div class="p-2 mb-2 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-red-100 dark:text-red-400" role="alert">
-                                        <span class="font-medium">Erreur alert!</span> {{ $message }}.
-                                    </div>
-                                @enderror
+                       
                     </div>
     
                     <!-- Boutons en bas du formulaire -->

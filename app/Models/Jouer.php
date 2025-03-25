@@ -19,7 +19,7 @@ class Jouer extends Model
         'passe',
         'matches',
         'historique',
-    "poste"];
+        "post_jouer_id"];
     public function imageUrl()
 {
     // Vérifie si l'image commence déjà par http ou https
@@ -30,4 +30,9 @@ class Jouer extends Model
     // Sinon, retourne l'URL avec Storage
     return Storage::disk('public')->url($this->photo);
 }
+
+public function post()
+    {
+        return $this->belongsTo(PostJouer::class,'post_jouer_id');
+    }
 }

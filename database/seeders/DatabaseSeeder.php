@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         User::factory(10)->create();
+         //User::factory(10)->create();
 
         /*User::factory()->create([
             'name' => 'Test User',
@@ -21,11 +21,11 @@ class DatabaseSeeder extends Seeder
         ]);*/
        // database/seeders/DatabaseSeeder.php
     $this->call([
-        TypeSeeder::class,
+       // TypeSeeder::class,
         // Autres seeders...
-        CalendriersTableSeeder::class,
+        /*CalendriersTableSeeder::class,
         CategoriesTableSeeder::class,
-        PostSeeder::class,
+        PostSeeder::class,*/
         JouersTableSeeder::class,
         
     ]);
