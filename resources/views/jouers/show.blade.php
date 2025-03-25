@@ -44,7 +44,7 @@
 
                         <div>
                             <h2 class="text-lg md:text-xl font-semibold text-purple-400">Poste</h2>
-                            <p class="text-gray-300">{{ $jouer->poste }}</p>
+                            <p class="text-gray-300">{{ $jouer->post->nom }}</p>
                         </div>
 
                         <div>
