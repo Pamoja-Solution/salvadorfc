@@ -58,13 +58,12 @@ class CalendrierMatchController extends Controller
     public function update(Request $request, CalendrierMatch $calendrierMatch)
     {
         $request->validate([
-            'competition' => 'required',
-            'journee' => 'required',
+            'competition_id' => 'required|exists:competitions,id',
+            'journee' => 'nullable',
             'date_match' => 'required|date',
             'heure_match' => 'required',
-            'equipe_domicile' => 'required',
-            'equipe_exterieur' => 'required',
-            'stade' => 'required',
+            'adversaire' => 'required',
+            'stade' => 'nullable|min:3',
             'statut' => 'required',
         ]);
 
