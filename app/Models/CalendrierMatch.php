@@ -24,4 +24,9 @@ class CalendrierMatch extends Model
     {
         return $this->belongsTo(Competition::class);
     }
+
+    protected $casts = [
+        'date_match' => 'datetime',
+        'heure_match' => 'datetime',
+    ];
 }

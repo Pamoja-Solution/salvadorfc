@@ -204,10 +204,8 @@ Route::get('/jouers/{jouer}/{slug}', function(string $jouer){
     'slug'=>'[a-zA-Z0-9\-]+'
 ])->name('joueur.show');
 
-Route::get('/calendrier-match' , function(){
-    return view('calendrier-match.index');
-})->name('calendrier-match.index');
-
+Route::get('/calendrier-match' , [CalendrierControllerSite::class,"index" ])->name('calendrier-match.index');
+Route::get('/api/matches', [CalendrierControllerSite::class, 'getMatches']);
 
 Route::prefix('admin')->name("admin.")->middleware(['auth', 'verified', 'rolemanager:admin'])->group(function() {
     Route::resource('calendrier-match', CalendrierMatchController::class);
