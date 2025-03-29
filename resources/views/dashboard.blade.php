@@ -697,13 +697,13 @@
                                 @endsession
 
                                 <div class="flex justify-between items-center mb-6">
-                                    <h2 class="text-2xl font-bold">Gestion des Réseaux Sociaux</h2>
+                                    <h2 class="text-2xl font-bold">Gestion des Évènements</h2>
                                     <a href="{{ route('admin.calendrier.index') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
                                         Tous les événements
                                     </a>
 
                                     <a href="{{ route('admin.calendrier.create') }}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors">
-                                        Ajouter un réseau calendrier
+                                        Ajouter un événement 
                                     </a>
                                     
                                 </div>
