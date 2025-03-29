@@ -69,7 +69,7 @@ class CalendrierMatchController extends Controller
 
         $calendrierMatch->update($request->all());
 
-        return redirect()->route('admin.calendrier.index')->with('success', 'Match mis à jour avec succès.');
+        return redirect()->route('admin.calendrier-match.index')->with('success', 'Match mis à jour avec succès.');
     }
 
     public function destroy(CalendrierMatch $calendrierMatch)
