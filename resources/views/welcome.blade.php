@@ -469,7 +469,8 @@
                 <div class="absolute inset-0 flex flex-col justify-center items-center p-6 text-center">
                     <span class="px-4 py-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-sm rounded-full mb-4 animate-pulse">{{ $dernier->type->nom }}</span>
                     <h3 class="text-3xl md:text-4xl font-bold text-white mb-2">{{ $dernier->titre }}</h3>
-                    <p class="text-gray-200 mb-6">{{Str::limit(strip_tags($dernier->description,60)) }}</p>
+                    <p class="text-gray-200 mb-3">{{Str::limit(strip_tags($dernier->description,60)) }}</p>
+                    <p class="text-gray-200 mb-6">Évènement du {{$dernier->date_debut->format('d/m/Y') }}</p>
                     
                     <!-- Compte à rebours -->
                     <div class="mb-6 flex justify-center">

@@ -18,6 +18,10 @@ class Calendrier extends Model
         "slug"
     ];
 
+    protected $casts = [
+        'date_debut' => 'datetime',
+    ];
+    
     public function imageUrl()
 {
     // Vérifie si l'image commence déjà par http ou https
